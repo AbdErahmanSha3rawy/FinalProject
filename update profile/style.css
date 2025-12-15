@@ -1,0 +1,173 @@
+ nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    z-index: 1;
+    top:0;
+    background-color: white;
+    margin-bottom: 100px;
+    font-family: sans-serif;
+    margin-top: -10px;
+    
+
+}
+nav .img{
+    margin-right: 10px;
+    background-image: linear-gradient(150deg,#AD46FF,#F6339A,#2B7FFF );
+    
+    width: 55px;
+    height: 45px;
+    border-radius:15px;
+    display: inline-flex;
+    justify-content: center;
+}
+nav img{
+     width: 30px;
+    height: 30px;
+    border-radius: 50%;
+     display: flex;
+    align-self: center;
+
+}
+.main_name{
+  font-size: 30px;
+
+  flex-grow: 1;
+  font-family: sans-serif;
+  display: inline-flex;
+  align-content: center;
+background-image: linear-gradient(90deg,#9810FA,#E60076);
+background-clip: text;
+color: transparent;
+}
+
+.icon{
+    margin-left:30px;
+}
+nav ul {
+    display: flex;
+    list-style-type: none;   
+    align-items: center;
+    margin-right: 20px;
+}
+nav a{
+    display: flex;
+    text-decoration-line: none;
+    color: black ;
+    display: flex;
+    margin-right: 30px;
+   align-items: center;
+    width: 80px;
+    
+    font-size: larger;
+}
+nav .user{
+    margin-left: 15px;
+}
+nav .logout{
+    margin-left: -50px;
+
+}
+.logout ,.Home{
+    background-image:linear-gradient(90deg,#AD46FF,#F6339A);
+    width: 120px;
+    height: 35px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+}
+.links .notice{
+    display: flex;
+}
+
+.links .notice a{
+    margin-right: -50px;
+}
+.links .notice p{
+    font-size: 12px;
+    transform: translatex(-20px);
+    transform: translateY(-10px);
+
+
+}
+
+.profile{
+    display: inline-flexbox;
+    justify-self: center;
+      width: 55%;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+
+.back{
+    background-image:linear-gradient(90deg,#AD46FF,#F6339A,#2B7FFF);
+    padding: 10px 10px 0 10px;
+    height: 40px;
+    border-radius: 25px 25px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.back h2{
+    color: white;
+    font-size: 15px;
+}
+.back button{
+    background: none;
+    border: none;
+}
+
+.profile_detailes{
+    padding: 10px;
+}
+
+.profile_detailes input{
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.contain{
+    position: relative;
+}
+.input_icon{
+    position: absolute;
+    left: 650px;
+    transform: translateY(12px);
+}
+.img_profile .img{
+    width: 70px;
+}
+.img_profile button{
+ background-color: #AD46FF;
+ border: none;
+ width: 30px;
+ height: 30px;
+ border-radius: 50%;
+ transform: translateX(-25px);
+}
+.btns{
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+
+}
+.btns .save{
+    width: 87%;
+    border-radius: 10px;
+    background-image:linear-gradient(90deg,#AD46FF,#F6339A);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btns .cancel{
+    border: none;
+    width: 10%;
+    border-radius: 10px;
+}
