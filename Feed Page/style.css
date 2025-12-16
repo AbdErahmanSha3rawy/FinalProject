@@ -99,7 +99,7 @@ nav .logout{
     justify-self: center;
     margin-bottom: 40px;
     background-color: white;
-    width: 40%;
+    width: 45%;
     height: 210px;
     padding: 20px;
     border-radius: 10px;
@@ -122,7 +122,7 @@ form{
     background-color: white;
 }
 .Add_Image{
-    width: 128px;
+    width: 150px;
     height: 36px;
     border-radius: 10px;
     display: inline-flex;
@@ -130,14 +130,30 @@ form{
     align-items: center;
     border: none;
     background: none;
-    font-size: larger;
+    font-size: 20px;
     color: #9810FA;
+    transform: translateX(-250px);
+    cursor: pointer;
+    font-family: sans-serif;
+}
+.Add_Image img{
+    width: 30px;
+    margin-right: 10px;
+}
+.Add_Image span{
+    width: 100px;
+}
+.btns input{
+    opacity: 0;
+    transform: translateX(0px);
+    z-index: 1;
 
 }
 .postbtn{
     width: 105px;
     height: 40px;
     border-radius: 10px;
+    margin-left: -100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,17 +167,16 @@ form{
     width: 30px;
     margin-left: 10px;
 }
+.postbtn:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
 .btns{
     display: flex;
     justify-content: space-between;
     width: 110%;
 }
 
-.post{
-    width: 42%;
-    margin-bottom: 20px;
-
-}
 
 .profile_descripe2{
     display: flex;
@@ -177,6 +192,13 @@ form{
     justify-content: space-between;
     
 }
+.email{
+    margin-top: -1px;
+
+}
+.created_at{
+    margin-top: -20px;
+}
 .options{
     display: flex;
     justify-content: center;
@@ -187,6 +209,33 @@ form{
 .options:hover{
     cursor: pointer;
 }
+
+.list{
+    width: auto;
+    height: auto;
+    background-color: white;
+    border: black 2px solid;
+    transform: translateY(-70px);
+    display: block;
+    justify-self: end;
+    margin-right: 20px;
+    padding: 10px;
+    display: none;
+    z-index: 4;
+}
+.list .Edit,.list .Delete,.list .Share{
+    display: flex;
+
+    text-decoration-line: none;
+}
+.list img{
+    margin-right: 5px;
+}
+.list .Delete{
+    color: red;
+}
+/* 
+
 .profile_name{
     display: flexbox;
     transform: translateY(-20px);
@@ -209,7 +258,8 @@ form{
     justify-self: end;
     margin-right: 20px;
     padding: 10px;
-z-index: 4;
+    display: none;
+    z-index: 4;
 }
 .list .Edit,.list .Delete,.list .Share{
     display: flex;
@@ -226,7 +276,6 @@ z-index: 4;
 .post_img{
 display: block;
 width: 100%;
-margin-top: -150px;
 }
 .actives{
     display: flex;
@@ -246,4 +295,141 @@ cursor: pointer;
     display: flexbox;
     justify-self: center;
     border: 2px outset white;
+}
+.commentcontainer{
+display: none;
+}
+
+.add_comment{
+    display: flex;
+    justify-content: space-around;
+    padding-top:10px ;
+    padding-bottom:15px ;
+     justify-self: center;
+    width: 100%;
+}
+.add_comment input{
+    width: 500px ;
+    height: 40px;
+    border-radius: 10px;
+}
+.add_comment button{
+width: 80px;
+height: 40px;
+border-radius: 15px;
+}
+
+.comment{
+ justify-self: center;
+    width: 100%;
+}
+.comment_content{
+    display: flex;
+    
+}
+.react{
+    display: flex;
+}
+.react button{
+    border: none;
+    background: none;
+}
+.react p{
+    margin-right: 10px;
+} */
+
+.commentcontainer{
+display: none;
+}
+
+.add_comment{
+    display: flex;
+    justify-content: space-around;
+    padding-top:10px ;
+    padding-bottom:15px ;
+     justify-self: center;
+    width: 100%;
+}
+.add_comment input{
+    width: 500px ;
+    height: 40px;
+    border-radius: 10px;
+}
+.add_comment button{
+width: 80px;
+height: 40px;
+border-radius: 15px;
+}
+
+.comment{
+ justify-self: center;
+    width: 100%;
+}
+.comment_content{
+    display: flex;
+    
+}
+.react{
+    display: flex;
+}
+.react button{
+    border: none;
+    background: none;
+}
+.react p{
+    margin-right: 10px;
+}
+
+.post{
+    display: block;
+    justify-self: center;
+    border: 2px outset white;
+    width: 70%;
+    margin-bottom: 50px;
+}
+
+.container{
+    border: 2px outset ;
+    
+}
+
+.img_prof{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.profile_name{
+    display: flexbox;
+    transform: translateY(-20px);
+}
+.Name{
+    font-size:25px;
+    margin-bottom: -7px;
+    
+}
+.post_descripe{
+    font-size: 20px;
+    margin-left: 20px;
+}
+.post_img{
+display: block;
+width: 100%;
+
+}
+.post_img img{
+    width: 100%;
+}
+.actives{
+    display: flex;
+    margin-left: 20px;
+    align-items: center;
+}
+.actives button{
+    display: flex;
+    background:none;
+    border: none;
+    height: 37px;
+}
+.actives button:hover{
+cursor: pointer;
 }

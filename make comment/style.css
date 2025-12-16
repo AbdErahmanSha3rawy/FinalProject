@@ -222,6 +222,7 @@ cursor: pointer;
     justify-self: center;
     border: 2px outset white;
 }
+
 .add_comment{
     display: flex;
     justify-content: space-around;

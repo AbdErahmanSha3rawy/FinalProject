@@ -29,6 +29,7 @@ function getposts(){
   request.responseType="json";
   request.send();
   request.onload = function (){
+    if(request.status >=200 && request.status <300){ 
 let postsr=request.response;
 let postarray=postsr.data;
     for(let poste of postarray){
@@ -82,6 +83,10 @@ let postarray=postsr.data;
     
 
     }
+  }
+  else{
+    alert("Errorrrrr");
+  }
   }
 }
 
