@@ -165,12 +165,12 @@ form .loginbtn{
     margin-top: 20px;
     display:block;
      width: 100%;
-    height: 45px;
+    height: 35px;
     border-radius: 13px;
     padding: 10px;
     font-size: 30px;
     background-image: linear-gradient(90deg,#AD46FF,#F6339A,#2B7FFF );
-    justify-items: center;
+    justify-content: center;
     color: white;
 
     
@@ -183,9 +183,11 @@ form .loginbtn:hover{
 form .link{
     display: flex;
     text-align: center;
+    width: 100%;
     font-size: larger;
     padding: auto;
     text-decoration-line: none;
+    justify-self: center;
 
 }
 form .question{
