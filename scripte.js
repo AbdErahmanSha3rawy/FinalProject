@@ -56,9 +56,9 @@ let postarray=postsr.data;
       <p class="post_descripe">${poste.body}</p>
       <img class="post_img" src="${imgpost}">
       <div class="actives">
-      <button class="lovebtn"><img src="imgs/love.png" alt=""></button><p class="lovecount"> ${poste.id}</p>
-      <button class="commentbtn"><img src="imgs/comment.png" alt=""></button><p class="commentcount"> ${poste.comments_count}</p>
-      <button class="sharebtn"><img src="imgs/share.png" alt=""></button>
+      <button class="lovebtn"><img src="imgs/love.svg" alt=""></button><p class="lovecount"> ${poste.id}</p>
+      <button class="commentbtn"><img src="imgs/comment.svg" alt=""></button><p class="commentcount"> ${poste.comments_count}</p>
+      <button class="sharebtn"><img src="imgs/share.svg" alt=""></button>
       </div>  
       </div>
       <br><br>

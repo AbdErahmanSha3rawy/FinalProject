@@ -472,3 +472,11 @@ width: 100%;
 .actives button:hover{
 cursor: pointer;
 }
+.list .Edit  {
+    border:none;
+    background: none;
+}
+.list .Edit:hover {
+
+cursor: pointer;
+}

@@ -108,7 +108,7 @@ if (e.target.closest('.Cancelbtn')) {
         let count = parseInt(lovecount.innerText) ;
 
         if (loveBtn.src.includes("lovered.svg")) {
-            loveBtn.src = "imgs/love.png";
+            loveBtn.src = "imgs/love.svg";
             lovecount.innerText = count - 1;
         } else {
             loveBtn.src = "imgs/lovered.svg";
@@ -199,11 +199,11 @@ function getposts() {
     </div>
     <img class="post_img" src="${imgpost}">
     <div class="actives">
-        <button class="lovebtn"><img src="imgs/love.png" alt=""></button>
+        <button class="lovebtn"><img src="imgs/love.svg" alt=""></button>
         <p class="lovecount">${poste.id }</p>
-        <button class="commentbtn"><img src="imgs/comment.png" alt=""></button>
+        <button class="commentbtn"><img src="imgs/comment.svg" alt=""></button>
         <p class="commentcount">${poste.comments_count}</p>
-        <button><img src="imgs/share.png" alt=""></button>
+        <button><img src="imgs/share.svg" alt=""></button>
     </div>
     <div class="commentcontainer" style="display:none;">
         <div class="add_comment">
@@ -218,7 +218,7 @@ function getposts() {
             </div><br>
             <div class="react">
                 <p>Now</p>
-                <button><img src="imgs/love.png" alt=""></button>
+                <button><img src="imgs/love.svg" alt=""></button>
                 <p>Like</p>
             </div>
         </div>
