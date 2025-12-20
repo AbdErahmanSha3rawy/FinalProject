@@ -1,21 +1,5 @@
 
 let post=document.querySelector('.post');
-// let profile_descripe=document.querySelector('.profile_descripe');
-// let img_prof=document.querySelector('.img_prof');
-// let profile_name=document.querySelector('.profile_name');
-// let Name=document.querySelector('.Name');
-// let created_at=document.querySelector('.created_at');
-// let post_descripe=document.querySelector('.post_descripe');
-// let post_img=document.querySelector('.post_img');
-// let actives=document.querySelector('.actives');
-// let lovebtn=document.querySelector('.lovebtn');
-// let lovecount=document.querySelector('.lovecount');
-// let commentbtn=document.querySelector('.commentbtn');
-// let commentcount=document.querySelector('.commentcount');
-// let sharebtn=document.querySelector('.sharebtn');
-
-
-
 
 
 

@@ -6,7 +6,7 @@ let postContainer = document.querySelector('.post');
 document.addEventListener('click', function(e) {
     let postDiv = e.target.closest('.post'); 
      if (!postDiv) return; 
-
+let moood;
     
     if (e.target.closest('.options')) {
         let list = postDiv.querySelector('.list');
@@ -14,7 +14,14 @@ document.addEventListener('click', function(e) {
         if (list.style.display === "block") {
             list.style.display = "none";
             postImg.style.marginTop = "0px";
-        } else {
+        } 
+        else if(moood===5){
+            
+            list.style.display = "none";
+
+        }
+        else {
+
             list.style.display = "block";
             postImg.style.marginTop = "-150px";
         }
@@ -30,23 +37,6 @@ document.addEventListener('click', function(e) {
 getposts();
     }
     
-//  if (e.target.closest('.Edit')) {
-//      let postdiv=e.target.closest('.post');
-//  console.log(postDiv);
-//         let lovecount = postDiv.querySelector('.lovecount');
-//         let id=lovecount.innerHTML;
-//         console.log(id);
-//         updatePost(id);
-//         postDiv.querySelector('.list').style.display="none";
-//             postDiv.querySelector('.post_img').style.marginTop = "0px";  
-//             if(postDiv){
-//  let post_describe = postDiv.querySelector('.post_describe');
-//     let textarea = document.querySelector('.text'); 
-// if(post_describe && textarea){
-//      textarea.value=post_describe.innerText.trim();
-
-// }
-//             }
          
 
 if (e.target.closest('.Edit')) {
@@ -56,29 +46,48 @@ if (e.target.closest('.Edit')) {
     console.log(id);
 
     let post_describe = postDiv.querySelector('.post_descripe'); 
-    let textarea = document.querySelector('.text'); 
+    let textarea = postDiv.querySelector('.text'); 
     
         textarea.value = post_describe.innerText.trim(); 
-    
-    let postImg = postDiv.querySelector('.post_img');
-        let currentImageUrl = postImg.src; 
-        console.log("رابط الصورة الحالية للتعديل: ", currentImageUrl);
-        
-    deletePost(id);
-    
 
-    updatePost(id);
+
     postDiv.querySelector('.list').style.display = "none";
     postDiv.querySelector('.post_img').style.marginTop = "0px";
+    postDiv.querySelector('.Eidt_Area').style.display = "flex";
+    postDiv.querySelector('.post_descripe').style.display = "none";
+    moood=5;
 
 }
 
+if (e.target.closest('.Savebtn')) {
+    let postDiv = e.target.closest('.post');
+    let lovecount = postDiv.querySelector('.lovecount');
+    let id = lovecount.innerHTML;
+    let textarea = postDiv.querySelector('.text');
 
+ let text_value=textarea.value;
+const formData = new FormData();
+        formData.append("body",text_value);
+   
+    updatePost(id,formData);
 
-
+    
+    postDiv.querySelector('.post_descripe').style.display = "block";
+    postDiv.querySelector('.Eidt_Area').style.display = "none";
+} 
 
 
   
+if (e.target.closest('.Cancelbtn')) {
+    let postDiv = e.target.closest('.post');
+
+
+    postDiv.querySelector('.post_descripe').style.display = "block";
+    
+    postDiv.querySelector('.Eidt_Area').style.display = "none";
+
+
+}
 
 
     
@@ -106,6 +115,20 @@ if (e.target.closest('.Edit')) {
             lovecount.innerText = count + 1;
         }
     }
+
+    if (e.target.closest('.add_comment_btn')) {
+    let postDiv = e.target.closest('.post');
+    let lovecount = postDiv.querySelector('.lovecount');
+    let id = lovecount.innerHTML;
+
+    let Write_comment = postDiv.querySelector('.Write_comment'); 
+    let Elcomment = postDiv.querySelector('.Elcomment'); 
+
+    Elcomment.innerText=Write_comment.value;    
+createComment(id,Elcomment.innerText);
+    Write_comment.value='';
+    }
+
 });
 
 
@@ -145,7 +168,7 @@ function getposts() {
 
 
                 postContainer.innerHTML += `
-<div class="post">
+<di class="post">
     <div class="profile_descripe">
         <div class="profile_descripe2">
             <img src="${imgprofile}" alt="">
@@ -157,6 +180,17 @@ function getposts() {
         </div>
         <button class="options"><img src="imgs/options.svg" alt=""></button>
     </div>
+    <div class="add_post Eidt_Area">
+  <form action="">
+<textarea name="" id="" placeholder="What's on your mind?" class="text"></textarea><br>
+<div class="btns">
+<button type="button" class="Savebtn">Save</button>
+<button type="button" class="Cancelbtn">Cancel</button>
+
+
+</div>
+</form>
+</div>
     <p class="post_descripe">${poste.body}</p>
     <div class="list" style="display:none;">
         <button class="Edit" href=""><img src="imgs/etdi.png" alt="">Edit Post</button><br><br>
@@ -174,13 +208,13 @@ function getposts() {
     <div class="commentcontainer" style="display:none;">
         <div class="add_comment">
             <img src="imgs/Image (Ahmed Mohamed).png" alt="">
-            <input type="text" placeholder="Write a comment...">
-            <button type="submit">post</button>
+            <input type="text" class="Write_comment" placeholder="Write a comment...">
+            <button type="submit" class="add_comment_btn">post</button>
         </div>
 <div class="comment">
             <div class="comment_content">
                 <img src="imgs/Image (Ahmed Mohamed).png" alt="">
-                <p>mkefrgjmnesfjvbnb</p>
+                <p class="Elcomment">${poste.body}</p>
             </div><br>
             <div class="react">
                 <p>Now</p>
@@ -236,7 +270,7 @@ function createPost(formData) {
     request.open("POST", "https://tarmeezacademy.com/api/v1/posts");
     request.responseType = "json";
     request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 81876|UFXnLRIhu16UB11mUryC6jMDuUvzje6oRuIEi3h5d58bb65c"); 
+    request.setRequestHeader("Authorization", "Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9"); 
 
     request.send(formData);
 
@@ -262,7 +296,7 @@ function deletePost(item) {
     request.responseType = "json";
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Content-Type", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 81876|UFXnLRIhu16UB11mUryC6jMDuUvzje6oRuIEi3h5d58bb65c"); 
+    request.setRequestHeader("Authorization", "Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9"); 
 
    
     request.send();
@@ -271,39 +305,87 @@ function deletePost(item) {
         if(request.status >= 200 && request.status < 300) {
             getposts();
         } else {
-            // console.log(request.status, request.response);
-            // alert("You doesn't own this post ");
+           
         }
     }
 }
 
 
-function updatePost(id) {
+function updatePost(id,formData) {
     let request = new XMLHttpRequest();
     request.open("POST", `https://tarmeezacademy.com/api/v1/posts/${id}`);
     request.responseType = "json";
     
     request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 81876|UFXnLRIhu16UB11mUryC6jMDuUvzje6oRuIEi3h5d58bb65c");
+    request.setRequestHeader("Authorization", "Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9");
 
-    let fileInput = document.querySelector(".img_of_new_post");
-    let formData = new FormData();
+   
     
 
     formData.append("_method", "put");
+    request.send(formData);
 
-    if (fileInput.files.length > 0) {
-        formData.append("image", fileInput.files[0]);
-    }
 
     request.onload = function() {
         if (request.status >= 200 && request.status < 300) {
-            alert("The post is updated successfully");
-            getposts();
+            // getposts();
         } else {
             console.error(request.response);
         }
     };
 
-    request.send(formData);
 }
+
+
+
+const createComment = async (id,Elcomment) => {
+   
+
+  try {   
+    const response = await fetch(`https://tarmeezacademy.com/api/v1/posts/${id}/comments`, {
+      method: 'POST',
+      body: JSON.stringify({
+
+   
+        body:  Elcomment
+      
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        'Authorization':'Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9'
+      },
+    });
+
+    const data = await response.json();
+    console.log('', data);
+  } catch (error) {
+    console.error('حدث خطأ:', error);
+  }
+};
+
+
+// const updateProfile = async () => {
+//     try {
+//         const response = await fetch('https://tarmeezacademy.com/api/v1/updatePorfile', {
+//             method: 'PUT',
+//             headers: {
+//                 'Accept': 'application/json',
+//                 // 'Content-Type': 'application/json',
+//                 'Authorization': 'Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9'
+//             },
+//             body: JSON.stringify({
+//                 // name: "Abdelrahman Sharawey",
+//                 username: "Abdo_Sharawey", 
+//                 email: "AbdoEid321@gmail.com",
+//                 // password: "password123",
+                
+//             })
+//         });
+
+//         const data = await response.json();
+//         console.log(data);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
+// // updateProfile();

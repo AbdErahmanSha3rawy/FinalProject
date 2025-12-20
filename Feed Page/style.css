@@ -107,6 +107,35 @@ nav .logout{
     border-radius: 10px;
     border: 2px black outset;
 }
+.Eidt_Area{
+    width: 90%;
+    height: 150px;
+    justify-content: center;   
+    border: none;
+    display: none;
+}
+.Savebtn{
+    width: 48%;
+    background-image:linear-gradient(90deg,#AD46FF,#F6339A);
+    color: white;
+    height: 30px;
+    border-radius: 8px;
+}
+.Savebtn:hover{
+    transform: scale(1.1);
+
+    cursor: pointer;
+}
+.Cancelbtn{
+    width: 48%;
+    border-radius: 8px;
+    border: none;
+}
+.Cancelbtn:hover{
+    transform: scale(1.1);
+
+    cursor: pointer;
+}
 .add_post .img{
     height: 70px;
     width: 70px;
@@ -225,7 +254,7 @@ form{
     margin-right: 20px;
     padding: 10px;
     display: none;
-    z-index: 4;
+    z-index: 5;
 }
 .list .Edit,.list .Delete,.list .Share{
     display: flex;

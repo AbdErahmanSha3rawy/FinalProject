@@ -69,7 +69,7 @@ nav .logout{
     margin-left: -50px;
 
 }
-.logout ,.Home{
+.logout {
     background-image:linear-gradient(90deg,#AD46FF,#F6339A);
     width: 120px;
     height: 35px;
