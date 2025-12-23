@@ -173,7 +173,7 @@ function getposts() {
         <div class="profile_descripe2">
             <img src="${imgprofile}" alt="">
             <div class="profile_name">
-                <p class="Name">${poste.author.username}</p>
+                <p class="Name">${poste.author.name}</p>
                 <p class="email">${Email}</p>
                 <p class="created_at">${poste.created_at}</p>
             </div>
@@ -270,7 +270,7 @@ function createPost(formData) {
     request.open("POST", "https://tarmeezacademy.com/api/v1/posts");
     request.responseType = "json";
     request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9"); 
+    request.setRequestHeader("Authorization", "Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4"); 
 
     request.send(formData);
 
@@ -296,7 +296,7 @@ function deletePost(item) {
     request.responseType = "json";
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Content-Type", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9"); 
+    request.setRequestHeader("Authorization", "Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4"); 
 
    
     request.send();
@@ -317,7 +317,7 @@ function updatePost(id,formData) {
     request.responseType = "json";
     
     request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9");
+    request.setRequestHeader("Authorization", "Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4");
 
    
     
@@ -352,7 +352,7 @@ const createComment = async (id,Elcomment) => {
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
-        'Authorization':'Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9'
+        'Authorization':'Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4'
       },
     });
 

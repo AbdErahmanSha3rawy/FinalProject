@@ -258,7 +258,7 @@ function deletePost(item) {
     request.responseType = "json";
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Content-Type", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9"); 
+    request.setRequestHeader("Authorization", "Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4"); 
 
    
     request.send();
@@ -279,7 +279,7 @@ function updatePost(id,formData) {
     request.responseType = "json";
     
     request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9");
+    request.setRequestHeader("Authorization", "Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4");
 
    
     
@@ -314,7 +314,7 @@ const createComment = async (id,Elcomment) => {
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
-        'Authorization':'Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9'
+        'Authorization':'Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4'
       },
     });
 

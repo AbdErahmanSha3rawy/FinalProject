@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+
  <nav>
   <div class="icon"><div class="img"><img src="imgs/main.svg" alt=""></div><span class="main_name">SocialVibe</span></div>  
   <div class="links">
@@ -38,10 +38,15 @@
       <div class="input_icon"><img src="imgs/pass.png" alt=""></div>
     <input type="password" name="" id="password" placeholder="••••••••">
     </div><br>
-    <a href="../Feed Page/index.html" class="link"><div  class="loginbtn">Login</div></a>
+    <!-- <a href="../Feed Page/index.html" class="link"><div  class="loginbtn">Login</div></a> -->
+     <button type="button" onclick="login()" class="loginbtn" style="width: 100%; border: none; cursor: pointer;">
+    Login
+</button>
     <div class="question"><p>Don't have an account?</p><a href="../Sign Up/index.html">Sign up now</a></div>
  </form>
   </div>  
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   <script src="script.js"></script>
 </body>
 </html>

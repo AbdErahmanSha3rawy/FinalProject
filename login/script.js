@@ -1,5 +1,5 @@
-let username = document.querySelector('#username');
-let password = document.querySelector('#password');
+const usernameValue = document.querySelector('#username');
+const passwordValue = document.querySelector('#password');
 let loginbtn = document.querySelector('.loginbtn');
 let link = document.querySelector('.link');
 let uservalue=username.value;
@@ -8,7 +8,7 @@ let uservalue=username.value;
 
 function checkInputs() { 
   
-    if (username.value === "admin" && password.value === "admin") {
+    if (usernameValue.value&& passwordValue.value ) {
         loginbtn.style.opacity = "1";
         link.style.pointerEvents = "auto"; 
 
@@ -19,40 +19,62 @@ function checkInputs() {
         link.style.curser = "pointer"; 
 
             } 
-           if(password.value === "admin") {
-         password.style.border="2px solid rgb(54, 245, 7)";
-        password.style.boxShadow="2px 8px 4px rgb(54, 245, 7)";
+           if(passwordValue.value ) {
+         passwordValue.style.border="2px solid rgb(54, 245, 7)";
+        passwordValue.style.boxShadow="2px 8px 4px rgb(54, 245, 7)";
 
      }  
-      else if(password.value.length === 0){
-        password.style.boxShadow="none";
-        password.style.border="2px solid black";
+      else if(passwordValue.value.length === 0){
+        passwordValue.style.boxShadow="none";
+        passwordValue.style.border="2px solid black";
 
      }                
      else{
-        password.style.border="2px solid red";
-        password.style.boxShadow="2px 8px 4px red";
+        passwordValue.style.border="2px solid red";
+        passwordValue.style.boxShadow="2px 8px 4px red";
 
 
      }
-      if(username.value === "admin" ) {
-        username.style.border="2px solid rgb(54, 245, 7)";
-        username.style.boxShadow="2px 8px 4px rgb(54, 245, 7)";
+      if(usernameValue.value ) {
+        usernameValue.style.border="2px solid rgb(54, 245, 7)";
+        usernameValue.style.boxShadow="2px 8px 4px rgb(54, 245, 7)";
      }  
-     else if(username.value.length === 0){
-        username.style.border="2px solid black";
-        username.style.boxShadow="none";
+     else if(usernameValue.value.length === 0){
+        usernameValue.style.border="2px solid black";
+        usernameValue.style.boxShadow="none";
      }               
      else{
-        username.style.border="2px solid red";
-        username.style.boxShadow="2px 8px 4px red";
+        usernameValue.style.border="2px solid red";
+        usernameValue.style.boxShadow="2px 8px 4px red";
 
 
      }
          };
                                     
-username.onkeyup =checkInputs;                                                   
-password.onkeyup = checkInputs; 
+usernameValue.onkeyup =checkInputs;                                                   
+passwordValue.onkeyup = checkInputs; 
 
 
 checkInputs();                                    
+
+function login() {
+    const params = {
+        "username": usernameValue.value, 
+        "password": passwordValue.value
+    };
+
+    axios.post("https://tarmeezacademy.com/api/v1/login", params)
+    .then((response) => {
+        const token = response.data.token;
+        const user = response.data.user;
+
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
+
+        window.location = "../Feed Page/index.html"; 
+    })
+    .catch((error) => {
+        const message = error.response.data.message;
+        alert(message);
+    });
+}
