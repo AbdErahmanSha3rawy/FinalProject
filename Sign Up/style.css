@@ -12,8 +12,8 @@ nav{
     margin-bottom: 100px;
     box-shadow: 0px 2px 2px ;
     height:60px;
-    background-color: #ffff ;
-
+    background-color:white ;
+    
 }
 nav .img{
     margin-right: 10px;
@@ -92,6 +92,8 @@ display: flex;
     align-content: center;
     width: 600px;
     padding-left: 130px;
+  z-index: -5;
+
 }
 .descripe_icon{
  font-size: 40px;
@@ -120,6 +122,7 @@ display: flex;
 }
 .descripo{
     display: flex;
+
 }
 .descripe h2{
      font-size: 40px;
