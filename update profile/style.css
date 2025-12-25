@@ -294,11 +294,19 @@ nav .logout{
     justify-content: center;
     border: none;
 }
+.btns .save:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
 .btns .cancel{
     border: none;
     width: 15%;
     border-radius: 10px;
     color: #364153;
+}
+.btns .cancel:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }
 @media (max-width: 600px) {
 .profile{
