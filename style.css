@@ -9,7 +9,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    z-index: 1;
+    z-index: 6;
     top:0;
     background-color: white;
     margin-bottom: 100px;
@@ -99,6 +99,59 @@ color: #FFFFFF;
     height: 25px;
     margin: 0 7px;
 }
+.menu_icon button{
+    background: none;
+    border: none;
+    display: none;
+}
+.menu{
+    width: 100%;
+    place-items: center;
+        box-shadow: 0px 2px 5px #8d8484;
+    margin: auto;
+    margin-top: -85px;
+    display: none;
+    background-color: white;
+    z-index: 5;
+}
+.menu ul{
+    list-style-type: none;   
+    width: 90%;
+}
+.menu a{
+    text-decoration: none;
+
+}
+.menu_Home ,.menu_login,.menu_SignUp{
+    width: 90%;
+    height: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: start;
+    padding-left: 10px ;
+    align-items: center;    
+    margin-top: 0;
+}
+.menu_Home img,.menu_login img,.menu_SignUp img{
+    width: 30px;
+    margin-right: 20px;
+}
+.menu_login a,.menu_SignUp a{
+display: flex;
+align-self: center;
+font-size: 30px;
+color: #4A5565;
+}
+.menu_Home a{
+color: #FFFFFF;
+display: flex;
+align-self: center;
+font-size: 30px;
+}
+.menu_Home{
+      background-image:linear-gradient(90deg,#AD46FF,#F6339A);
+
+}
 .post{
     display: block;
     justify-self: center;
@@ -157,8 +210,27 @@ width: 100%;
 cursor: pointer;
 }
 @media (max-width: 600px) {
+    .icon{
+        margin-left: -10px;
+    }
+.menu_icon button{ 
+    display: inline;
+    margin-right: -20px;
+}
+.Home,.login,.SignUp{
+    display: none;
+}
+
+.menu{
+    display: block;
+    position: sticky;
+    top: 50px;
+    
+
+}
 
 .post{
     width: 90%;
 }
+
 }
