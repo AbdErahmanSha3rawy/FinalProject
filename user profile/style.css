@@ -1,3 +1,11 @@
+
+
+body{ 
+    padding: 0px;
+    margin: 0;
+    background-image: linear-gradient(150deg,#FAF5FF,#EFF6FF,#FDF2F8);
+}
+
 nav{
     display: flex;
     justify-content: space-between;
@@ -9,13 +17,13 @@ nav{
     margin-bottom: 100px;
     font-family: sans-serif;
     margin-top: -10px;
-    
-
+    padding: 0px 50px;
+    height: 50px;
+    box-shadow: 0px 3px rgba(109, 104, 104, 0.24);
 }
 nav .img{
     margin-right: 10px;
     background-image: linear-gradient(150deg,#AD46FF,#F6339A,#2B7FFF );
-    
     width: 55px;
     height: 45px;
     border-radius:15px;
@@ -23,15 +31,15 @@ nav .img{
     justify-content: center;
 }
 nav img{
-     width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
      display: flex;
     align-self: center;
 
 }
 .main_name{
-  font-size: 30px;
+  font-size: 20px;
 
   flex-grow: 1;
   font-family: sans-serif;
@@ -40,10 +48,18 @@ nav img{
 background-image: linear-gradient(90deg,#9810FA,#E60076);
 background-clip: text;
 color: transparent;
+align-self: center;
 }
-
 .icon{
     margin-left:30px;
+    display: flex;
+}
+.icon .img{
+    width: 40px;
+    height: 40px;
+}
+.icon img{
+    height: 25px;
 }
 nav ul {
     display: flex;
@@ -60,23 +76,24 @@ nav a{
    align-items: center;
     width: 80px;
     
-    font-size: larger;
 }
-nav .user{
+nav .user_img{
     margin-left: 15px;
 }
-nav .logout{
-    margin-left: -50px;
 
-}
 .logout ,.user{
     background-image:linear-gradient(90deg,#AD46FF,#F6339A);
-    width: 120px;
+    width: 105px;
     height: 35px;
     border-radius: 20px;
     display: flex;
     justify-content: center;
-    margin-right: 30px;
+    margin-right: 10px;
+    color: #FFFFFF;
+}
+nav .logout{
+    margin-left: -50px;
+    width: 105px;
 }
 .links .notice{
     display: flex;
@@ -92,8 +109,9 @@ nav .logout{
 
 
 }
-
-
+.links a img{
+    height: 25px;
+}
 .add_post{
     display: flex;
 }
@@ -105,7 +123,7 @@ nav .logout{
     background-image:linear-gradient(90deg,#C27AFF,#F6339A,#51A2FF);
 
     height: 200px;
-    border-radius: 20px;
+    border-radius: 20px 20px 0 0;
 }
 .profile_detailes{
     padding: 15px;
@@ -133,6 +151,8 @@ nav .logout{
      margin-top: 10px;
      align-items: center;
      justify-content: center;
+     box-shadow: 0px 2px 5px #8d8484;
+    border: none;
 
 }
 .img_profile a img{
@@ -143,8 +163,10 @@ nav .logout{
 .profile{
     display: inline-flexbox;
     justify-self: center;
-      width: 55%;
+    width: 55%;
     margin-bottom: 20px;
+    box-shadow: 0px 2px 5px #8d8484;
+    border-radius:20px 20px 10px 10px;
 }
 .descripe{
     margin-top: -55px;
@@ -164,17 +186,23 @@ nav .logout{
     width:90% ;
 }
 .Editbtn{
-    width: 80%;
-    height: 50px;
+    width: 90%;
+    height: 40px;
     border-radius: 15px;
     background-image:linear-gradient(90deg,#AD46FF,#F6339A);
     font-size: 20px;
    color: white;
+   border: none;
+}
+.img_profile a  img {
+    width: 30px;
+    height: 30px;
+
 }
 .Share{
     border-radius: 15px;
     height: 40px;
-    width: 120px;
+    width: 25%;
     border: none;
 }
 
@@ -184,6 +212,10 @@ nav .logout{
     justify-self: center;
     justify-content: space-between;
     margin-bottom: 10px;
+    box-shadow: 0px 2px 5px #8d8484;
+    height: 50px;
+    align-items: center;
+    border-radius: 10px;
 }
 .links_add button{
     width: 210px;
@@ -192,113 +224,17 @@ nav .logout{
 }
 .Postsbtn{
     background-image:linear-gradient(90deg,#AD46FF,#F6339A);
-    
+    margin-left: 10px;
+    border: none;
+    color: #FFFFFF;
 }
 .Mediabtn,.Likesbtn{
     border: none;
     background: none;
+    color: #4A5565;
 }
 
 
-.post{
-    width: 42%;
-    margin-bottom: 20px;
-
-}
-
-.profile_descripe2{
-    display: flex;
-    height: 65px;
-    width: 65px;
-    border-radius: 50%;
-    align-self: center;
-    margin-left: 20px;
-
-}
-.profile_descripe{
-    display: flex;
-    justify-content: space-between;
-    
-}
-.options{
-    display: flex;
-    justify-content: center;
-    margin-right: 20px;
-    border: none;
-    background:none;
-}
-.options:hover{
-    cursor: pointer;
-}
-.profile_name{
-    display: flexbox;
-    transform: translateY(-20px);
-}
-.Name{
-    font-size:25px;
-    margin-bottom: -7px;
-}
-.post_descripe{
-    font-size: 20px;
-    margin-left: 20px;
-}
-.post_img{
-display: block;
-width: 100%;
-}
-.actives{
-    display: flex;
-    margin-left: 20px;
-    align-items: center;
-}
-.actives button{
-    display: flex;
-    background:none;
-    border: none;
-    height: 37px;
-}
-.actives button:hover{
-cursor: pointer;
-}
-.post{
-    display: flexbox;
-    justify-self: center;
-    border: 2px outset white;
-    width: 55%;
-    margin-top: 20px;
-
-}
-.add_comment{
-    display: flex;
-    justify-content: space-around;
-    padding-top:10px ;
-    padding-bottom:15px ;
-
-}
-.add_comment input{
-    width: 500px ;
-    height: 40px;
-    border-radius: 10px;
-}
-.add_comment button{
-width: 80px;
-height: 40px;
-border-radius: 15px;
-}
-
-.comment_content{
-    display: flex;
-}
-.react{
-    display: flex;
-}
-.react button{
-    border: none;
-    background: none;
-}
-.react p{
-    margin-right: 10px;
-}
 
 .profile_descripe2{
     display: flex;
@@ -333,10 +269,13 @@ border-radius: 15px;
 }
 
 .list{
-    width: auto;
-    height: auto;
+    width: 150px;
+    height: 100px;
     background-color: white;
-    border: black 2px solid;
+    border:none;
+        box-shadow: 0px 2px 5px #8d8484;
+
+    border-radius: 10px;
     transform: translateY(-70px);
     display: block;
     justify-self: end;
@@ -347,7 +286,7 @@ border-radius: 15px;
 }
 .list .Edit,.list .Delete,.list .Share{
     display: flex;
-
+    margin-bottom: -20px;
     text-decoration-line: none;
 }
 .list img{
@@ -362,67 +301,10 @@ border-radius: 15px;
 
 cursor: pointer;
 }
-/* 
 
-.profile_name{
-    display: flexbox;
-    transform: translateY(-20px);
-}
-.Name{
-    font-size:25px;
-    margin-bottom: -7px;
-}
-.post_descripe{
-    font-size: 20px;
-    margin-left: 20px;
-}
-.list{
-    width: auto;
-    height: auto;
-    background-color: white;
-    border: black 2px solid;
-    transform: translateY(-70px);
-    display: block;
-    justify-self: end;
-    margin-right: 20px;
-    padding: 10px;
-    display: none;
-    z-index: 4;
-}
-.list .Edit,.list .Delete,.list .Share{
-    display: flex;
-
-    text-decoration-line: none;
-}
-.list img{
-    margin-right: 5px;
-}
-.list .Delete{
-    color: red;
-}
-
-.post_img{
-display: block;
-width: 100%;
-}
-.actives{
-    display: flex;
-    margin-left: 20px;
-    align-items: center;
-}
-.actives button{
-    display: flex;
-    background:none;
-    border: none;
-    height: 37px;
-}
-.actives button:hover{
-cursor: pointer;
-}
-.post{
-    display: flexbox;
-    justify-self: center;
-    border: 2px outset white;
+.list .Share img{
+    width: 20px;
+    height: 20px;
 }
 .commentcontainer{
 display: none;
@@ -464,67 +346,17 @@ border-radius: 15px;
 }
 .react p{
     margin-right: 10px;
-} */
-
-.commentcontainer{
-display: none;
-}
-
-.add_comment{
-    display: flex;
-    justify-content: space-around;
-    padding-top:10px ;
-    padding-bottom:15px ;
-     justify-self: center;
-    width: 100%;
-}
-.add_comment input{
-    width: 500px ;
-    height: 40px;
-    border-radius: 10px;
-}
-.add_comment button{
-width: 80px;
-height: 40px;
-border-radius: 15px;
-}
-
-.comment{
- justify-self: center;
-    width: 100%;
-}
-.comment_content{
-    display: flex;
-    
-}
-.react{
-    display: flex;
-}
-.react button{
-    border: none;
-    background: none;
-}
-.react p{
-    margin-right: 10px;
-}
-
-.post{
-    display: block;
-    justify-self: center;
-    border: 2px outset white;
-    width: 70%;
-    margin-bottom: 50px;
 }
 
 .container{
-    border: 2px outset ;
-    
-}
+    background-color: #FFFFFF;
+    border-radius: 16px;
 
+}
 .img_prof{
     width: 70px;
-    height: 70px;
-    border-radius: 50%;
+    height: 10px;
+    /* border-radius: 50%; */
 }
 .profile_name{
     display: flexbox;
@@ -563,22 +395,64 @@ cursor: pointer;
 }
 
 
-
-.list .Edit,.list .Delete,.list .Share{
+.post{
+    display: block;
+    justify-self: center;
+    padding: 10px 0;
+    width: 55%;
+    margin-bottom: 20px;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0px 2px 5px #8d8484;
+}
+.profile_descripe{
     display: flex;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.container{
+    border-radius: 16px;
+    margin-bottom: 80px;
+}
 
-    text-decoration-line: none;
+.img_prof{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
-.list img{
-    margin-right: 5px;
+.profile_name{
+    display: flexbox;
+    transform: translateY(-20px);
 }
-.list .Share img {
-    height: 22px;
+.Name{
+    font-size:25px;
+    margin-bottom: -7px;
+}
+.post_descripe{
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: -20px;
+}
+.post_img{
+display: block;
+width: 100%;
+
+}
+.post_img img{
+    width: 100%;
+}
+.actives{
+    display: flex;
+    margin-left: 20px;
+    align-items: center;
+}
+.actives button{
+    display: flex;
+    background:none;
     border: none;
-    color: red;
+    height: 37px;
 }
-.list .Delete:hover {
-
+.actives button:hover{
 cursor: pointer;
 }
 .list .Edit  {
@@ -589,14 +463,42 @@ cursor: pointer;
 
 cursor: pointer;
 }
+
+ 
+.Eidt_Area textarea{
+
+    border-radius: 10px;
+    width:500px;
+    height: 60px;
+    margin-bottom: 7px;
+    padding: 20px;
+    border: none;
+    box-shadow: 0px 2px 5px #8d8484;
+    display: flex;
+    justify-self: center;
+
+}
+.Eidt_Area .btns{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-self: center;
+    justify-content: space-between;
+
+}
+.Eidt_Area .btns .Savebtn{
+    height: 40px;
+    border: none;
+}
+
+
 .Eidt_Area{
-    width: 500px;
+    
     height: 150px;
-    justify-content: center; 
-    justify-self: center;  
+    justify-content: center;   
     border: none;
     display: none;
-    
+    margin-bottom: 50px;
 }
 .Savebtn{
     width: 48%;
@@ -620,13 +522,44 @@ cursor: pointer;
 
     cursor: pointer;
 }
-.Eidt_Area form {
-    width: 100%;
+
+@media (max-width: 600px) {
+.profile{
+   
+    width: 90%;
+
 }
-.Eidt_Area form textarea{
-    width: 100%;
-    height: 80px;
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+
+.Share{
+  
+    width: 50%;
+}
+
+.links_add{
+    width: 90%;
+  
+}
+
+
+.Eidt_Area{
+    
+   width: 100%;
+}
+.Eidt_Area textarea{
+width:100% ;
+}
+.post{
+   
+    width: 90%;
+
+}
+
+
+.img_prof{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+
 }

@@ -3,6 +3,7 @@ body{
     margin: 0;
     background-image: linear-gradient(150deg,#FAF5FF,#EFF6FF,#FDF2F8);
 }
+
 nav{
     display: flex;
     justify-content: space-between;
@@ -10,34 +11,34 @@ nav{
     position: sticky;
     z-index: 1;
     top:0;
-    margin-bottom: 100px;
-    box-shadow: 0px 2px 2px ;
-    height:60px;
     background-color: white;
-
-
+    margin-bottom: 100px;
+    font-family: sans-serif;
+    margin-top: -10px;
+    padding: 0px 15px;
+    height: 50px;
+    box-shadow: 0px 3px rgba(109, 104, 104, 0.24);
 }
 nav .img{
     margin-right: 10px;
     background-image: linear-gradient(150deg,#AD46FF,#F6339A,#2B7FFF );
-    
     width: 55px;
-    height: 55px;
-    border-radius:20px;
+    height: 45px;
+    border-radius:15px;
     display: inline-flex;
     justify-content: center;
 }
 nav img{
-     width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
      display: flex;
     align-self: center;
 
 }
 .main_name{
-  font-size: 30px;
-    z-index: 5;
+  font-size: 20px;
+
   flex-grow: 1;
   font-family: sans-serif;
   display: inline-flex;
@@ -45,6 +46,20 @@ nav img{
 background-image: linear-gradient(90deg,#9810FA,#E60076);
 background-clip: text;
 color: transparent;
+align-self: center;
+}
+
+.icon{
+    margin-left:30px;
+    display: flex;
+    
+}
+.icon .img{
+    width: 40px;
+    height: 40px;
+}
+.icon img{
+    height: 25px;
 }
 nav ul {
     display: flex;
@@ -53,41 +68,41 @@ nav ul {
     margin-right: 20px;
 }
 nav a{
+    display: flex;
     text-decoration-line: none;
     color: black ;
     display: flex;
     margin-right: 30px;
-    height: 35px;
+   align-items: center;
     width: 80px;
+    
 }
-.Home,.SignUp{
+
+
+ .Home,.SignUp{
     background-image:linear-gradient(90deg,#AD46FF,#F6339A);
-    width: 120px;
+    width: 90px;
+    height: 35px;
+    padding-left: 15px;
     border-radius: 20px;
     display: flex;
     justify-content: center;
     margin-right: 10px;
-}
-a{
-display: flex;
-    align-items: center;
-    font-size: 23px;
-}
- .links{
-    display: flex;
-    justify-items: space-between;
- }
 
-.icon{
-    margin-left: 20px;
+}
+.Home a,.SignUp a{
+color: #FFFFFF;
+
 }
 
+.links a img{
+    height: 25px;
+    margin: 0 7px;
+}
 .post{
     display: block;
     justify-self: center;
-    /* border: 2px outset white; */
     width: 45%;
-    margin-bottom: 50px;
 }
 .profile_descripe{
     display: flex;
@@ -95,6 +110,9 @@ display: flex;
 .container{
     background-color: #FFFFFF;
     border-radius: 16px;
+    box-shadow: 0px 2px 5px #8d8484;
+    margin-bottom: -20px;
+
 
 }
 
@@ -137,4 +155,10 @@ width: 100%;
 }
 .actives button:hover{
 cursor: pointer;
+}
+@media (max-width: 600px) {
+
+.post{
+    width: 90%;
+}
 }

@@ -1,4 +1,4 @@
- nav{
+ /* nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -91,29 +91,148 @@ nav .logout{
     transform: translateY(-10px);
 
 
+} */
+
+body{ 
+    padding: 0px;
+    margin: 0;
+    background-image: linear-gradient(150deg,#FAF5FF,#EFF6FF,#FDF2F8);
 }
 
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    z-index: 1;
+    top:0;
+    background-color: white;
+    margin-bottom: 100px;
+    font-family: sans-serif;
+    margin-top: -10px;
+    padding: 0px 50px;
+    height: 50px;
+    box-shadow: 0px 3px rgba(109, 104, 104, 0.24);
+}
+nav .img{
+    margin-right: 10px;
+    background-image: linear-gradient(150deg,#AD46FF,#F6339A,#2B7FFF );
+    width: 55px;
+    height: 45px;
+    border-radius:15px;
+    display: inline-flex;
+    justify-content: center;
+}
+nav img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+     display: flex;
+    align-self: center;
+
+}
+.main_name{
+  font-size: 20px;
+
+  flex-grow: 1;
+  font-family: sans-serif;
+  display: inline-flex;
+  align-content: center;
+background-image: linear-gradient(90deg,#9810FA,#E60076);
+background-clip: text;
+color: transparent;
+align-self: center;
+}
+
+.icon{
+    margin-left:30px;
+    display: flex;
+    
+}
+.icon .img{
+    width: 40px;
+    height: 40px;
+}
+.icon img{
+    height: 25px;
+}
+nav ul {
+    display: flex;
+    list-style-type: none;   
+    align-items: center;
+    margin-right: 20px;
+}
+nav a{
+    display: flex;
+    text-decoration-line: none;
+    color: black ;
+    display: flex;
+    margin-right: 30px;
+   align-items: center;
+    width: 80px;
+    
+}
+nav .user_img{
+    margin-left: 15px;
+}
+
+.logout {
+    background-image:linear-gradient(90deg,#AD46FF,#F6339A);
+    width: 105px;
+    height: 35px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    color: #FFFFFF;
+}
+nav .logout{
+    margin-left: -50px;
+    width: 105px;
+}
+.links .notice{
+    display: flex;
+}
+
+.links .notice a{
+    margin-right: -50px;
+}
+.links .notice p{
+    font-size: 12px;
+    transform: translatex(-20px);
+    transform: translateY(-10px);
+
+
+}
+.links a img{
+    height: 25px;
+}
 .profile{
     display: inline-flexbox;
     justify-self: center;
-      width: 55%;
-    margin-bottom: 20px;
+      width: 50%;
+      height: 650px;
+    margin-bottom: 100px;
     font-family: sans-serif;
+    box-shadow: 0px 2px 5px #8d8484;
+    border-radius: 25px 25px 20px 20px;
+    color: #364153;
+    background-color: #FFFFFF;
 }
 
 .back{
     background-image:linear-gradient(90deg,#AD46FF,#F6339A,#2B7FFF);
-    padding: 10px 10px 0 10px;
-    height: 40px;
+    padding: 30px 30px 0 30px;
+    height: 88px;
     border-radius: 25px 25px 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
 }
-.back h2{
+.back p{
     color: white;
-    font-size: 15px;
+    font-size: 25px;
 }
 .back button{
     background: none;
@@ -121,15 +240,20 @@ nav .logout{
 }
 
 .profile_detailes{
-    padding: 10px;
+    padding: 30px;
 }
 
 .profile_detailes input{
     width: 100%;
-    height: 30px;
+    height: 40px;
     border-radius: 10px;
     margin-bottom: 15px;
-    margin-top: 5px;
+    margin-top: 10px;
+    border: 2px solid rgb(185, 177, 177);
+  display: flex;
+  justify-self: center;
+   padding-left: 10px;
+   
 }
 
 .contain{
@@ -138,10 +262,12 @@ nav .logout{
 .input_icon{
     position: absolute;
     left: 650px;
-    transform: translateY(12px);
+    transform: translatex(-85px);
+    margin-top: 7px;
 }
 .img_profile .img{
     width: 70px;
+    
 }
 .img_profile button{
  background-color: #AD46FF;
@@ -150,6 +276,7 @@ nav .logout{
  height: 30px;
  border-radius: 50%;
  transform: translateX(-25px);
+ margin-bottom: 30px;
 }
 .btns{
     display: flex;
@@ -158,16 +285,31 @@ nav .logout{
 
 }
 .btns .save{
-    width: 87%;
+    width: 83%;
     border-radius: 10px;
     background-image:linear-gradient(90deg,#AD46FF,#F6339A);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
 }
 .btns .cancel{
     border: none;
-    width: 10%;
+    width: 15%;
     border-radius: 10px;
+    color: #364153;
+}
+@media (max-width: 600px) {
+.profile{
+width: 90%;
+height: auto;
+
+}
+.btns .cancel{
+    width: 50%;
+    margin-left: 10px;
+   
+}
+
 }

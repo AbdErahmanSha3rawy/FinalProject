@@ -22,7 +22,7 @@ let postarray=postsr.data;
         imgprofile=poste.author.profile_image;
        }
        else{//** */
-        imgprofile='imgs/Image.png';
+        imgprofile='imgs/myprofile.png';
       }
        let imgpost='';
       if (Object.keys(poste.image).length !== 0){

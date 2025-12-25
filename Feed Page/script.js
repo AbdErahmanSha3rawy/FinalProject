@@ -1,6 +1,6 @@
 
 
-let postContainer = document.querySelector('.post');
+let postContainer = document.querySelector('.postContainer');
 
 
 document.addEventListener('click', function(e) {
@@ -23,7 +23,7 @@ let moood;
         else {
 
             list.style.display = "block";
-            postImg.style.marginTop = "-150px";
+            postImg.style.marginTop = "-120px";
         }
     }
     if (e.target.closest('.Delete')) {
@@ -147,7 +147,7 @@ function getposts() {
         imgprofile=poste.author.profile_image;
        }
        else{
-        imgprofile='imgs/Image.png';
+        imgprofile='imgs/Image (Ahmed Mohamed).png';
       }
        let imgpost='';
       if (Object.keys(poste.image).length !== 0){
@@ -168,10 +168,11 @@ function getposts() {
 
 
                 postContainer.innerHTML += `
-<di class="post">
+                
+<div class="post">
     <div class="profile_descripe">
         <div class="profile_descripe2">
-            <img src="${imgprofile}" alt="">
+            <img src="${imgprofile}" class="img_prof" alt="">
             <div class="profile_name">
                 <p class="Name">${poste.author.name}</p>
                 <p class="email">${Email}</p>
@@ -180,7 +181,7 @@ function getposts() {
         </div>
         <button class="options"><img src="imgs/options.svg" alt=""></button>
     </div>
-    <div class="add_post Eidt_Area">
+    <div class=" Eidt_Area">
   <form action="">
 <textarea name="" id="" placeholder="What's on your mind?" class="text"></textarea><br>
 <div class="btns">

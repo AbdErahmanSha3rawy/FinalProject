@@ -1,4 +1,4 @@
-let userNameDisplay = document.querySelector('.UserName');
+let userNameDisplay = document.querySelector('.Name');
 
 
 let savedName = localStorage.getItem('user_name');
@@ -9,7 +9,7 @@ if (savedName) {
 }
 
 
-let postContainer = document.querySelector('.post');
+let postContainer = document.querySelector('.postContainer');
 
 
 document.addEventListener('click', function(e) {
@@ -32,7 +32,7 @@ let moood;
         else {
 
             list.style.display = "block";
-            postImg.style.marginTop = "-150px";
+            postImg.style.marginTop = "-120px";
         }
     }
     if (e.target.closest('.Delete')) {
@@ -176,20 +176,80 @@ function getposts() {
       
 
 
+//                 postContainer.innerHTML += `
+// <di class="post">
+//     <div class="profile_descripe">
+//         <div class="profile_descripe2">
+//             <img src="${imgprofile}" alt="">
+//             <div class="profile_name">
+//                 <p class="Name">${poste.author.username}</p>
+//                 <p class="email">${Email}</p>
+//                 <p class="created_at">${poste.created_at}</p>
+//             </div>
+//         </div>
+//         <button class="options"><img src="imgs/options.svg" alt=""></button>
+//     </div>
+//     <div class="add_post Eidt_Area">
+//   <form action="">
+// <textarea name="" id="" placeholder="What's on your mind?" class="text"></textarea><br>
+// <div class="btns">
+// <button type="button" class="Savebtn">Save</button>
+// <button type="button" class="Cancelbtn">Cancel</button>
+
+
+// </div>
+// </form>
+// </div>
+//     <p class="post_descripe">${poste.body}</p>
+//     <div class="list" style="display:none;">
+//         <button class="Edit" href=""><img src="imgs/etdi.png" alt="">Edit Post</button><br><br>
+//         <button class="Delete" href=""><img src="imgs/delete.png" alt="">Delete Post</button><br><br>
+//         <a class="Share" href=""><img src="imgs/shaare.svg" alt="">Share</a>
+//     </div>
+//     <img class="post_img" src="${imgpost}">
+//     <div class="actives">
+//         <button class="lovebtn"><img src="imgs/love.svg" alt=""></button>
+//         <p class="lovecount">${poste.id }</p>
+//         <button class="commentbtn"><img src="imgs/comment.svg" alt=""></button>
+//         <p class="commentcount">${poste.comments_count}</p>
+//         <button><img src="imgs/share.svg" alt=""></button>
+//     </div>
+//     <div class="commentcontainer" style="display:none;">
+//         <div class="add_comment">
+//             <img src="imgs/Image (Ahmed Mohamed).png" alt="">
+//             <input type="text" class="Write_comment" placeholder="Write a comment...">
+//             <button type="submit" class="add_comment_btn">post</button>
+//         </div>
+// <div class="comment">
+//             <div class="comment_content">
+//                 <img src="imgs/Image (Ahmed Mohamed).png" alt="">
+//                 <p class="Elcomment">${poste.body}</p>
+//             </div><br>
+//             <div class="react">
+//                 <p>Now</p>
+//                 <button><img src="imgs/love.svg" alt=""></button>
+//                 <p>Like</p>
+//             </div>
+//         </div>
+//     </div>
+// </div>`;
+
+
                 postContainer.innerHTML += `
-<di class="post">
+                
+<div class="post">
     <div class="profile_descripe">
         <div class="profile_descripe2">
-            <img src="${imgprofile}" alt="">
+            <img src="${imgprofile}" class="img_prof" alt="">
             <div class="profile_name">
-                <p class="Name">${poste.author.username}</p>
+                <p class="Name">${poste.author.name}</p>
                 <p class="email">${Email}</p>
                 <p class="created_at">${poste.created_at}</p>
             </div>
         </div>
         <button class="options"><img src="imgs/options.svg" alt=""></button>
     </div>
-    <div class="add_post Eidt_Area">
+    <div class=" Eidt_Area">
   <form action="">
 <textarea name="" id="" placeholder="What's on your mind?" class="text"></textarea><br>
 <div class="btns">
@@ -204,7 +264,7 @@ function getposts() {
     <div class="list" style="display:none;">
         <button class="Edit" href=""><img src="imgs/etdi.png" alt="">Edit Post</button><br><br>
         <button class="Delete" href=""><img src="imgs/delete.png" alt="">Delete Post</button><br><br>
-        <a class="Share" href=""><img src="imgs/shaare.svg" alt="">Share</a>
+        <a class="Share" href=""><img src="imgs/share(2).png" alt="">Share</a>
     </div>
     <img class="post_img" src="${imgpost}">
     <div class="actives">
