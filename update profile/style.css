@@ -313,7 +313,7 @@ align-self: center;
 }
 .menu_icon button{ 
     display: inline;
-    margin-left: -40px;
+    margin-left: -50px;
 }
 .profile{
 width: 90%;
@@ -324,7 +324,6 @@ height: auto;
 .input_icon{
     position: absolute;
     left: 350px;
-    /* transform: translatex(-400px); */
     margin-top: 7px;
 }
 .btns .cancel{
