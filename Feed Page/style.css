@@ -554,15 +554,16 @@ cursor: pointer;
    .icon{
         margin-left: -30px;
     }
+    
     .main_name{
         display: none;
     }
     .notice{
         margin-left: 130px;
     }
-.menu_icon button{ 
-    display: inline;
-    margin-left: -40px;
+
+.eluser{
+    margin-right: -10px;
 }
 .Homey,.logouty,.profily{
     display: none;
@@ -572,11 +573,21 @@ cursor: pointer;
     position: sticky;
     top: 50px;
     padding-top: 10px;
+    width: 99%;
 
 }
 .menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
     padding-left: 20px;
 
+}
+.links{
+    
+    margin-left: -70px;
+
+}
+.menu_icon button{ 
+    display: inline;
+    margin-left: -30px;
 }
 .add_post{
      
