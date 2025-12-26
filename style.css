@@ -222,7 +222,6 @@ cursor: pointer;
 }
 
 .menu{
-    display: block;
     position: sticky;
     top: 50px;
     padding-top: 10px;
