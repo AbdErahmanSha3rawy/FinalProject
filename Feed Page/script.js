@@ -265,13 +265,15 @@ text.value='';
 // getposts();
         };
 
-
+  
 function createPost(formData) {
+ 
     let request = new XMLHttpRequest();
     request.open("POST", "https://tarmeezacademy.com/api/v1/posts");
     request.responseType = "json";
     request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4"); 
+     const token = localStorage.getItem("token");
+    request.setRequestHeader("Authorization", `Bearer ${token}`); 
 
     request.send(formData);
 
@@ -297,7 +299,8 @@ function deletePost(item) {
     request.responseType = "json";
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Content-Type", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4"); 
+   const token = localStorage.getItem("token");
+    request.setRequestHeader("Authorization", `Bearer ${token}`); 
 
    
     request.send();
@@ -318,8 +321,8 @@ function updatePost(id,formData) {
     request.responseType = "json";
     
     request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4");
-
+ const token = localStorage.getItem("token");
+    request.setRequestHeader("Authorization", `Bearer ${token}`); 
    
     
 
@@ -353,7 +356,7 @@ const createComment = async (id,Elcomment) => {
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
-        'Authorization':'Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4'
+        'Authorization':token
       },
     });
 

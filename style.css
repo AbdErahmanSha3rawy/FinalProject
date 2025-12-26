@@ -225,8 +225,12 @@ cursor: pointer;
     display: block;
     position: sticky;
     top: 50px;
+    padding-top: 10px;
     
 
+}
+.menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
+    padding-left: 20px;
 }
 
 .post{

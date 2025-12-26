@@ -1,8 +1,21 @@
 
 let post=document.querySelector('.post');
+let menu_icon=document.querySelector('.menu_icon');
+let menu=document.querySelector('.menu');
+   let elaicona=document.querySelector('.elaicona');
 
+menu_icon.onclick=function(){
+        if (menu.style.display === "block") {
+menu.style.display="none";
+   elaicona.src='imgs/menu.svg';       
 
+        }
+        else{
+   elaicona.src='imgs/elaicona.svg';       
+menu.style.display="block";
 
+        }
+}
 
 
 
