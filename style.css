@@ -112,14 +112,19 @@ color: #FFFFFF;
     margin-top: -85px;
     display: none;
     background-color: white;
-    z-index: 5;
+    z-index: 100;
 }
 .menu ul{
     list-style-type: none;   
     width: 90%;
+
+    
 }
 .menu a{
     text-decoration: none;
+            font-size:25px;
+            font-family:sans-serif;
+
 
 }
 .menu_Home ,.menu_login,.menu_SignUp{
@@ -131,6 +136,7 @@ color: #FFFFFF;
     padding-left: 10px ;
     align-items: center;    
     margin-top: 0;
+    
 }
 .menu_Home img,.menu_login img,.menu_SignUp img{
     width: 30px;
@@ -139,14 +145,12 @@ color: #FFFFFF;
 .menu_login a,.menu_SignUp a{
 display: flex;
 align-self: center;
-font-size: 30px;
 color: #4A5565;
 }
 .menu_Home a{
 color: #FFFFFF;
 display: flex;
 align-self: center;
-font-size: 30px;
 }
 .menu_Home{
       background-image:linear-gradient(90deg,#AD46FF,#F6339A);
@@ -225,11 +229,11 @@ cursor: pointer;
     position: sticky;
     top: 50px;
     padding-top: 10px;
-    
 
 }
 .menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
     padding-left: 20px;
+
 }
 
 .post{

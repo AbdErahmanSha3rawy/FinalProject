@@ -3,7 +3,22 @@ const passwordValue = document.querySelector('#password');
 let loginbtn = document.querySelector('.loginbtn');
 let link = document.querySelector('.link');
 let uservalue=username.value;
-     
+let menu_icon=document.querySelector('.menu_icon');
+let menu=document.querySelector('.menu');
+   let elaicona=document.querySelector('.elaicona');
+
+menu_icon.onclick=function(){
+        if (menu.style.display === "block") {
+menu.style.display="none";
+   elaicona.src='imgs/menu.svg';       
+
+        }
+        else{
+   elaicona.src='imgs/elaicona.svg';       
+menu.style.display="block";
+
+        }
+}
 
 
 function checkInputs() { 
