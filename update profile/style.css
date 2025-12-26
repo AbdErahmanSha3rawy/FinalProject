@@ -1,97 +1,3 @@
- /* nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    z-index: 1;
-    top:0;
-    background-color: white;
-    margin-bottom: 100px;
-    font-family: sans-serif;
-    margin-top: -10px;
-    
-
-}
-nav .img{
-    margin-right: 10px;
-    background-image: linear-gradient(150deg,#AD46FF,#F6339A,#2B7FFF );
-    
-    width: 55px;
-    height: 45px;
-    border-radius:15px;
-    display: inline-flex;
-    justify-content: center;
-}
-nav img{
-     width: 30px;
-    height: 30px;
-    border-radius: 50%;
-     display: flex;
-    align-self: center;
-
-}
-.main_name{
-  font-size: 30px;
-
-  flex-grow: 1;
-  font-family: sans-serif;
-  display: inline-flex;
-  align-content: center;
-background-image: linear-gradient(90deg,#9810FA,#E60076);
-background-clip: text;
-color: transparent;
-}
-
-.icon{
-    margin-left:30px;
-}
-nav ul {
-    display: flex;
-    list-style-type: none;   
-    align-items: center;
-    margin-right: 20px;
-}
-nav a{
-    display: flex;
-    text-decoration-line: none;
-    color: black ;
-    display: flex;
-    margin-right: 30px;
-   align-items: center;
-    width: 80px;
-    
-    font-size: larger;
-}
-nav .user{
-    margin-left: 15px;
-}
-nav .logout{
-    margin-left: -50px;
-
-}
-.logout {
-    background-image:linear-gradient(90deg,#AD46FF,#F6339A);
-    width: 120px;
-    height: 35px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    margin-right: 10px;
-}
-.links .notice{
-    display: flex;
-}
-
-.links .notice a{
-    margin-right: -50px;
-}
-.links .notice p{
-    font-size: 12px;
-    transform: translatex(-20px);
-    transform: translateY(-10px);
-
-
-} */
 
 body{ 
     padding: 0px;
@@ -207,6 +113,65 @@ nav .logout{
 .links a img{
     height: 25px;
 }
+
+.menu_icon button{
+    background: none;
+    border: none;
+    display: none;
+}
+.menu{
+    width: 100%;
+    place-items: center;
+        box-shadow: 0px 2px 5px #8d8484;
+    margin: auto;
+    margin-top: -85px;
+    display: none;
+    background-color: white;
+    z-index: 100;
+}
+.menu ul{
+    list-style-type: none;   
+    width: 90%;
+
+    
+}
+.menu a{
+    text-decoration: none;
+            font-size:25px;
+            font-family:sans-serif;
+
+
+}
+.menu_Home ,.menu_login,.menu_SignUp{
+    width: 90%;
+    height: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: start;
+    padding-left: 10px ;
+    align-items: center;    
+    margin-top: 0;
+    
+}
+.menu_Home img,.menu_login img,.menu_SignUp img{
+    width: 30px;
+    margin-right: 20px;
+}
+.menu_login a,.menu_SignUp a{
+display: flex;
+align-self: center;
+color: #4A5565;
+}
+.menu_login a{
+color: #FFFFFF;
+display: flex;
+align-self: center;
+}
+.menu_login{
+      background-image:linear-gradient(90deg,#AD46FF,#F6339A);
+
+}
+
 .profile{
     display: inline-flexbox;
     justify-self: center;
@@ -309,10 +274,58 @@ nav .logout{
     transform: scale(1.1);
 }
 @media (max-width: 600px) {
+    .body{
+        overflow: hidden;
+    }
+  .icon{
+        margin-left: -40px;
+    }
+    
+    .main_name{
+        display: none;
+    }
+    .notice{
+        margin-left: 130px;
+    }
+
+.eluser{
+    margin-right: -10px;
+}
+.Homey,.logouty,.profily{
+    display: none;
+}
+
+.menu{
+    position: sticky;
+    top: 50px;
+    padding-top: 10px;
+    width: 99%;
+
+}
+.menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
+    padding-left: 20px;
+
+}
+.links{
+    
+    margin-left: -20px;
+
+}
+.menu_icon button{ 
+    display: inline;
+    margin-left: -40px;
+}
 .profile{
 width: 90%;
 height: auto;
 
+}
+
+.input_icon{
+    position: absolute;
+    left: 300px;
+    /* transform: translatex(-400px); */
+    margin-top: 7px;
 }
 .btns .cancel{
     width: 50%;
