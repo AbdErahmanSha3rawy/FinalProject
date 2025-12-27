@@ -84,6 +84,7 @@ function login() {
         const user = response.data.user;
 
         localStorage.setItem("token", token);
+        
         localStorage.setItem("user", JSON.stringify(user));
 
         window.location = "../Feed Page/index.html"; 

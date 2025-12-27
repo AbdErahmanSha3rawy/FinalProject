@@ -23,6 +23,7 @@ document.addEventListener('click', function(e) {
      if (!postDiv) return; 
 let moood;
     
+     
     if (e.target.closest('.options')) {
         let list = postDiv.querySelector('.list');
         let postImg = postDiv.querySelector('.post_img');
@@ -386,28 +387,3 @@ const createComment = async (id,Elcomment) => {
 };
 
 
-// const updateProfile = async () => {
-//     try {
-//         const response = await fetch('https://tarmeezacademy.com/api/v1/updatePorfile', {
-//             method: 'PUT',
-//             headers: {
-//                 'Accept': 'application/json',
-//                 // 'Content-Type': 'application/json',
-//                 'Authorization': 'Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9'
-//             },
-//             body: JSON.stringify({
-//                 // name: "Abdelrahman Sharawey",
-//                 username: "Abdo_Sharawey", 
-//                 email: "AbdoEid321@gmail.com",
-//                 // password: "password123",
-                
-//             })
-//         });
-
-//         const data = await response.json();
-//         console.log(data);
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
-// // updateProfile();

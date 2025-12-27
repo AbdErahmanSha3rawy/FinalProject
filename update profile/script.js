@@ -11,6 +11,28 @@ saveBtn.onclick = function() {
 
 
 
+const updateProfile = async () => {
+    try {
+        const response = await fetch('https://tarmeezacademy.com/api/v1/updatePorfile', {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                // 'Content-Type': 'application/json',
+                'Authorization': 'Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9'
+            },
+            body: JSON.stringify({
+                username: "Abdo_Sharawey", 
+                password: "password123"                
+            })
+        });
+
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error(error);
+    }
+}
+// updateProfile();
 
 
 

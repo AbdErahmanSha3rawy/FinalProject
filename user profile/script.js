@@ -34,7 +34,7 @@ document.addEventListener('click', function(e) {
     let postDiv = e.target.closest('.post'); 
      if (!postDiv) return; 
 let moood;
-    
+     
     if (e.target.closest('.options')) {
         let list = postDiv.querySelector('.list');
         let postImg = postDiv.querySelector('.post_img');
@@ -159,52 +159,55 @@ createComment(id,Elcomment.innerText);
     }
 
 });
+const getUserPosts = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userId = user.id;
+    const token = localStorage.getItem("token");
 
+    const postContainer = document.querySelector(".postContainer");
 
+    if (!postContainer) {
+        console.error("postContainer not found");
+        return;
+    }
 
-function getposts() {
-    let request = new XMLHttpRequest();
-    request.open("GET", "https://tarmeezacademy.com/api/v1/posts");
-    request.responseType = "json";
-    request.send();
-    request.onload = function() {
-        if (request.status >= 200 && request.status < 300) {
-            let postsr = request.response;
-            let postarray = postsr.data;
-            for (let poste of postarray) {
-                 let imgprofile;
-      if (Object.keys(poste.author.profile_image).length !== 0){
-        imgprofile=poste.author.profile_image;
-       }
-       else{
-        imgprofile='imgs/Image.png';
-      }
-       let imgpost='';
-      if (Object.keys(poste.image).length !== 0){
+    const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?sortBy=created_at&orderBy=desc`;
 
-        imgpost=poste.image;
-       }
-       else{
-        imgpost="imgs/Image_Post.png";
-      }
-      let Email='';
-      if(poste.author.email!=null){
-         Email=poste.author.email;
-      }
-      else{
-        Email="AbdElrahman@gmail.com";
-      }
-      
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
 
+        const result = await response.json();
 
+        if (!response.ok) {
+            console.log(result);
+            return;
+        }
+
+        const postarray = result.data;
+        postContainer.innerHTML = "";
+
+        for (let poste of postarray) {
+
+            let imgprofile = poste.author.profile_image
+                ? poste.author.profile_image
+                : 'imgs/Image (Ahmed Mohamed).png';
+
+            let imgpost = poste.image
+                ? poste.image
+                : "imgs/Image_Post.png";
 
 let space="/..";
-
                 postContainer.innerHTML += `
                 
 <div class="post">
     <div class="profile_descripe">
-          <div class="profile_descripe2">
+        <div class="profile_descripe2">
             <img src="${imgprofile}" class="img_prof" alt="">
             <div class="profile_name">
                 <p class="Name">${poste.author.name}</p>
@@ -267,22 +270,13 @@ let space="/..";
     </div>
 </div>`;
             }
-        } else {
-            alert("Error loading posts");
-        }
-    };
+    }
+     catch (error) {
+        console.error(error);
+    }
+};
 
-}
-
-
-
-
-
-
-getposts();
-
-
-
+getUserPosts();
 
 function deletePost(item) {
      let id=item;
