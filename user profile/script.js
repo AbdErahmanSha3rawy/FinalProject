@@ -196,7 +196,7 @@ const getUserPosts = async () => {
 
             let imgprofile = poste.author.profile_image
                 ? poste.author.profile_image
-                : 'imgs/Image (Ahmed Mohamed).png';
+                : 'imgs/myprofile.png';
 
             let imgpost = poste.image
                 ? poste.image
