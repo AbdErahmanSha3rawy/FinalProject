@@ -45,15 +45,8 @@ let postarray=postsr.data;
        else{
         imgpost="imgs/Image_Post.png";
       }
-      let Email='';
-      if(poste.author.email!=null){
-         Email=poste.author.email;
-      }
-      else{
-        Email="AbdElrahman@gmail.com";
-      }
-      
-      
+    
+      let space=". / .";
       post.innerHTML +=   `
       <div class="container">
       <div class="profile_descripe">
@@ -61,10 +54,13 @@ let postarray=postsr.data;
 <img src="${imgprofile}" class="img_prof"  alt="">
     
 <div class="profile_name">
-    <p class="Name">${poste.author.username}</p>
-    <p class="email">${Email}</p>
-        <p class="created_at">${poste.created_at}</p>
+    <p class="Name">${poste.author.name}</p>
+    <div class="username_created_at">
+    <p class="username">${poste.author.username}</p>
+    <p>${space}</p>
+      <p class="created_at">${poste.created_at}</p>
 </div>
+      </div>
 </div>
       <p class="post_descripe">${poste.body}</p>
       <img class="post_img" src="${imgpost}">

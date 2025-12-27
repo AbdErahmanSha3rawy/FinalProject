@@ -138,6 +138,8 @@ if (e.target.closest('.Cancelbtn')) {
 
     let Write_comment = postDiv.querySelector('.Write_comment'); 
     let Elcomment = postDiv.querySelector('.Elcomment'); 
+    let comment = postDiv.querySelector('.comment'); 
+    comment.style.display="block";
 
     Elcomment.innerText=Write_comment.value;    
 createComment(id,Elcomment.innerText);
@@ -172,16 +174,9 @@ function getposts() {
        else{
         imgpost="imgs/Image_Post.png";
       }
-      let Email='';
-      if(poste.author.email!=null){
-         Email=poste.author.email;
-      }
-      else{
-        Email="AbdElrahman@gmail.com";
-      }
-      
+  
 
-
+let space="/..";
                 postContainer.innerHTML += `
                 
 <div class="post">
@@ -190,8 +185,12 @@ function getposts() {
             <img src="${imgprofile}" class="img_prof" alt="">
             <div class="profile_name">
                 <p class="Name">${poste.author.name}</p>
-                <p class="email">${Email}</p>
+             <div class="username_created_at">
+
+                <p class="username">${poste.author.username}</p>
+                <p>${space}</p>
                 <p class="created_at">${poste.created_at}</p>
+                </div>
             </div>
         </div>
         <button class="options"><img src="imgs/options.svg" alt=""></button>
@@ -229,15 +228,19 @@ function getposts() {
         </div>
 <div class="comment">
             <div class="comment_content">
-                <img src="imgs/Image (Ahmed Mohamed).png" alt="">
-                <p class="Elcomment">${poste.body}</p>
-            </div><br>
+                <img class="comment_img" src="imgs/Image (Ahmed Mohamed).png" alt="">
+                <div class="commenty">
+                <p  class="username_comment">${poste.author.username}</p>
+                <p class="Elcomment"></p>
+                </div>
+                </div>
+            <br>
             <div class="react">
                 <p>Now</p>
                 <button><img src="imgs/love.svg" alt=""></button>
                 <p>Like</p>
             </div>
-        </div>
+        </p>
     </div>
 </div>`;
             }

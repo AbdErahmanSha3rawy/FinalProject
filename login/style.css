@@ -94,6 +94,11 @@ nav a{
 color: #FFFFFF;
 
 }
+.Home:hover,.login:hover,.SignUp:hover{
+ transition-duration: 1s;
+ transform: scale(1.1);
+}
+
 
 .links a img{
     height: 25px;
@@ -204,10 +209,30 @@ align-self: center;
     height: 150px;
     border-radius: 50%;
     background-color: #ff0890;
+    z-index: -100;
     opacity: 5%;
     transform: translateX(-50px);
     margin-bottom: -100px;
     margin-top: -100px;
+    animation-name: circle;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+    animation-duration: 8s;
+}
+@keyframes circle {
+0%{
+ 
+
+}
+
+100%{
+    opacity: 10%;
+width: 580px;
+height: 250px;  
+border-radius: 10%;
+transform: translateX(-200px); 
+background-color: #0afc16;
+}
 }
 .descripe h2{
      font-size: 40px;
@@ -218,6 +243,7 @@ align-self: center;
 .descripe p{
     font-size: 22px;
 color: #4A5565;
+z-index: 820;
 
 }
 form{
@@ -252,6 +278,10 @@ input{
 
     
 }
+input:focus{
+    outline-color: #ca09f1;
+    box-shadow:0px 3px  5px #f109e5;
+}
 .contain{
     position: relative;
 }
@@ -280,6 +310,10 @@ form .loginbtn{
 }
 form .loginbtn:hover{
     cursor: pointer;
+ transition-duration: 1s;
+ transform: scale(1.1);
+
+
 }
 form .link{
     display: flex;
