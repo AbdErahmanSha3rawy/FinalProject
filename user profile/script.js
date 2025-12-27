@@ -1,3 +1,4 @@
+let post_counter=0;
 let menu_icon=document.querySelector('.menu_icon');
 let menu=document.querySelector('.menu');
    let elaicona=document.querySelector('.elaicona');
@@ -14,23 +15,14 @@ menu.style.display="block";
 
         }
 }
-document.addEventListener('input', function(e) {
 
-   let postDiv = e.target.closest('.post'); 
-     if (!postDiv) return; 
-    let userNameDisplay = document.querySelector('.Name_user');
-    let Name = postDiv.querySelector('.Name');
-    let username = document.querySelector('.username');
-    // userNameDisplay.value = Name.innerText;
-     userNameDisplay.innerHTML =` <p>${Name.value}</p>`;
-// let savedName = localStorage.getItem('user_name');
-
-});
-
-
-// let postContainer = document.querySelector('.postContainer');
-
-
+    
+const myname=localStorage.getItem("Name");
+document.querySelector('.Name_user').innerText=`${myname}`;
+const myusername=localStorage.getItem("User_Name");
+document.querySelector('.username').innerText=`${myusername}`;
+const elcounter=localStorage.getItem("counter");
+document.querySelector('.posts_nom').innerText=`${elcounter}`;
 document.addEventListener('click', function(e) {
     let postDiv = e.target.closest('.post'); 
      if (!postDiv) return; 
@@ -192,9 +184,10 @@ const getUserPosts = async () => {
 
         const postarray = result.data;
         postContainer.innerHTML = "";
-
+            
         for (let poste of postarray) {
- let imgprofile;
+        post_counter++;
+            let imgprofile;
       if (Object.keys(poste.author.profile_image).length !== 0){
         imgprofile=poste.author.profile_image;
        }
@@ -207,9 +200,12 @@ const getUserPosts = async () => {
         imgpost=poste.image;
        }
        else{
-        document.querySelector('.post_img').style.display="none";
+        // document.querySelector('.post_img').style.display="none";
       }
+        localStorage.setItem("Name",poste.author.name);
+        localStorage.setItem("User_Name",poste.author.username);
 
+   
 let space="/..";
                 postContainer.innerHTML += `
                 
@@ -278,6 +274,7 @@ let space="/..";
     </div>
 </div>`;
             }
+            localStorage.setItem("counter",post_counter);
     }
      catch (error) {
         console.error(error);
