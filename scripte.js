@@ -43,7 +43,7 @@ let postarray=postsr.data;
         imgpost=poste.image;
        }
        else{
-        imgpost="imgs/Image_Post.png";
+        document.querySelector('.post_img').style.display="none";
       }
     
       let space=". / .";

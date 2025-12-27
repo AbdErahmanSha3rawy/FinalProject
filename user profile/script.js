@@ -14,20 +14,21 @@ menu.style.display="block";
 
         }
 }
+document.addEventListener('input', function(e) {
+
+   let postDiv = e.target.closest('.post'); 
+     if (!postDiv) return; 
+    let userNameDisplay = document.querySelector('.Name_user');
+    let Name = postDiv.querySelector('.Name');
+    let username = document.querySelector('.username');
+    // userNameDisplay.value = Name.innerText;
+     userNameDisplay.innerHTML =` <p>${Name.value}</p>`;
+// let savedName = localStorage.getItem('user_name');
+
+});
 
 
-let userNameDisplay = document.querySelector('.Name');
-
-
-let savedName = localStorage.getItem('user_name');
-
-if (savedName) {
-    userNameDisplay.innerHTML =` <p>${savedName}</p>`;
-
-}
-
-
-let postContainer = document.querySelector('.postContainer');
+// let postContainer = document.querySelector('.postContainer');
 
 
 document.addEventListener('click', function(e) {
@@ -193,14 +194,21 @@ const getUserPosts = async () => {
         postContainer.innerHTML = "";
 
         for (let poste of postarray) {
+ let imgprofile;
+      if (Object.keys(poste.author.profile_image).length !== 0){
+        imgprofile=poste.author.profile_image;
+       }
+       else{
+        imgprofile='imgs/Image (Ahmed Mohamed).png';
+      }
+       let imgpost='';
+      if (Object.keys(poste.image).length !== 0){
 
-            let imgprofile = poste.author.profile_image
-                ? poste.author.profile_image
-                : 'imgs/myprofile.png';
-
-            let imgpost = poste.image
-                ? poste.image
-                : "imgs/Image_Post.png";
+        imgpost=poste.image;
+       }
+       else{
+        document.querySelector('.post_img').style.display="none";
+      }
 
 let space="/..";
                 postContainer.innerHTML += `
