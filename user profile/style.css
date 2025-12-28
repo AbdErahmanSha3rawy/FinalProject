@@ -351,7 +351,7 @@ transition-duration:1s ;
 }
 .options img{
     width: 50px;
-    margin-top: -15px;
+    margin-top: -10px;
     margin-right: -10px;
 }
 .list{
@@ -570,6 +570,8 @@ cursor: pointer;
 .profile_name{
     display: flexbox;
     transform: translateY(-20px);
+
+
 }
 .Name{
     font-size:16px;
@@ -586,7 +588,7 @@ cursor: pointer;
 .post_descripe{
     font-size: 16px;
     margin-left: 20px;
-    margin-top: -5px;
+    
 }
 .post_img{
 display: block;
