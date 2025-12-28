@@ -29,6 +29,7 @@ let moood;
         let lovecount = postDiv.querySelector('.lovecount');
         let id=lovecount.innerHTML;
 const user_id=localStorage.getItem("user_id");
+
        if(id==user_id){
          let list = postDiv.querySelector('.list');
         let postImg = postDiv.querySelector('.post_img');

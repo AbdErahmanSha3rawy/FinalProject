@@ -84,7 +84,8 @@ function login() {
         const user = response.data.user;
         const user_id=user.id;
         localStorage.setItem("user_id",user_id)  ;
-        
+        const user_image=user.image;
+        localStorage.setItem("user_image",user_image)  ;
         localStorage.setItem("token", token);
         
         localStorage.setItem("user", JSON.stringify(user));
