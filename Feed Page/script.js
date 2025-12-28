@@ -25,28 +25,50 @@ let moood;
     
      
     if (e.target.closest('.options')) {
+        let postdiv=postDiv.querySelector('.post');
+        let lovecount = postDiv.querySelector('.lovecount');
+        let id=lovecount.innerHTML;
+const user_id=localStorage.getItem("user_id");
+       if(id==user_id){
+         let list = postDiv.querySelector('.list');
+        let postImg = postDiv.querySelector('.post_img');
+        if (list.style.display === "block") {
+            list.style.display = "none";
+            postImg.style.marginTop = "0px";
+        } 
+        else {
+
+            list.style.display = "block";
+            postImg.style.marginTop = "-120px";
+        }
+
+       }
+       else{
         let list = postDiv.querySelector('.list');
         let postImg = postDiv.querySelector('.post_img');
         if (list.style.display === "block") {
             list.style.display = "none";
             postImg.style.marginTop = "0px";
         } 
-        else if(moood===5){
-            
-            list.style.display = "none";
-
-        }
         else {
 
             list.style.display = "block";
             postImg.style.marginTop = "-120px";
         }
+       list.innerText="Not Your Account";
+       list.style.height="auto";
+       list.style.marginBottom="82px";
+       list.style.background="red";
+       list.style.color="white";
+       
+
+
+       }
     }
     if (e.target.closest('.Delete')) {
         let postdiv=postDiv.querySelector('.post');
         let lovecount = postDiv.querySelector('.lovecount');
         let id=lovecount.innerHTML;
-        console.log(id);
         deletePost(id);
         postDiv.querySelector('.list').style.display="none";
             postDiv.querySelector('.post_img').style.marginTop = "0px";
@@ -159,7 +181,10 @@ function getposts() {
         if (request.status >= 200 && request.status < 300) {
             let postsr = request.response;
             let postarray = postsr.data;
+
             for (let poste of postarray) {
+localStorage.setItem("userid",poste.author.id);
+
                  let imgprofile;
       if (Object.keys(poste.author.profile_image).length !== 0){
         imgprofile=poste.author.profile_image;
@@ -172,10 +197,8 @@ function getposts() {
         imgpost=poste.image;
        }
        else{
-        // document.querySelector('.post_img').style.display="none";
       }
   
-
 let space="/..";
                 postContainer.innerHTML += `
                 
@@ -185,10 +208,9 @@ let space="/..";
             <img src="${imgprofile}" class="img_prof" alt="">
             <div class="profile_name">
                 <p class="Name">${poste.author.name}</p>
-             <div class="username_created_at">
-
+                 <div class="username_created_at">
                 <p class="username">${poste.author.username}</p>
-                <p>${space}</p>
+                <p class="space">${space}</p>
                 <p class="created_at">${poste.created_at}</p>
                 </div>
             </div>
@@ -215,7 +237,7 @@ let space="/..";
     <img class="post_img" src="${imgpost}">
     <div class="actives">
         <button class="lovebtn"><img src="imgs/love.svg" alt=""></button>
-        <p class="lovecount">${poste.id }</p>
+        <p class="lovecount">${poste.author.id }</p>
         <button class="commentbtn"><img src="imgs/comment.svg" alt=""></button>
         <p class="commentcount">${poste.comments_count}</p>
         <button><img src="imgs/share.svg" alt=""></button>

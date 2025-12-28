@@ -82,7 +82,9 @@ function login() {
     .then((response) => {
         const token = response.data.token;
         const user = response.data.user;
-
+        const user_id=user.id;
+        localStorage.setItem("user_id",user_id)  ;
+        
         localStorage.setItem("token", token);
         
         localStorage.setItem("user", JSON.stringify(user));
