@@ -227,20 +227,7 @@ let space="/..";
             <button type="submit" class="add_comment_btn">post</button>
         </div>
 <div class="comment">
-            <div class="comment_content">
-                <img class="comment_img" src="imgs/Image (Ahmed Mohamed).png" alt="">
-                <div class="commenty">
-                <p  class="username_comment">${poste.author.username}</p>
-                <p class="Elcomment"></p>
-                </div>
-                </div>
-            <br>
-            <div class="react">
-                <p>Now</p>
-                <button><img src="imgs/love.svg" alt=""></button>
-                <p>Like</p>
-            </div>
-        </p>
+          
     </div>
 </div>`;
             }
@@ -392,7 +379,24 @@ const createComment = async (id,Elcomment) => {
         'Authorization':token
       },
     });
-
+      let commentr = request.response;
+            let commentarray = commentr.data.comments_count;
+            for (let commente of commentarray) {
+                comment.innerHTML+=` 
+      <div class="comment_content">
+                <img class="comment_img" src="imgs/Image (Ahmed Mohamed).png" alt="">
+                <div class="commenty">
+                <p  class="username_comment">${commente.author.username}</p>
+                <p class="Elcomment"></p>
+                </div>
+                </div>
+            <br>
+            <div class="react">
+                <p>Now</p>
+                <button><img src="imgs/love.svg" alt=""></button>
+                <p>Like</p>
+            </div>`
+            }
     const data = await response.json();
     console.log('', data);
   } catch (error) {
