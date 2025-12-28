@@ -174,11 +174,16 @@ createComment(id,Elcomment.innerText);
 
 
 function getposts() {
+      const loader = document.getElementById('loader-wrapper');
+
+  if (loader) loader.style.display = "flex";
     let request = new XMLHttpRequest();
     request.open("GET", "https://tarmeezacademy.com/api/v1/posts");
     request.responseType = "json";
     request.send();
     request.onload = function() {
+            if (loader) loader.style.display = "none";
+
         if (request.status >= 200 && request.status < 300) {
             let postsr = request.response;
             let postarray = postsr.data;
@@ -258,6 +263,10 @@ let space="/..";
             alert("Error loading posts");
         }
     };
+     request.onerror = function () {
+    if (loader) loader.style.display = "none";
+    alert("Network Error");
+  };
 
 }
 

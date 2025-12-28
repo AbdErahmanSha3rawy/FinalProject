@@ -152,7 +152,11 @@ createComment(id,Elcomment.innerText);
     }
 
 });
+
 const getUserPosts = async () => {
+      let loader = document.getElementById('loader-wrapper');
+
+  if (loader) loader.style.display = "flex";
     const user = JSON.parse(localStorage.getItem("user"));
     const userId = user.id;
     const token = localStorage.getItem("token");
@@ -168,6 +172,8 @@ const getUserPosts = async () => {
 
     try {
         const response = await fetch(url, {
+     
+
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -184,7 +190,9 @@ const getUserPosts = async () => {
 
         const postarray = result.data;
         postContainer.innerHTML = "";
-            
+             let load = document.getElementById('loader-wrapper');
+
+            if (load) load.style.display = "none";
         for (let poste of postarray) {
         post_counter++;
             let imgprofile;
@@ -279,6 +287,10 @@ let space="/..";
      catch (error) {
         console.error(error);
     }
+    request.onerror = function () {
+    if (loader) loader.style.display = "none";
+    alert("Network Error");
+  };
 };
 
 getUserPosts();

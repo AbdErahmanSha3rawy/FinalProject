@@ -17,71 +17,72 @@ menu.style.display="block";
         }
 }
 
+function getposts() {
+  const loader = document.getElementById('loader-wrapper');
 
+  if (loader) loader.style.display = "flex";
 
-function getposts(){
-
- let request= new XMLHttpRequest();
-  request.open("GET","https://tarmeezacademy.com/api/v1/posts");
-  request.responseType="json";
+  let request = new XMLHttpRequest();
+  request.open("GET", "https://tarmeezacademy.com/api/v1/posts");
+  request.responseType = "json";
   request.send();
-  request.onload = function (){
-    if(request.status >=200 && request.status <300){ 
-let postsr=request.response;
-let postarray=postsr.data;
-    for(let poste of postarray){
-       let imgprofile;
-      if (Object.keys(poste.author.profile_image).length !== 0){
-        imgprofile=poste.author.profile_image;
-       }
-       else{//** */
-        imgprofile='imgs/myprofile.png';
+
+  request.onload = function () {
+    if (loader) loader.style.display = "none";
+
+    if (request.status >= 200 && request.status < 300) {
+      let postsr = request.response;
+      let postarray = postsr.data;
+
+      post.innerHTML = "";
+
+      for (let poste of postarray) {
+        let imgprofile = (poste.author.profile_image && Object.keys(poste.author.profile_image).length !== 0) 
+                         ? poste.author.profile_image 
+                         : 'imgs/myprofile.png';
+
+          let imgpost = "";
+        if (poste.image && Object.keys(poste.image).length !== 0) {
+          imgpost = `<img class="post_img" src="${poste.image}">`;
+        }
+
+        let space = ". / .";
+        
+        post.innerHTML += `
+          <div class="container">
+            <div class="profile_descripe">
+              <img src="${imgprofile}" class="img_prof" alt="">
+              <div class="profile_name">
+                <p class="Name">${poste.author.name}</p>
+                <div class="username_created_at">
+                  <p class="username">${poste.author.username}</p>
+                  <p>${space}</p>
+                  <p class="created_at">${poste.created_at}</p>
+                </div>
+              </div>
+            </div>
+            <p class="post_descripe">${poste.body}</p>
+            ${imgpost} 
+            <div class="actives">
+              <button class="lovebtn"><img src="imgs/love.svg" alt=""></button>
+              <p class="lovecount"> ${poste.id}</p>
+              <button class="commentbtn"><img src="imgs/comment.svg" alt=""></button>
+              <p class="commentcount"> ${poste.comments_count}</p>
+              <button class="sharebtn"><img src="imgs/share.svg" alt=""></button>
+            </div>  
+          </div>
+          <br><br>
+        `;
       }
-       let imgpost='';
-      if (Object.keys(poste.image).length !== 0){
-
-        imgpost=poste.image;
-       }
-       else{
-        // document.querySelector('.post_img').style.display="none";
-      }
-    
-      let space=". / .";
-      post.innerHTML +=   `
-      <div class="container">
-      <div class="profile_descripe">
-
-<img src="${imgprofile}" class="img_prof"  alt="">
-    
-<div class="profile_name">
-    <p class="Name">${poste.author.name}</p>
-    <div class="username_created_at">
-    <p class="username">${poste.author.username}</p>
-    <p>${space}</p>
-      <p class="created_at">${poste.created_at}</p>
-</div>
-      </div>
-</div>
-      <p class="post_descripe">${poste.body}</p>
-      <img class="post_img" src="${imgpost}">
-      <div class="actives">
-      <button class="lovebtn"><img src="imgs/love.svg" alt=""></button><p class="lovecount"> ${poste.id}</p>
-      <button class="commentbtn"><img src="imgs/comment.svg" alt=""></button><p class="commentcount"> ${poste.comments_count}</p>
-      <button class="sharebtn"><img src="imgs/share.svg" alt=""></button>
-      </div>  
-      </div>
-      <br><br>
-      
-      `;
-    
-
+    } else {
+      alert("Error loading posts");
     }
-  }
-  else{
-    alert("Errorrrrr");
-  }
-  }
+  };
+
+  request.onerror = function () {
+    if (loader) loader.style.display = "none";
+    alert("Network Error");
+  };
 }
 
 getposts();
-
