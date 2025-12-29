@@ -26,6 +26,9 @@ body{
     border-top: 5px solid #f705f7;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    background-image: url(imgs/main.svg);
+    
+    background-color: #ff46d7;
 }
 
 @keyframes spin {

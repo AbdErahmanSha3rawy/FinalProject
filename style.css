@@ -24,6 +24,9 @@ body{
     border-top: 5px solid #f705f7; 
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    background-image: url(imgs/main.svg);
+    
+    background-color: #ff46d7;
 }
 
 #loader-wrapper {
@@ -45,11 +48,16 @@ body{
     border-top: 5px solid #f705f7; 
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    background-image: url(imgs/main.svg);
+    
+    background-color: #ff46d7;
 }
 
 @keyframes spin {
     0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg);
+    
+    }
 }
 nav{
     display: flex;
