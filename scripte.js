@@ -1,4 +1,14 @@
+  const loader_general = document.getElementById('loader_general');
 
+  if (loader_general) loader_general.style.display = "flex";
+
+window.addEventListener('load', function() {
+    
+    loader_general.style.opacity = '0';
+    setTimeout(() => {
+        loader_general.style.display = 'none';
+    }, 500);
+});
 let post=document.querySelector('.post');
 let menu_icon=document.querySelector('.menu_icon');
 let menu=document.querySelector('.menu');
