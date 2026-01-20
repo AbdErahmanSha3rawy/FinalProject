@@ -46,7 +46,7 @@
     <label for="Full Name">Full Name</label><br>
       <div class="contain">
       <div class="input_icon"><img src="imgs/name.png" alt=""></div>
-    <input type="text" name="" id="Full Name" placeholder="Enter your full name">
+    <input type="text" name="" id="Full_Name" placeholder="Enter your full name">
      </div><br>
     <label for="username">username</label><br>
           <div class="contain">
@@ -63,14 +63,19 @@
       <div class="input_icon"><img src="imgs/pass.png" alt=""></div>
     <input type="password" name="" id="password" placeholder="••••••••">
           </div><br>
-    <label id="Profile_Image" for="Profile Image">Profile Image</label>
+    <label id="ProfileImage" for="Profile Image">Profile Image</label>
           <div class="contain">
       <div class="input_icon"><img src="imgs/img.png" alt=""></div>
-    <input type="url" name="" id="Profile Image" placeholder="https://example.com/image.jpg">
+    <input type="url" name="" id="Profile_Image" readonly placeholder="https://example.com/image.jpg">
+    <input type="file"  accept="image/*" id="Profile_Image2" >
+
           </div><br>
-    <a href="../Feed Page/index.html" class="link"><div  class="Create_Account">Create Account</div></a>
-    <p class="question">Already have an account?<a href="../login/index.html">Login</a></p>
+
+  <button type="button" class="Create_Account">Create Account </button>
+          <p class="question">Already have an account?<a href="../login/index.html">Login</a></p>
  </form>
+ <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
  <script src="script.js"></script>
   </div>  
 </body>

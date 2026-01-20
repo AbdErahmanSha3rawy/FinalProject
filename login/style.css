@@ -172,7 +172,9 @@ align-self: center;
     height: 500px;
     margin-bottom: 200px;
  }
-
+.audio_success{
+    margin-left: 200px;
+}
 .descripe{
     display: inline-flexbox;
     align-content: center;

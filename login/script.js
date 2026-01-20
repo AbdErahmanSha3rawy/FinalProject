@@ -21,56 +21,56 @@ menu.style.display="block";
 }
 
 
-function checkInputs() { 
+// function checkInputs() { 
   
-    if (usernameValue.value&& passwordValue.value ) {
-        loginbtn.style.opacity = "1";
-        link.style.pointerEvents = "auto"; 
+//     if (usernameValue.value&& passwordValue.value ) {
+//         loginbtn.style.opacity = "1";
+//         link.style.pointerEvents = "auto"; 
 
-        }
-         else {
-        loginbtn.style.opacity = "0.5";
-        link.style.pointerEvents = "none"; 
-        link.style.curser = "pointer"; 
+//         }
+//          else {
+//         loginbtn.style.opacity = "0.5";
+//         link.style.pointerEvents = "none"; 
+//         link.style.curser = "pointer"; 
 
-            } 
-           if(passwordValue.value ) {
-         passwordValue.style.border="2px solid rgb(54, 245, 7)";
-        passwordValue.style.boxShadow="2px 8px 4px rgb(54, 245, 7)";
+//             } 
+//            if(passwordValue.value ) {
+//          passwordValue.style.border="2px solid rgb(54, 245, 7)";
+//         passwordValue.style.boxShadow="2px 8px 4px rgb(54, 245, 7)";
 
-     }  
-      else if(passwordValue.value.length === 0){
-        passwordValue.style.boxShadow="none";
-        passwordValue.style.border="2px solid black";
+//      }  
+//       else if(passwordValue.value.length === 0){
+//         passwordValue.style.boxShadow="none";
+//         passwordValue.style.border="2px solid black";
 
-     }                
-     else{
-        passwordValue.style.border="2px solid red";
-        passwordValue.style.boxShadow="2px 8px 4px red";
-
-
-     }
-      if(usernameValue.value ) {
-        usernameValue.style.border="2px solid rgb(54, 245, 7)";
-        usernameValue.style.boxShadow="2px 8px 4px rgb(54, 245, 7)";
-     }  
-     else if(usernameValue.value.length === 0){
-        usernameValue.style.border="2px solid black";
-        usernameValue.style.boxShadow="none";
-     }               
-     else{
-        usernameValue.style.border="2px solid red";
-        usernameValue.style.boxShadow="2px 8px 4px red";
+//      }                
+//      else{
+//         passwordValue.style.border="2px solid red";
+//         passwordValue.style.boxShadow="2px 8px 4px red";
 
 
-     }
-         };
+//      }
+//       if(usernameValue.value ) {
+//         usernameValue.style.border="2px solid rgb(54, 245, 7)";
+//         usernameValue.style.boxShadow="2px 8px 4px rgb(54, 245, 7)";
+//      }  
+//      else if(usernameValue.value.length === 0){
+//         usernameValue.style.border="2px solid black";
+//         usernameValue.style.boxShadow="none";
+//      }               
+//      else{
+//         usernameValue.style.border="2px solid red";
+//         usernameValue.style.boxShadow="2px 8px 4px red";
+
+
+//      }
+//          };
                                     
-usernameValue.onkeyup =checkInputs;                                                   
-passwordValue.onkeyup = checkInputs; 
+// usernameValue.onkeyup =checkInputs;                                                   
+// passwordValue.onkeyup = checkInputs; 
 
 
-checkInputs();                                    
+// checkInputs();                                    
 
 function login() {
     const params = {
@@ -84,16 +84,27 @@ function login() {
         const user = response.data.user;
         const user_id=user.id;
         localStorage.setItem("user_id",user_id)  ;
-        const user_image=user.image;
-        localStorage.setItem("user_image",user_image)  ;
+
         localStorage.setItem("token", token);
-        
+           let audio_success=document.querySelector('.audio_success');
+if(token){
+audio_success.currentTime=0;
+audio_success.play();
+
+setTimeout(()=>{
+        window.location = "../Feed Page/index.html"; 
+},3000);
+}
+
         localStorage.setItem("user", JSON.stringify(user));
 
-        window.location = "../Feed Page/index.html"; 
     })
     .catch((error) => {
-        const message = error.response.data.message;
-        alert(message);
+      //   const message = error.response.data.message;
+      //   alert(message);
     });
 }
+//  loginbtn.onclick=function(){
+//      const token1 = localStorage.getItem("token");
+  
+//  }

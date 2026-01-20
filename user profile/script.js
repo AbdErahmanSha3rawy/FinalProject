@@ -15,8 +15,12 @@ menu.style.display="block";
 
         }
 }
+const User_Img = localStorage.getItem("imgprofile");
+document.querySelector('.User_Img').src = `${User_Img}` ;
 
-    
+const myProfileImage = localStorage.getItem("imgprofile");
+document.querySelector('.imgy').src = `${myProfileImage}` ;
+
 const myname=localStorage.getItem("Name");
 document.querySelector('.Name_user').innerText=`${myname}`;
 const myusername=localStorage.getItem("User_Name");
@@ -202,7 +206,8 @@ const getUserPosts = async () => {
        else{
         imgprofile='imgs/Image (Ahmed Mohamed).png';
       }
-       let imgpost='';
+ 
+localStorage.setItem("imgprofile", imgprofile);       let imgpost='';
       if (Object.keys(poste.image).length !== 0){
 
         imgpost=poste.image;
@@ -253,7 +258,7 @@ let space="/..";
     <img class="post_img" src="${imgpost}">
     <div class="actives">
         <button class="lovebtn"><img src="imgs/love.svg" alt=""></button>
-        <p class="lovecount">${poste.id }</p>
+        <p class="lovecount">${poste.id}</p>
         <button class="commentbtn"><img src="imgs/comment.svg" alt=""></button>
         <p class="commentcount">${poste.comments_count}</p>
         <button><img src="imgs/share.svg" alt=""></button>

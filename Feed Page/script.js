@@ -4,7 +4,10 @@ let postContainer = document.querySelector('.postContainer');
 let menu_icon=document.querySelector('.menu_icon');
 let menu=document.querySelector('.menu');
    let elaicona=document.querySelector('.elaicona');
-
+const User_Img = localStorage.getItem("imgprofile");
+document.querySelector('.User_Img').src = `${User_Img}` ;
+const User_Img1 = localStorage.getItem("imgprofile");
+document.querySelector('.User_Img1').src = `${User_Img1}` ;
 menu_icon.onclick=function(){
         if (menu.style.display === "block") {
 menu.style.display="none";
@@ -70,7 +73,9 @@ const user_id=localStorage.getItem("user_id");
         let postdiv=postDiv.querySelector('.post');
         let lovecount = postDiv.querySelector('.lovecount');
         let id=lovecount.innerHTML;
-        deletePost(id);
+     let postid = localStorage.getItem("postid");
+        deletePost(postid);
+        console.log(postid)
         postDiv.querySelector('.list').style.display="none";
             postDiv.querySelector('.post_img').style.marginTop = "0px";
 getposts();
@@ -189,7 +194,9 @@ function getposts() {
             let postarray = postsr.data;
 
             for (let poste of postarray) {
-localStorage.setItem("userid",poste.author.id);
+localStorage.setItem("postid",poste.id);
+
+
 
                  let imgprofile;
       if (Object.keys(poste.author.profile_image).length !== 0){
@@ -243,7 +250,7 @@ let space="/..";
     <img class="post_img" src="${imgpost}">
     <div class="actives">
         <button class="lovebtn"><img src="imgs/love.svg" alt=""></button>
-        <p class="lovecount">${poste.author.id }</p>
+        <p class="lovecount">${poste.author.id}</p>
         <button class="commentbtn"><img src="imgs/comment.svg" alt=""></button>
         <p class="commentcount">${poste.comments_count}</p>
         <button><img src="imgs/share.svg" alt=""></button>
@@ -303,6 +310,9 @@ const text_value=text.value;
  const file = img_of_new_post.files[0]; 
         const formData = new FormData();
         formData.append("body",text_value);
+  let audio_success=document.querySelector('.audio_success');
+audio_success.currentTime=0;
+audio_success.play();
 
     if (file) {
         formData.append("image",file);
@@ -343,7 +353,6 @@ getposts();
 
 
 
-
 function deletePost(item) {
      let id=item;
     let request = new XMLHttpRequest();
@@ -351,11 +360,8 @@ function deletePost(item) {
     request.responseType = "json";
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Content-Type", "application/json");
-   const token = localStorage.getItem("token");
-    request.setRequestHeader("Authorization", `Bearer ${token}`); 
-
-   
-    request.send();
+   const token1 = localStorage.getItem("token");
+    request.setRequestHeader("Authorization", `Bearer ${token1}`); 
 
     request.onload = function() {
         if(request.status >= 200 && request.status < 300) {
@@ -364,6 +370,9 @@ function deletePost(item) {
            
         }
     }
+    request.send();
+
+   
 }
 
 

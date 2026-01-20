@@ -1,6 +1,11 @@
 
 let usernameInput = document.querySelector('#username');
 let saveBtn = document.querySelector('.save');
+const User_Img = localStorage.getItem("imgprofile");
+document.querySelector('.User_Img').src = `${User_Img}` ;
+const User_Imgpr = localStorage.getItem("imgprofile");
+document.querySelector('.User_Imgpr').src = `${User_Imgpr}` ;
+
 
 saveBtn.onclick = function() {
     localStorage.setItem('user_name', usernameInput.value);
