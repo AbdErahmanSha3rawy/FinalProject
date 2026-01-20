@@ -242,6 +242,8 @@ align-self: center;
 }
 .img_profile .User_Imgpr{
     width: 70px;
+    height: 70px;
+    border-radius: 50%;
     
 }
 .img_profile button{

@@ -49,8 +49,13 @@ function register() {
         formData
     )    
      .then((response) => {
-                    window.location = "../Feed Page/index.html"; 
+          let audio_success=document.querySelector('.audio_success');
+audio_success.currentTime=0;
+audio_success.play();
 
+setTimeout(()=>{
+        window.location = "../Feed Page/index.html"; 
+},5000);
         })
         .catch((error) => {
             console.log(error.response.data);

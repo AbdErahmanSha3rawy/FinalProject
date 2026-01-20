@@ -93,7 +93,7 @@ audio_success.play();
 
 setTimeout(()=>{
         window.location = "../Feed Page/index.html"; 
-},3000);
+},5000);
 }
 
         localStorage.setItem("user", JSON.stringify(user));

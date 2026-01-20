@@ -43,7 +43,7 @@ const user_id=localStorage.getItem("user_id");
         else {
 
             list.style.display = "block";
-            postImg.style.marginTop = "-120px";
+            postImg.style.marginTop = "-100px";
         }
 
        }
@@ -57,13 +57,19 @@ const user_id=localStorage.getItem("user_id");
         else {
 
             list.style.display = "block";
-            postImg.style.marginTop = "-120px";
+            postImg.style.marginTop = "-82px";
         }
-       list.innerText="Not Your Account";
-       list.style.height="auto";
-       list.style.marginBottom="82px";
-       list.style.background="red";
-       list.style.color="white";
+       list.style.height="30px";
+       list.style.marginBottom="52px";
+       list.style.marginTop="10px";
+        let edt = postDiv.querySelector('.Edit');
+        let delt = postDiv.querySelector('.Delete');
+         let Shar = postDiv.querySelector('.Share');
+        edt.style.display="none";
+        delt.style.display="none";
+        Shar.style.marginTop="-75px";
+
+
        
 
 

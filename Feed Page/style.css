@@ -225,7 +225,7 @@ align-self: center;
     margin-bottom: 40px;
     background-color: #FFFFFF;
     border-radius: 16px;    
-    width: 80%;
+    width: 50%;
     height: auto;
     padding: 20px;
     border-radius: 10px;
@@ -280,7 +280,7 @@ align-self: center;
 
     border-radius: 10px;
     width: 100%;
-    height: 60px;
+    height: 160px;
     margin-bottom: 20px;
     padding: 20px;
     border: none;
@@ -382,6 +382,7 @@ width: 100%;
 .profile_descripe{
     display: flex;
     justify-content: space-between;
+
     
 }
 .username_created_at{
@@ -413,7 +414,7 @@ width: 100%;
         box-shadow: 0px 2px 5px #8d8484;
 
     border-radius: 10px;
-    transform: translateY(-100px);
+    transform: translateY(-50px);
     display: block;
     justify-self: end;
     padding: 10px;
@@ -578,13 +579,13 @@ background-image: linear-gradient(90deg,#AD46FF,#F6339A);
 }
 .profile_name{
     display: flexbox;
-    transform: translateY(-20px);
+    transform: translateY(0px);
 
 }
 .Name{
     font-size:16px;
     font-weight: bold;
-    margin-bottom: -7px;
+    margin-bottom:-2px;
     
 
     
@@ -596,7 +597,8 @@ background-image: linear-gradient(90deg,#AD46FF,#F6339A);
 .post_descripe{
     font-size: 20px;
     margin-left: 20px;
-    margin-top: -10px;
+    margin-top: -50px;
+    margin-bottom: 10px;
 }
 .post_img{
 display: block;
