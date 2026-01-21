@@ -164,6 +164,9 @@ if (e.target.closest('.Cancelbtn')) {
         } else {
             loveBtn.src = "imgs/lovered.svg";
             lovecount.innerText = count + 1;
+            let audio_like=document.querySelector('.audio_like');
+audio_like.currentTime=0;
+audio_like.play();
         }
     }
 
@@ -184,21 +187,35 @@ createComment(id,Elcomment.innerText);
 
 });
 
+let page = 1;
+let isLoading = false;
+let lastPage = false;
 
 function getposts() {
+      if (isLoading || lastPage) return;
+  isLoading = true;
       const loader = document.getElementById('loader-wrapper');
 
   if (loader) loader.style.display = "flex";
     let request = new XMLHttpRequest();
-    request.open("GET", "https://tarmeezacademy.com/api/v1/posts");
+  request.open("GET", `https://tarmeezacademy.com/api/v1/posts?page=${page}`);
     request.responseType = "json";
     request.send();
     request.onload = function() {
+                isLoading = false; 
+
             if (loader) loader.style.display = "none";
 
         if (request.status >= 200 && request.status < 300) {
             let postsr = request.response;
             let postarray = postsr.data;
+  if (postarray.length === 0) {
+        lastPage = true;
+        return;
+      }
+      if (page === 1) {
+    postContainer.innerHTML = ""; 
+}
 
             for (let poste of postarray) {
 localStorage.setItem("postid",poste.id);
@@ -273,16 +290,33 @@ let space="/..";
     </div>
 </div>`;
             }
+                        page++; 
+
         } else {
             alert("Error loading posts");
         }
     };
      request.onerror = function () {
+                isLoading = false; 
     if (loader) loader.style.display = "none";
     alert("Network Error");
   };
 
 }
+
+
+getposts();
+
+
+window.addEventListener("scroll", function () {
+  if (
+    window.innerHeight + window.scrollY >=
+    document.body.offsetHeight - 150
+  ) {
+    getposts();
+  }
+});
+
 
 
 let text=document.querySelector('.text');
@@ -317,9 +351,7 @@ const text_value=text.value;
  const file = img_of_new_post.files[0]; 
         const formData = new FormData();
         formData.append("body",text_value);
-  let audio_success=document.querySelector('.audio_success');
-audio_success.currentTime=0;
-audio_success.play();
+
 
     if (file) {
         formData.append("image",file);
@@ -345,18 +377,26 @@ function createPost(formData) {
     request.setRequestHeader("Authorization", `Bearer ${token}`); 
 
     request.send(formData);
+        request.onload = function() {
+      if(request.status >= 200 && request.status < 300) {
+            // تشغيل صوت
+            let audio_success=document.querySelector('.audio_success');
+            audio_success.currentTime=0;
+            audio_success.play();
 
-    request.onload = function() {
-        if(request.status >= 200 && request.status < 300) {
-getposts();
-
-        } else {
+            // رجوع للصفحة الأولى
+            page = 1;  // اعمل reset للصفحات
+            lastPage = false; // اعمل reset لو كان وصل لآخر صفحة
+            getposts(); // نجيب البوستات من أول صفحة
+        }
+       
+         else {
             console.log(request.status, request.response);
             alert("Error: " + request.status);
-        }
+        }}
     }
-}
-getposts();
+
+
 
 
 

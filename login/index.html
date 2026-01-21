@@ -46,13 +46,51 @@
       <div class="input_icon"><img src="imgs/pass.png" alt=""></div>
     <input type="password" name="" id="password" placeholder="••••••••">
     </div><br>
-    <!-- <a href="../Feed Page/index.html" class="link"><div  class="loginbtn">Login</div></a> -->
      <button type="button" onclick="login()" class="loginbtn" style="width: 100%; border: none; cursor: pointer;">
     Login
 </button>
     <div class="question"><p>Don't have an account?</p><a href="../Sign Up/index.html">Sign up now</a></div>
  </form>
   </div>  
+  <div class="confetti">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<style>
+.confetti div {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  animation: fall 3s linear infinite;
+}
+
+.confetti div:nth-child(1) { left: 5%; background: red; animation-duration: 2s; }
+.confetti div:nth-child(2) { left: 15%; background: yellow; animation-duration: 3s; }
+.confetti div:nth-child(3) { left: 25%; background: blue; animation-duration: 2.5s; }
+.confetti div:nth-child(4) { left: 35%; background: green; animation-duration: 3.5s; }
+.confetti div:nth-child(5) { left: 45%; background: orange; animation-duration: 2.2s; }
+.confetti div:nth-child(6) { left: 55%; background: purple; animation-duration: 3.1s; }
+.confetti div:nth-child(7) { left: 65%; background: pink; animation-duration: 2.8s; }
+.confetti div:nth-child(8) { left: 75%; background: cyan; animation-duration: 3.3s; }
+.confetti div:nth-child(9) { left: 85%; background: lime; animation-duration: 2.6s; }
+.confetti div:nth-child(10){ left: 95%; background: magenta; animation-duration: 3.2s; }
+
+@keyframes fall {
+  0%   { transform: translateY(0); opacity:1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity:0; }
+}
+</style>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <script src="script.js"></script>

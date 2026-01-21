@@ -1,3 +1,5 @@
+
+
   const loader_general = document.getElementById('loader_general');
 
   if (loader_general) loader_general.style.display = "flex";
@@ -27,24 +29,39 @@ menu.style.display="block";
         }
 }
 
+let page = 1;
+let isLoading = false;
+let lastPage = false;
+
 function getposts() {
+    if (isLoading || lastPage) return;
+  isLoading = true;
+
+
   const loader = document.getElementById('loader-wrapper');
 
   if (loader) loader.style.display = "flex";
 
   let request = new XMLHttpRequest();
-  request.open("GET", "https://tarmeezacademy.com/api/v1/posts");
+  request.open("GET", `https://tarmeezacademy.com/api/v1/posts?page=${page}`);
+
   request.responseType = "json";
   request.send();
 
   request.onload = function () {
+      isLoading = false; 
+
     if (loader) loader.style.display = "none";
 
     if (request.status >= 200 && request.status < 300) {
       let postsr = request.response;
       let postarray = postsr.data;
-
-      post.innerHTML = "";
+ 
+       if (postarray.length === 0) {
+        lastPage = true;
+        return;
+      }
+      
 
       for (let poste of postarray) {
         let imgprofile = (poste.author.profile_image && Object.keys(poste.author.profile_image).length !== 0) 
@@ -84,15 +101,29 @@ function getposts() {
           <br><br>
         `;
       }
+            page++; 
+
     } else {
       alert("Error loading posts");
     }
   };
 
   request.onerror = function () {
+      isLoading = false; 
+
     if (loader) loader.style.display = "none";
     alert("Network Error");
   };
 }
+post.innerHTML = "";
 
 getposts();
+
+window.addEventListener("scroll", function () {
+  if (
+    window.innerHeight + window.scrollY >=
+    document.body.offsetHeight - 150
+  ) {
+    getposts();
+  }
+});

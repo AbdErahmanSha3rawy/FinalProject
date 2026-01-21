@@ -23,10 +23,31 @@ document.querySelector('.imgy').src = `${myProfileImage}` ;
 
 const myname=localStorage.getItem("Name");
 document.querySelector('.Name_user').innerText=`${myname}`;
+
 const myusername=localStorage.getItem("User_Name");
 document.querySelector('.username').innerText=`${myusername}`;
+
 const elcounter=localStorage.getItem("counter");
 document.querySelector('.posts_nom').innerText=`${elcounter}`;
+
+function formatMonthYear(dateString) {
+    const date = new Date(dateString);
+
+    const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    const monthName = months[date.getMonth()]; 
+    const year = date.getFullYear();
+
+    return `${monthName} ${year}`;
+}
+
+const createdAt=localStorage.getItem("profile_CreatedAt");
+document.querySelector('.profile_CreatedAt').innerText=formatMonthYear(createdAt);
+
+
 document.addEventListener('click', function(e) {
     let postDiv = e.target.closest('.post'); 
      if (!postDiv) return; 
@@ -156,8 +177,14 @@ createComment(id,Elcomment.innerText);
     }
 
 });
+let page = 1;             
+let isLoading = false;    
+let lastPage = false;     
 
 const getUserPosts = async () => {
+    if (isLoading || lastPage) return;   
+isLoading = true;
+
       let loader = document.getElementById('loader-wrapper');
 
   if (loader) loader.style.display = "flex";
@@ -172,7 +199,7 @@ const getUserPosts = async () => {
         return;
     }
 
-    const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?sortBy=created_at&orderBy=desc`;
+const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?sortBy=created_at&orderBy=desc&page=${page}`;
 
     try {
         const response = await fetch(url, {
@@ -217,6 +244,9 @@ localStorage.setItem("imgprofile", imgprofile);       let imgpost='';
       }
         localStorage.setItem("Name",poste.author.name);
         localStorage.setItem("User_Name",poste.author.username);
+        localStorage.setItem("profile_CreatedAt",poste.author.created_at);
+
+
 
    
 let space="/..";
@@ -287,18 +317,25 @@ let space="/..";
     </div>
 </div>`;
             }
+       page++;          
+isLoading = false; 
+     
             localStorage.setItem("counter",post_counter);
     }
      catch (error) {
         console.error(error);
     }
-    request.onerror = function () {
-    if (loader) loader.style.display = "none";
-    alert("Network Error");
-  };
+    
 };
 
 getUserPosts();
+window.addEventListener("scroll", function () {
+    if (
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 150
+    ) {
+        getUserPosts();  
+    }
+});
 
 function deletePost(item) {
      let id=item;
