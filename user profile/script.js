@@ -158,6 +158,9 @@ if (e.target.closest('.Cancelbtn')) {
         } else {
             loveBtn.src = "imgs/lovered.svg";
             lovecount.innerText = count + 1;
+            let audio_like=document.querySelector('.audio_like');
+audio_like.currentTime=0;
+audio_like.play();
         }
     }
 
@@ -295,13 +298,13 @@ let space="/..";
     </div>
     <div class="commentcontainer" style="display:none;">
         <div class="add_comment">
-            <img src="imgs/Image (Ahmed Mohamed).png" alt="">
+            <img src="${imgprofile}" alt="">
             <input type="text" class="Write_comment" placeholder="Write a comment...">
             <button type="submit" class="add_comment_btn">post</button>
         </div>
 <div class="comment">
             <div class="comment_content">
-                <img class="comment_img" src="imgs/Image (Ahmed Mohamed).png" alt="">
+                <img class="comment_img" src="${imgprofile}" alt="">
                 <div class="commenty">
                 <p  class="username_comment">${poste.author.username}</p>
                 <p class="Elcomment"></p>

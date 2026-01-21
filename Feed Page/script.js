@@ -279,14 +279,27 @@ let space="/..";
         <p class="commentcount">${poste.comments_count}</p>
         <button><img src="imgs/share.svg" alt=""></button>
     </div>
-    <div class="commentcontainer" style="display:none;">
+      <div class="commentcontainer" style="display:none;">
         <div class="add_comment">
-            <img src="imgs/Image (Ahmed Mohamed).png" alt="">
+            <img src="${imgprofile}" alt="">
             <input type="text" class="Write_comment" placeholder="Write a comment...">
             <button type="submit" class="add_comment_btn">post</button>
         </div>
 <div class="comment">
-          
+            <div class="comment_content">
+                <img class="comment_img" src="${imgprofile}" alt="">
+                <div class="commenty">
+                <p  class="username_comment">${poste.author.username}</p>
+                <p class="Elcomment"></p>
+                </div>
+                </div>
+            <br>
+            <div class="react">
+                <p>Now</p>
+                <button><img src="imgs/love.svg" alt=""></button>
+                <p>Like</p>
+            </div>
+        </p>
     </div>
 </div>`;
             }
@@ -379,15 +392,14 @@ function createPost(formData) {
     request.send(formData);
         request.onload = function() {
       if(request.status >= 200 && request.status < 300) {
-            // تشغيل صوت
-            let audio_success=document.querySelector('.audio_success');
+
+        let audio_success=document.querySelector('.audio_success');
             audio_success.currentTime=0;
             audio_success.play();
 
-            // رجوع للصفحة الأولى
-            page = 1;  // اعمل reset للصفحات
-            lastPage = false; // اعمل reset لو كان وصل لآخر صفحة
-            getposts(); // نجيب البوستات من أول صفحة
+            page = 1;  
+            lastPage = false; 
+            getposts(); 
         }
        
          else {
@@ -464,32 +476,14 @@ const createComment = async (id,Elcomment) => {
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
-        'Authorization':token
+        'Authorization':'Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4'
       },
     });
-      let commentr = request.response;
-            let commentarray = commentr.data.comments_count;
-            for (let commente of commentarray) {
-                comment.innerHTML+=` 
-      <div class="comment_content">
-                <img class="comment_img" src="imgs/Image (Ahmed Mohamed).png" alt="">
-                <div class="commenty">
-                <p  class="username_comment">${commente.author.username}</p>
-                <p class="Elcomment"></p>
-                </div>
-                </div>
-            <br>
-            <div class="react">
-                <p>Now</p>
-                <button><img src="imgs/love.svg" alt=""></button>
-                <p>Like</p>
-            </div>`
-            }
+
     const data = await response.json();
     console.log('', data);
   } catch (error) {
     console.error('حدث خطأ:', error);
   }
 };
-
 

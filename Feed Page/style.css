@@ -477,6 +477,9 @@ cursor: pointer;
     height: 40px;
     border: none;
 }
+
+
+
 .commentcontainer{
 display: none;
 width: 90%;
@@ -524,10 +527,12 @@ background-image: linear-gradient(90deg,#AD46FF,#F6339A);
 .add_comment > img{
     width: 32px;
     height: 32px;
+    border-radius: 50%;
 }
 .comment_img{
     width: 32px;
     height: 32px;
+    border-radius: 50%;
 }
 .comment{
  justify-self: center;
@@ -778,9 +783,9 @@ margin: 0;
     display: block;
 
 }
-.space{
+/* .space{
     display: none;
-}
+} */
 .post_descripe{
     margin-top: -10px;
 }
