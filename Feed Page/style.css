@@ -167,6 +167,9 @@ nav .logout{
     border: none;
     display: none;
 }
+.menu_icon button:hover{
+  cursor: pointer;
+}
 .menu{
     width: 100%;
     place-items: center;
@@ -779,6 +782,14 @@ margin: 0;
 .space{
     display: none;
 }
-
-
+.post_descripe{
+    margin-top: -10px;
+}
+.list{
+    margin-top: -45px;
+    margin-bottom: 45px;
+}
+.options{
+    margin-bottom: -20px;
+}
 }

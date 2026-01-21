@@ -125,6 +125,9 @@ transition-duration:1s ;
     border: none;
     display: none;
 }
+.menu_icon button:hover{
+  cursor: pointer;
+}
 .menu{
     width: 100%;
     place-items: center;

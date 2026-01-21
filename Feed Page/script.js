@@ -57,11 +57,12 @@ const user_id=localStorage.getItem("user_id");
         else {
 
             list.style.display = "block";
-            postImg.style.marginTop = "-82px";
+            postImg.style.marginTop = "-42px";
         }
        list.style.height="30px";
        list.style.marginBottom="52px";
-       list.style.marginTop="10px";
+       list.style.marginRight="52px";
+       list.style.marginTop="-40px";
         let edt = postDiv.querySelector('.Edit');
         let delt = postDiv.querySelector('.Delete');
          let Shar = postDiv.querySelector('.Share');

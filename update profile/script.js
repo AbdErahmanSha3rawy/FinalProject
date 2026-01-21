@@ -6,7 +6,22 @@ document.querySelector('.User_Img').src = `${User_Img}` ;
 const User_Imgpr = localStorage.getItem("imgprofile");
 document.querySelector('.User_Imgpr').src = `${User_Imgpr}` ;
 
+let menu_icon=document.querySelector('.menu_icon');
+let menu=document.querySelector('.menu');
+   let elaicona=document.querySelector('.elaicona');
 
+menu_icon.onclick=function(){
+        if (menu.style.display === "block") {
+menu.style.display="none";
+   elaicona.src='imgs/menu.svg';       
+
+        }
+        else{
+   elaicona.src='imgs/elaicona.svg';       
+menu.style.display="block";
+
+        }
+}
 saveBtn.onclick = function() {
     localStorage.setItem('user_name', usernameInput.value);
     window.location.href = '../user profile/index.html';
