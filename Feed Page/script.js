@@ -8,6 +8,9 @@ const User_Img = localStorage.getItem("imgprofile");
 document.querySelector('.User_Img').src = `${User_Img}` ;
 const User_Img1 = localStorage.getItem("imgprofile");
 document.querySelector('.User_Img1').src = `${User_Img1}` ;
+
+
+
 menu_icon.onclick=function(){
         if (menu.style.display === "block") {
 menu.style.display="none";
@@ -216,6 +219,9 @@ function getposts() {
       if (page === 1) {
     postContainer.innerHTML = ""; 
 }
+        
+let user_name=localStorage.getItem("user_name");
+const profile_image = localStorage.getItem("profile_image");
 
             for (let poste of postarray) {
 localStorage.setItem("postid",poste.id);
@@ -281,15 +287,15 @@ let space="/..";
     </div>
       <div class="commentcontainer" style="display:none;">
         <div class="add_comment">
-            <img src="${imgprofile}" alt="">
+            <img src="${profile_image}" alt="">
             <input type="text" class="Write_comment" placeholder="Write a comment...">
             <button type="submit" class="add_comment_btn">post</button>
         </div>
 <div class="comment">
             <div class="comment_content">
-                <img class="comment_img" src="${imgprofile}" alt="">
+                <img class="comment_img" src="${profile_image}" alt="">
                 <div class="commenty">
-                <p  class="username_comment">${poste.author.username}</p>
+                <p  class="username_comment">${user_name}</p>
                 <p class="Elcomment"></p>
                 </div>
                 </div>

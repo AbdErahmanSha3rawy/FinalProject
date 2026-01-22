@@ -804,3 +804,115 @@ width:100% ;
 }
 
 }
+
+@media (min-width: 601px) and (max-width: 700px) {
+
+    .icon{
+        margin-left: -30px;
+    }
+    
+    .main_name{
+        display: none;
+    }
+    .notice{
+        margin-left: 130px;
+    }
+
+.eluser{
+    margin-right: -10px;
+}
+.Homey,.logouty,.profily{
+    display: none;
+}
+
+.menu{
+    position: sticky;
+    top: 50px;
+    padding-top: 10px;
+    width: 99%;
+
+}
+.menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
+    padding-left: 20px;
+
+}
+.links{
+    
+    margin-left: -50px;
+
+}
+.menu_icon button{ 
+    display: inline;
+    margin-left: -30px;
+}
+
+
+    
+.profile{
+   
+    width: 90%;
+
+}
+
+.Share{
+  
+    width: 50%;
+}
+
+.links_add{
+    width: 90%;
+  
+}
+
+
+.Eidt_Area{
+    
+   width: 100%;
+}
+.Eidt_Area textarea{
+width:100% ;
+}
+.post{
+   
+    width: 90%;
+
+}
+}
+@media (min-width: 601px) and (max-width: 1000px) {
+
+   .icon{
+    margin-left: -40px;
+    margin-right: 50px;
+   }
+
+
+.profile{
+   
+    width: 90%;
+
+}
+
+.Share{
+  
+    width: 50%;
+}
+
+.links_add{
+    width: 90%;
+  
+}
+
+
+.Eidt_Area{
+    
+   width: 100%;
+}
+.Eidt_Area textarea{
+width:100% ;
+}
+.post{
+   
+    width: 90%;
+
+}
+}

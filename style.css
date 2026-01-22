@@ -315,3 +315,40 @@ cursor: pointer;
 }
 
 }
+
+@media (min-width: 601px) and (max-width: 700px) {
+
+      .icon{
+        margin-left: -10px;
+    }
+.menu_icon button{ 
+    display: inline;
+    margin-right: -20px;
+}
+.Home,.login,.SignUp{
+    display: none;
+}
+
+.menu{
+    position: sticky;
+    top: 50px;
+    padding-top: 10px;
+
+}
+.menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
+    padding-left: 20px;
+
+}
+
+.post{
+    width: 90%;
+}
+}
+@media (min-width: 700px) and (max-width: 1000px) {
+
+.post{
+    width: 85%;
+}
+
+}
+

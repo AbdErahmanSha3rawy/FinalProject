@@ -416,3 +416,112 @@ input{
 
 }
 
+/*0000000000000000000000*/
+@media (min-width: 601px) and (max-width: 700px) {
+
+body{
+    margin: 0;
+}
+  .icon{
+        margin-left: -10px;
+    }
+.menu_icon button{ 
+    display: inline;
+    margin-right: -20px;
+}
+.Home,.login,.SignUp{
+    display: none;
+}
+
+.menu{
+    position: sticky;
+    top: 50px;
+    padding-top: 10px;
+
+}
+.menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
+    padding-left: 20px;
+
+}
+
+}
+/*0000000000000000*/
+@media (min-width: 601px) and (max-width: 1000px) {
+
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns:repeat(1,100%);
+    justify-items: center;
+    justify-content: center;
+    margin: auto;
+ }
+form {
+    width: 60%;
+    margin-top: 20px;
+    box-sizing: border-box; 
+    margin: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+.descripe{
+    width: 60%;
+    padding: 0;
+}
+
+.circle{
+transform: translateY(60px);
+
+
+}
+@keyframes circle {
+0%{
+ 
+
+}
+
+100%{
+    opacity: 50%;
+
+}
+}
+}
+@media (min-width: 1001px) and (max-width: 1200px) {
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.descripe{
+    width: 40%;
+    margin-right: 50px;
+}
+.contain{
+    position: relative;
+}
+.input_icon{
+    position: absolute;
+    left: 490px;
+    transform: translateY(15px);
+    margin-left: -200px;
+}
+form{
+    width: 30%;
+}
+@keyframes circle {
+0%{
+ 
+
+}
+
+100%{
+    opacity: 10%;
+width: 500px;
+height: 250px;  
+border-radius: 10%;
+transform: translateX(-200px); 
+background-color: #0afc16;
+}
+}
+}

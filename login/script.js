@@ -35,8 +35,12 @@ function login() {
         localStorage.setItem("user_id",user_id)  ;
 
         localStorage.setItem("token", token);
-
-
+       
+        const user_name=user.username;
+        localStorage.setItem("user_name",user_name)  ;
+const profile_image=user.profile_image;
+        localStorage.setItem("profile_image",profile_image)  ;
+        
            let audio_success=document.querySelector('.audio_success');
 if(token){
 audio_success.currentTime=0;
