@@ -290,7 +290,7 @@ align-self: center;
     transform: scale(1.1);
     transition-duration: 1s;
 }
-@media (max-width: 600px) {
+@media  (max-width: 600px) {
     .body{
         overflow: hidden;
     }
@@ -420,7 +420,7 @@ height: auto;
 .input_icon{
     position: absolute;
     left: 650px;
-    transform: translatex(-90px);
+    transform: translatex(-75px);
     margin-top: 7px;
 }
     .profile{
