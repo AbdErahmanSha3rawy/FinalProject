@@ -158,8 +158,21 @@ if (e.target.closest('.Cancelbtn')) {
         let loveBtn = postDiv.querySelector('.lovebtn img');
         let lovecount = postDiv.querySelector('.lovecount');
         let count = parseInt(lovecount.innerText) ;
+if (e.target.closest('.lovebtn') ){
+if (!loveBtn.src.includes("love.svg") ) {
+            loveBtn.src = "imgs/love.svg";
+            lovecount.innerText = count - 1 ;
+           
+        } 
+        else {
+            loveBtn.src = "imgs/lovered.svg";
+            lovecount.innerText = count + 1;
+audio_like.currentTime=0;
+audio_like.play();
+        }
 
-    if (e.target.closest('.lovebtn') || e.target.closest('.love_emoji')) {
+ }
+    if (e.target.closest('.love_emoji')) {
        
 
         if (loveBtn.src.includes("lovered.svg")) {
@@ -213,7 +226,7 @@ audio_like.play();
 audio_like.play();
         } 
         else {
-            lovebtn.src = "imgs/sad.svg";
+            loveBtn.src = "imgs/sad.svg";
             lovecount.innerText = count + 1;
 audio_like.currentTime=0;
 audio_like.play();
