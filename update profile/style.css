@@ -408,7 +408,7 @@ height: auto;
 }
 
 }
-@media (min-width: 721px) and (max-width: 1000px) {
+@media (min-width: 726px) and (max-width: 1000px) {
 
    .icon{
     margin-left: -40px;
@@ -420,7 +420,7 @@ height: auto;
 .input_icon{
     position: absolute;
     left: 650px;
-    transform: translatex(-75px);
+    transform: translatex(-20px);
     margin-top: 7px;
 }
     .profile{
