@@ -35,7 +35,10 @@ function login() {
         localStorage.setItem("user_id",user_id)  ;
 
         localStorage.setItem("token", token);
-       
+        
+            const name=user.name;
+        localStorage.setItem("name",name)  ;
+
         const user_name=user.username;
         localStorage.setItem("user_name",user_name)  ;
 const profile_image=user.profile_image;

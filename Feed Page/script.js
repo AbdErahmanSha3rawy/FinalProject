@@ -4,10 +4,9 @@ let postContainer = document.querySelector('.postContainer');
 let menu_icon=document.querySelector('.menu_icon');
 let menu=document.querySelector('.menu');
    let elaicona=document.querySelector('.elaicona');
-const User_Img = localStorage.getItem("imgprofile");
-document.querySelector('.User_Img').src = `${User_Img}` ;
-const User_Img1 = localStorage.getItem("imgprofile");
-document.querySelector('.User_Img1').src = `${User_Img1}` ;
+const profile_image = localStorage.getItem("profile_image");
+document.querySelector('.User_Img').src = `${profile_image}` ;
+document.querySelector('.User_Img1').src = `${profile_image}` ;
 
 
 
@@ -154,24 +153,95 @@ if (e.target.closest('.Cancelbtn')) {
             commentContainer.style.display = "block";
         }
     }
+        let audio_like=document.querySelector('.audio_like');
 
-    
-    if (e.target.closest('.lovebtn')) {
         let loveBtn = postDiv.querySelector('.lovebtn img');
         let lovecount = postDiv.querySelector('.lovecount');
         let count = parseInt(lovecount.innerText) ;
 
+    if (e.target.closest('.lovebtn') || e.target.closest('.love_emoji')) {
+       
+
         if (loveBtn.src.includes("lovered.svg")) {
             loveBtn.src = "imgs/love.svg";
             lovecount.innerText = count - 1;
-        } else {
+        } 
+         else if (!loveBtn.src.includes("love.svg") ) {
+            loveBtn.src = "imgs/lovered.svg";
+            lovecount.innerText = count ;
+            audio_like.currentTime=0;
+audio_like.play();
+        } 
+        else {
             loveBtn.src = "imgs/lovered.svg";
             lovecount.innerText = count + 1;
-            let audio_like=document.querySelector('.audio_like');
 audio_like.currentTime=0;
 audio_like.play();
         }
     }
+ if ( e.target.closest('.laugh_emoji')) {
+        
+
+        if (loveBtn.src.includes("laugh.svg") ) {
+            loveBtn.src = "imgs/love.svg";
+            lovecount.innerText = count - 1;
+        } 
+          else if (!loveBtn.src.includes("love.svg") ) {
+            loveBtn.src = "imgs/laugh.svg";
+            lovecount.innerText = count ;
+            audio_like.currentTime=0;
+audio_like.play();
+        } 
+        else {
+            loveBtn.src = "imgs/laugh.svg";
+            lovecount.innerText = count + 1;
+audio_like.currentTime=0;
+audio_like.play();
+        }
+    }
+    if ( e.target.closest('.sad_emoji')) {
+      
+
+        if (loveBtn.src.includes("sad.svg") ) {
+            loveBtn.src = "imgs/love.svg";
+            lovecount.innerText = count - 1;
+        } 
+        else if (!loveBtn.src.includes("love.svg") ) {
+            loveBtn.src = "imgs/sad.svg";
+            lovecount.innerText = count ;
+            audio_like.currentTime=0;
+audio_like.play();
+        } 
+        else {
+            lovebtn.src = "imgs/sad.svg";
+            lovecount.innerText = count + 1;
+audio_like.currentTime=0;
+audio_like.play();
+        }
+    }
+if ( e.target.closest('.angry_emoji')) {
+      
+
+        if (loveBtn.src.includes("angry.svg") ) {
+            loveBtn.src = "imgs/love.svg";
+            lovecount.innerText = count - 1;
+        } 
+          else if (!loveBtn.src.includes("love.svg") ) {
+            loveBtn.src = "imgs/angry.svg";
+            lovecount.innerText = count ;
+            audio_like.currentTime=0;
+audio_like.play();
+        } 
+        else {
+            loveBtn.src = "imgs/angry.svg";
+            lovecount.innerText = count + 1;
+audio_like.currentTime=0;
+audio_like.play();
+        }
+    }
+
+
+
 
     if (e.target.closest('.add_comment_btn')) {
     let postDiv = e.target.closest('.post');
@@ -221,7 +291,6 @@ function getposts() {
 }
         
 let user_name=localStorage.getItem("user_name");
-const profile_image = localStorage.getItem("profile_image");
 
             for (let poste of postarray) {
 localStorage.setItem("postid",poste.id);
@@ -230,10 +299,10 @@ localStorage.setItem("postid",poste.id);
 
                  let imgprofile;
       if (Object.keys(poste.author.profile_image).length !== 0){
-        imgprofile=poste.author.profile_image;
+            imgprofile=poste.author.profile_image;
        }
        else{
-        imgprofile='imgs/Image (Ahmed Mohamed).png';
+          imgprofile='imgs/Image (Ahmed Mohamed).png';
       }
        let imgpost='';
       if (Object.keys(poste.image).length !== 0){
@@ -284,6 +353,12 @@ let space="/..";
         <button class="commentbtn"><img src="imgs/comment.svg" alt=""></button>
         <p class="commentcount">${poste.comments_count}</p>
         <button><img src="imgs/share.svg" alt=""></button>
+        <div class="Emojies">
+        <button class="love_emoji"><img src="imgs/lovered.svg" alt=""></button>
+        <button class="laugh_emoji"><img src="imgs/laugh.svg"></button>
+        <button class="sad_emoji"><img src="imgs/sad.svg" alt=""></button>
+        <button class="angry_emoji"><img src="imgs/angry.svg" alt=""></button>
+        </div>
     </div>
       <div class="commentcontainer" style="display:none;">
         <div class="add_comment">

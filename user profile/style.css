@@ -640,6 +640,25 @@ width: 100%;
 }
 .actives button:hover{
 cursor: pointer;
+transform: scale(1.1);
+}
+.Emojies{
+    display:none;
+    padding:0 10px  ;
+    border-radius: 10px;
+    background-color: rgb(235, 229, 229);
+    z-index: 2;
+    margin-top: -75px;
+    transform:translatex(-190px);
+}
+.Emojies:hover{
+    display: flex;
+}
+.Emojies button:hover{
+   transform: scale(1.2);
+}
+.lovebtn:hover ~ .Emojies{
+  display: flex;
 }
 .list .Edit  {
     border:none;
