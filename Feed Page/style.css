@@ -172,7 +172,7 @@ nav .logout{
 .menu{
     width: 100%;
     place-items: center;
-        box-shadow: 0px 2px 5px #8d8484;
+    box-shadow: 0px 2px 5px #8d8484;
     margin: auto;
     margin-top: -85px;
     display: none;
@@ -698,7 +698,7 @@ cursor: pointer;
    
    
     .icon{
-        margin-left: -30px;
+        margin-left: -20px;
     }
     
     .main_name{
@@ -709,7 +709,7 @@ cursor: pointer;
     }
 
 .eluser{
-    margin-right: -10px;
+    margin-right: -30px;
 }
 .Homey,.logouty,.profily{
     display: none;
@@ -728,7 +728,7 @@ cursor: pointer;
 }
 .links{
     
-    margin-left: -50px;
+    margin-left: -40px;
 
 }
 .menu_icon button{ 
@@ -838,7 +838,7 @@ transform: translateY(50px);
     }
 
 .eluser{
-    margin-right: -10px;
+    margin-right: -30px;
 }
 .Homey,.logouty,.profily{
     display: none;
@@ -855,11 +855,7 @@ transform: translateY(50px);
     padding-left: 20px;
 
 }
-.links{
-    
-    margin-left: -50px;
 
-}
 .menu_icon button{ 
     display: inline;
     margin-left: -30px;

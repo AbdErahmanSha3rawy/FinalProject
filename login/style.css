@@ -364,7 +364,7 @@ body{
     position: sticky;
     top: 50px;
     padding-top: 10px;
-
+    width: 98%;
 }
 .menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
     padding-left: 20px;
@@ -437,6 +437,7 @@ body{
     position: sticky;
     top: 50px;
     padding-top: 10px;
+    
 
 }
 .menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
