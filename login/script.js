@@ -1,5 +1,7 @@
 const usernameValue = document.querySelector('#username');
 const passwordValue = document.querySelector('#password');
+ localStorage.setItem("passwordValue",passwordValue)  ;
+
 let loginbtn = document.querySelector('.loginbtn');
 let link = document.querySelector('.link');
 let uservalue=username.value;
@@ -20,7 +22,6 @@ menu.style.display="block";
         }
 }
 
-
 function login() {
     const params = {
         "username": usernameValue.value, 
@@ -29,19 +30,35 @@ function login() {
 
     axios.post("https://tarmeezacademy.com/api/v1/login", params)
     .then((response) => {
+        localStorage.setItem("user_info",
+JSON.stringify({
+username: usernameValue.value,
+password: passwordValue.value
+})
+
+        )
         const token = response.data.token;
         const user = response.data.user;
         const user_id=user.id;
         localStorage.setItem("user_id",user_id)  ;
-
-        localStorage.setItem("token", token);
+        
+        const Account_Id=response.data.id;
+        localStorage.setItem("Account_Id",Account_Id)  ;
+         console.log("id of post is : "+Account_Id);
+        localStorage.setItem("token",token);
         
             const name=user.name;
         localStorage.setItem("name",name)  ;
 
         const user_name=user.username;
         localStorage.setItem("user_name",user_name)  ;
-const profile_image=user.profile_image;
+let profile_image;
+if(user.profile_image.length >0){
+profile_image=user.profile_image;
+}    
+else{
+        profile_image="imgs/unknown.jpg";
+}
         localStorage.setItem("profile_image",profile_image)  ;
         
            let audio_success=document.querySelector('.audio_success');
@@ -51,12 +68,14 @@ audio_success.play();
 loginbtn.style.background="#47f750";
 loginbtn.innerText="Successful ✨🎉";
 
-
+console.log("Token saved successfully:", token);
 setTimeout(()=>{
         window.location = "../Feed Page/index.html"; 
 },5000);
 }
-
+else{
+     console.error("Token not found in response!");   
+}
         localStorage.setItem("user", JSON.stringify(user));
 
     })

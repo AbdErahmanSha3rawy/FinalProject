@@ -1,9 +1,9 @@
 
 let usernameInput = document.querySelector('#username');
 let saveBtn = document.querySelector('.save');
-const User_Img = localStorage.getItem("imgprofile");
+const User_Img = localStorage.getItem("profile_image");
 document.querySelector('.User_Img').src = `${User_Img}` ;
-const User_Imgpr = localStorage.getItem("imgprofile");
+const User_Imgpr = localStorage.getItem("profile_image");
 document.querySelector('.User_Imgpr').src = `${User_Imgpr}` ;
 
 let menu_icon=document.querySelector('.menu_icon');
@@ -55,6 +55,41 @@ const updateProfile = async () => {
 // updateProfile();
 
 
+
+
+function logout() {
+    const savedData = JSON.parse(localStorage.getItem("user_info"));
+    const token = localStorage.getItem("token");
+
+    if (savedData) {
+        const params = {
+            "username": savedData.username,
+            "password": savedData.password
+        };
+
+        const headers = {
+            "Authorization":` Bearer ${token}`
+        };
+
+        axios.post("https://tarmeezacademy.com/api/v1/logout", params, { headers: headers })
+        .then((response) => {
+         
+             setTimeout(()=>{
+        window.location = "../index.html"; 
+},2000);
+        })
+        .catch((error) => {
+            console.error( error.response ? error.response.status : error.message);
+        })
+        .finally(() => {
+            localStorage.clear();
+                        
+          window.location = "../index.html";
+        });
+    } else {
+        window.location = "../index.html";
+    }
+}
 
 
 

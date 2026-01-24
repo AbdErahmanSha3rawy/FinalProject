@@ -9,6 +9,10 @@ body{
     margin: 0;
     padding: 0;
 }
+.posteid{
+   opacity: 0;
+   
+}
 #loader-wrapper {
     position: fixed;
     bottom: 0;
@@ -135,6 +139,7 @@ nav .user{
 .logouty:hover ,.Homey:hover,.profily:hover{
 transform: scale(1.1);
 transition-duration:1s ;
+cursor: pointer;
 }
 nav .logout{
     margin-left: -50px;
@@ -153,6 +158,17 @@ nav .logout{
     transform: translateY(-10px);
 
 
+}
+.links button{
+    border: none;
+    display: flex;
+    align-items: center;
+}
+.links button{
+font-size:17px;
+}
+.links button img{
+   height: 25px;
 }
 .links a img{
     height: 25px;
@@ -178,6 +194,18 @@ nav .logout{
     display: none;
     background-color: white;
     z-index: 100;
+}
+#loutbtn{
+    border: none;
+    background: none;
+    font-size:25px;
+    font-family:sans-serif;
+    display: flex;
+align-self: center;
+color: #4A5565;
+}
+#loutbtn:hover{
+   cursor: pointer;
 }
 .menu ul{
     list-style-type: none;   
@@ -711,7 +739,7 @@ cursor: pointer;
 .eluser{
     margin-right: -30px;
 }
-.Homey,.logouty,.profily{
+.Homey,#logoutybtn,.profily{
     display: none;
 }
 
@@ -725,6 +753,9 @@ cursor: pointer;
 .menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
     padding-left: 20px;
 
+}
+.menu_SignUp{
+    border:none;
 }
 .links{
     
@@ -810,9 +841,7 @@ transform: translateY(50px);
     display: block;
 
 }
-/* .space{
-    display: none;
-} */
+
 .post_descripe{
     margin-top: -10px;
 }
@@ -840,7 +869,7 @@ transform: translateY(50px);
 .eluser{
     margin-right: -30px;
 }
-.Homey,.logouty,.profily{
+.Homey,#logoutybtn,.profily{
     display: none;
 }
 

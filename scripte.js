@@ -66,7 +66,7 @@ function getposts() {
       for (let poste of postarray) {
         let imgprofile = (poste.author.profile_image && Object.keys(poste.author.profile_image).length !== 0) 
                          ? poste.author.profile_image 
-                         : 'imgs/myprofile.png';
+                         : 'imgs/unknown.jpg';
 
           let imgpost = "";
         if (poste.image && Object.keys(poste.image).length !== 0) {

@@ -17,7 +17,7 @@
         <li class="notice"><a href=""><img src="imgs/garas.svg" alt=""></a><p>🔴</p></li>
         <li  class="eluser"><a href="../user profile/index.html"><img src="" alt="" class="User_Img"></a></li>
         <li class="menu_icon"><button><img src="imgs/menu.svg" alt="" class="elaicona"></button></li>
-        <li  class="logouty"><a href="../index.html"class="logout"><img src="imgs/sign feed.svg" alt="" >Logout</a></li>
+        <button id="logoutybtn" type="button" onclick="logout()" class="logouty logout"><img src="imgs/sign feed.svg" alt="" >Logout</button>
        </ul>
   </div>
  </nav> 
@@ -26,7 +26,7 @@
      <ul>
         <li class="menu_Home"><a href="../Feed Page/index.html"><img src="imgs/home.svg" alt="">Home</a></li>
         <li class="menu_login" ><a href="../user profile/index.html"><img src="imgs/profile feed.svg" alt="">Profile</a></li>
-        <li class="menu_SignUp"><a href="../index.html"><img src="imgs/log.svg" alt="">Logout</a></li>
+        <button id="loutbtn" type="button"  onclick="logout()" class="menu_SignUp" id="logoutbtn"><img src="imgs/log.svg" alt="">Logout</button>
        </ul>
  </div> 
 <form class="profile">
@@ -51,6 +51,8 @@
     </div>
     </div>
 </form>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
  <script src="script.js"></script>
 <script src="../user profile/script.js"></script>
 

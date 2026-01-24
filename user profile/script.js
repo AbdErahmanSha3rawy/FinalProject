@@ -74,11 +74,9 @@ let moood;
         let postdiv=postDiv.querySelector('.post');
         let lovecount = postDiv.querySelector('.lovecount');
         let id=lovecount.innerHTML;
-        console.log(id);
         deletePost(id);
         postDiv.querySelector('.list').style.display="none";
-            postDiv.querySelector('.post_img').style.marginTop = "0px";
-getposts();
+        postDiv.querySelector('.post_img').style.marginTop = "0px";
     }
     
          
@@ -312,14 +310,10 @@ const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?sortBy=crea
         for (let poste of postarray) {
         post_counter++;
             let imgprofile;
-      if (Object.keys(poste.author.profile_image).length !== 0){
-        imgprofile=poste.author.profile_image;
-       }
-       else{
-        imgprofile='imgs/Image (Ahmed Mohamed).png';
-      }
- 
-localStorage.setItem("imgprofile", imgprofile);       let imgpost='';
+             imgprofile = localStorage.getItem("profile_image");
+
+localStorage.setItem("imgprofile", imgprofile);      
+ let imgpost='';
       if (Object.keys(poste.image).length !== 0){
 
         imgpost=poste.image;
@@ -337,7 +331,9 @@ localStorage.setItem("imgprofile", imgprofile);       let imgpost='';
 let space="/..";
                 postContainer.innerHTML += `
                 
-<div class="post">
+<div class="post" id="post-${poste.id}">
+<span class="posteid">${poste.author.id}</span>
+
     <div class="profile_descripe">
         <div class="profile_descripe2">
             <img src="${imgprofile}" class="img_prof" alt="">
@@ -428,21 +424,24 @@ window.addEventListener("scroll", function () {
     }
 });
 
-function deletePost(item) {
-     let id=item;
+function deletePost(id) {
+     let token=localStorage.getItem("token");
     let request = new XMLHttpRequest();
     request.open("DELETE", `https://tarmeezacademy.com/api/v1/posts/${id}`);
     request.responseType = "json";
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Content-Type", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4"); 
+    request.setRequestHeader("Authorization",` Bearer ${token}`); 
 
    
     request.send();
 
     request.onload = function() {
         if(request.status >= 200 && request.status < 300) {
-            getposts();
+  
+    const post=document.getElementById(`post-${id}`);
+    post.remove();
+
         } else {
            
         }
@@ -451,12 +450,13 @@ function deletePost(item) {
 
 
 function updatePost(id,formData) {
+     let token=localStorage.getItem("token");
     let request = new XMLHttpRequest();
     request.open("POST", `https://tarmeezacademy.com/api/v1/posts/${id}`);
     request.responseType = "json";
     
     request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Authorization", "Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4");
+    request.setRequestHeader("Authorization",` Bearer ${token}`); 
 
    
     
@@ -467,7 +467,10 @@ function updatePost(id,formData) {
 
     request.onload = function() {
         if (request.status >= 200 && request.status < 300) {
-            // getposts();
+let updated_post=request.response.data;
+const new_post=document.getElementById(`post-${id}`);
+new_post.querySelector('.post_descripe').innerText=updated_post.body;
+
         } else {
             console.error(request.response);
         }
@@ -501,3 +504,38 @@ const createComment = async (id,Elcomment) => {
     console.error('حدث خطأ:', error);
   }
 };
+
+
+function logout() {
+    const savedData = JSON.parse(localStorage.getItem("user_info"));
+    const token = localStorage.getItem("token");
+
+    if (savedData) {
+        const params = {
+            "username": savedData.username,
+            "password": savedData.password
+        };
+
+        const headers = {
+            "Authorization":` Bearer ${token}`
+        };
+
+        axios.post("https://tarmeezacademy.com/api/v1/logout", params, { headers: headers })
+        .then((response) => {
+         
+             setTimeout(()=>{
+        window.location = "../index.html"; 
+},2000);
+        })
+        .catch((error) => {
+            console.error( error.response ? error.response.status : error.message);
+        })
+        .finally(() => {
+            localStorage.clear();
+                        
+          window.location = "../index.html";
+        });
+    } else {
+        window.location = "../index.html";
+    }
+}

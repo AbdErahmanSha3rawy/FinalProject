@@ -33,9 +33,11 @@ let moood;
         let postdiv=postDiv.querySelector('.post');
         let lovecount = postDiv.querySelector('.lovecount');
         let id=lovecount.innerHTML;
+         let posteid = postDiv.querySelector('.posteid');
+        let postyid=posteid.innerHTML;
 const user_id=localStorage.getItem("user_id");
 
-       if(id==user_id){
+       if(user_id===postyid){
          let list = postDiv.querySelector('.list');
         let postImg = postDiv.querySelector('.post_img');
         if (list.style.display === "block") {
@@ -81,13 +83,10 @@ const user_id=localStorage.getItem("user_id");
     if (e.target.closest('.Delete')) {
         let postdiv=postDiv.querySelector('.post');
         let lovecount = postDiv.querySelector('.lovecount');
-        let id=lovecount.innerHTML;
-     let postid = localStorage.getItem("postid");
-        deletePost(postid);
-        console.log(postid)
+        let id=lovecount.innerHTML;  
+        deletePost(id)  
         postDiv.querySelector('.list').style.display="none";
             postDiv.querySelector('.post_img').style.marginTop = "0px";
-getposts();
     }
     
          
@@ -96,7 +95,6 @@ if (e.target.closest('.Edit')) {
     let postDiv = e.target.closest('.post');
     let lovecount = postDiv.querySelector('.lovecount');
     let id = lovecount.innerHTML;
-    console.log(id);
 
     let post_describe = postDiv.querySelector('.post_descripe'); 
     let textarea = postDiv.querySelector('.text'); 
@@ -306,7 +304,7 @@ function getposts() {
 let user_name=localStorage.getItem("user_name");
 
             for (let poste of postarray) {
-localStorage.setItem("postid",poste.id);
+localStorage.setItem("posteid",poste.author.id);
 
 
 
@@ -315,7 +313,7 @@ localStorage.setItem("postid",poste.id);
             imgprofile=poste.author.profile_image;
        }
        else{
-          imgprofile='imgs/Image (Ahmed Mohamed).png';
+          imgprofile='imgs/unknown.jpg';
       }
        let imgpost='';
       if (Object.keys(poste.image).length !== 0){
@@ -327,7 +325,9 @@ localStorage.setItem("postid",poste.id);
 let space="/..";
                 postContainer.innerHTML += `
                 
-<div class="post">
+<div class="post" id="post-${poste.id}">
+    
+<span class="posteid">${poste.author.id}</span>
     <div class="profile_descripe">
         <div class="profile_descripe2">
             <img src="${imgprofile}" class="img_prof" alt="">
@@ -362,7 +362,7 @@ let space="/..";
     <img class="post_img" src="${imgpost}">
     <div class="actives">
         <button class="lovebtn"><img src="imgs/love.svg" alt=""></button>
-        <p class="lovecount">${poste.author.id}</p>
+        <p class="lovecount">${poste.id}</p>
         <button class="commentbtn"><img src="imgs/comment.svg" alt=""></button>
         <p class="commentcount">${poste.comments_count}</p>
         <button><img src="imgs/share.svg" alt=""></button>
@@ -486,7 +486,7 @@ function createPost(formData) {
     request.send(formData);
         request.onload = function() {
       if(request.status >= 200 && request.status < 300) {
-
+   
         let audio_success=document.querySelector('.audio_success');
             audio_success.currentTime=0;
             audio_success.play();
@@ -507,27 +507,24 @@ function createPost(formData) {
 
 
 function deletePost(item) {
-     let id=item;
-    let request = new XMLHttpRequest();
-    request.open("DELETE", `https://tarmeezacademy.com/api/v1/posts/${id}`);
-    request.responseType = "json";
-    request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Content-Type", "application/json");
-   const token1 = localStorage.getItem("token");
-    request.setRequestHeader("Authorization", `Bearer ${token1}`); 
-
-    request.onload = function() {
-        if(request.status >= 200 && request.status < 300) {
-            getposts();
-        } else {
-           
+    const token = localStorage.getItem("token");
+    const params = {
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization":`Bearer ${token}`
         }
-    }
-    request.send();
+    };
 
-   
+    axios.delete(`https:tarmeezacademy.com/api/v1/posts/${item}`, params)
+    .then((response) => {
+const post=document.getElementById(`post-${item}`);
+    post.remove();
+            })
+    .catch((error) => {
+        console.error("Delete failed:", error.response ? error.response.data.message : error.message);
+    });
 }
-
 
 function updatePost(id,formData) {
     let request = new XMLHttpRequest();
@@ -546,8 +543,11 @@ function updatePost(id,formData) {
 
     request.onload = function() {
         if (request.status >= 200 && request.status < 300) {
-            // getposts();
-        } else {
+let updated_post=request.response.data;
+const new_post=document.getElementById(`post-${id}`);
+new_post.querySelector('.post_descripe').innerText=updated_post.body;
+
+} else {
             console.error(request.response);
         }
     };
@@ -581,3 +581,37 @@ const createComment = async (id,Elcomment) => {
   }
 };
 
+
+function logout() {
+    const savedData = JSON.parse(localStorage.getItem("user_info"));
+    const token = localStorage.getItem("token");
+
+    if (savedData) {
+        const params = {
+            "username": savedData.username,
+            "password": savedData.password
+        };
+
+        const headers = {
+            "Authorization":` Bearer ${token}`
+        };
+
+        axios.post("https://tarmeezacademy.com/api/v1/logout", params, { headers: headers })
+        .then((response) => {
+         
+             setTimeout(()=>{
+        window.location = "../index.html"; 
+},2000);
+        })
+        .catch((error) => {
+            console.error( error.response ? error.response.status : error.message);
+        })
+        .finally(() => {
+            localStorage.clear();
+                        
+          window.location = "../index.html";
+        });
+    } else {
+        window.location = "../index.html";
+    }
+}

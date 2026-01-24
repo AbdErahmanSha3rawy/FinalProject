@@ -110,12 +110,26 @@ nav .logout{
 
 
 }
+
+.links button{
+    border: none;
+    display: flex;
+    align-items: center;
+}
+.links button{
+font-size:17px;
+}
+.links button img{
+   height: 25px;
+}
 .links a img{
     height: 25px;
 }
 .logouty:hover ,.Homey:hover,.profily:hover{
 transform: scale(1.1);
 transition-duration:1s ;
+cursor: pointer;
+
 }
 .logouty{
     margin-left: 20px;
@@ -137,6 +151,18 @@ transition-duration:1s ;
     display: none;
     background-color: white;
     z-index: 100;
+}
+#loutbtn{
+    border: none;
+    background: none;
+    font-size:25px;
+    font-family:sans-serif;
+    display: flex;
+align-self: center;
+color: #4A5565;
+}
+#loutbtn:hover{
+   cursor: pointer;
 }
 .menu ul{
     list-style-type: none;   
@@ -308,7 +334,7 @@ align-self: center;
 .eluser{
     margin-right: -10px;
 }
-.Homey,.logouty,.profily{
+.Homey,#logoutybtn,.profily{
     display: none;
 }
 
@@ -374,7 +400,7 @@ height: auto;
 .eluser{
     margin-right: -10px;
 }
-.Homey,.logouty,.profily{
+.Homey,#logoutybtn,.profily{
     display: none;
 }
 
