@@ -1,5 +1,7 @@
 
 let usernameInput = document.querySelector('#username');
+let passwordInput = document.querySelector('#password');
+
 let saveBtn = document.querySelector('.save');
 const User_Img = localStorage.getItem("profile_image");
 document.querySelector('.User_Img').src = `${User_Img}` ;
@@ -23,8 +25,10 @@ menu.style.display="block";
         }
 }
 saveBtn.onclick = function() {
-    localStorage.setItem('user_name', usernameInput.value);
-    window.location.href = '../user profile/index.html';
+  updateProfile();
+  setTimeout(()=>{
+        window.location = "../user profile/index.html"; 
+},5000);
 }
 
 
@@ -32,17 +36,18 @@ saveBtn.onclick = function() {
 
 
 const updateProfile = async () => {
+        const token = localStorage.getItem("token");
+
     try {
-        const response = await fetch('https://tarmeezacademy.com/api/v1/updatePorfile', {
+        const response = await fetch('https://tarmeezacademy.com/api/v1/updateporfile', {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
-                // 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 82114|nmMCH0FQuxE2IvPWHtVKWuJG5rSbQGBcFdhQhpeW0ceebbe9'
+            "Authorization":` Bearer ${token}`
             },
             body: JSON.stringify({
-                username: "Abdo_Sharawey", 
-                password: "password123"                
+                username: usernameInput.value, 
+                password: passwordInput.value                
             })
         });
 
@@ -52,7 +57,6 @@ const updateProfile = async () => {
         console.error(error);
     }
 }
-// updateProfile();
 
 
 
@@ -76,7 +80,7 @@ function logout() {
          
              setTimeout(()=>{
         window.location = "../index.html"; 
-},2000);
+},4000);
         })
         .catch((error) => {
             console.error( error.response ? error.response.status : error.message);

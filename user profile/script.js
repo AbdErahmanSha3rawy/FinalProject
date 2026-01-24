@@ -24,7 +24,7 @@ const myname=localStorage.getItem("name");
 document.querySelector('.Name_user').innerText=`${myname}`;
 
 const myusername=localStorage.getItem("user_name");
-document.querySelector('.username').innerText=`${myusername}`;
+document.querySelector('.username').innerText=`@${myusername}`;
 
 const elcounter=localStorage.getItem("counter");
 document.querySelector('.posts_nom').innerText=`${elcounter}`;
@@ -281,17 +281,18 @@ isLoading = true;
         console.error("postContainer not found");
         return;
     }
-
-const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?sortBy=created_at&orderBy=desc&page=${page}`;
+  let post_CreatedAt=localStorage.getItem("post_CreatedAt");
+const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?&page=${page}&sortBy=created_at&orderBy=desc`;
 
     try {
         const response = await fetch(url, {
      
-
+        
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
                 'Authorization': `Bearer ${token}`
+
             }
         });
 
@@ -324,6 +325,7 @@ localStorage.setItem("imgprofile", imgprofile);
         localStorage.setItem("Name",poste.author.name);
         localStorage.setItem("User_Name",poste.author.username);
         localStorage.setItem("profile_CreatedAt",poste.author.created_at);
+        localStorage.setItem("post_CreatedAt",poste.created_at);
 
 
 
@@ -341,7 +343,7 @@ let space="/..";
                 <p class="Name">${poste.author.name}</p>
              <div class="username_created_at">
 
-                <p class="username">${poste.author.username}</p>
+                <p class="username">@${poste.author.username}</p>
                 <p>${space}</p>
                 <p class="created_at">${poste.created_at}</p>
                 </div>
@@ -372,7 +374,7 @@ let space="/..";
         <p class="lovecount">${poste.id}</p>
         <button class="commentbtn"><img src="imgs/comment.svg" alt=""></button>
         <p class="commentcount">${poste.comments_count}</p>
-        <button><img src="imgs/share.svg" alt=""></button>
+        <button class="sharebtn"><img src="imgs/share.svg" alt=""></button>
         <div class="Emojies">
         <button class="love_emoji"><img src="imgs/lovered.svg" alt=""></button>
         <button class="laugh_emoji"><img src="imgs/laugh.svg"></button>
@@ -525,7 +527,7 @@ function logout() {
          
              setTimeout(()=>{
         window.location = "../index.html"; 
-},2000);
+},4000);
         })
         .catch((error) => {
             console.error( error.response ? error.response.status : error.message);

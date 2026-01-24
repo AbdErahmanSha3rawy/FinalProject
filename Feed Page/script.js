@@ -334,7 +334,7 @@ let space="/..";
             <div class="profile_name">
                 <p class="Name">${poste.author.name}</p>
                  <div class="username_created_at">
-                <p class="username">${poste.author.username}</p>
+                <p class="username">@${poste.author.username}</p>
                 <p class="space">${space}</p>
                 <p class="created_at">${poste.created_at}</p>
                 </div>
@@ -365,7 +365,7 @@ let space="/..";
         <p class="lovecount">${poste.id}</p>
         <button class="commentbtn"><img src="imgs/comment.svg" alt=""></button>
         <p class="commentcount">${poste.comments_count}</p>
-        <button><img src="imgs/share.svg" alt=""></button>
+        <button class="sharebtn"><img src="imgs/share.svg" alt=""></button>
         <div class="Emojies">
         <button class="love_emoji"><img src="imgs/lovered.svg" alt=""></button>
         <button class="laugh_emoji"><img src="imgs/laugh.svg"></button>
@@ -558,6 +558,7 @@ new_post.querySelector('.post_descripe').innerText=updated_post.body;
 
 const createComment = async (id,Elcomment) => {
    
+ const token = localStorage.getItem("token");
 
   try {   
     const response = await fetch(`https://tarmeezacademy.com/api/v1/posts/${id}/comments`, {
@@ -570,7 +571,7 @@ const createComment = async (id,Elcomment) => {
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
-        'Authorization':'Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4'
+        'Authorization':`Bearer ${token}`
       },
     });
 
@@ -601,7 +602,7 @@ function logout() {
          
              setTimeout(()=>{
         window.location = "../index.html"; 
-},2000);
+},4000);
         })
         .catch((error) => {
             console.error( error.response ? error.response.status : error.message);

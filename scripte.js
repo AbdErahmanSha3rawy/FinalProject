@@ -82,7 +82,7 @@ function getposts() {
               <div class="profile_name">
                 <p class="Name">${poste.author.name}</p>
                 <div class="username_created_at">
-                  <p class="username">${poste.author.username}</p>
+                  <p class="username">@${poste.author.username}</p>
                   <p>${space}</p>
                   <p class="created_at">${poste.created_at}</p>
                 </div>

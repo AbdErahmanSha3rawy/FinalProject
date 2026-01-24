@@ -14,7 +14,7 @@ body{
     font-family: sans-serif;
     margin-top: -10px;
     padding: 0px 15px;
-    height: 50px;
+    height: 60px;
     box-shadow: 0px 3px rgba(109, 104, 104, 0.24);
 }
 nav .img{
@@ -114,12 +114,13 @@ color: #FFFFFF;
 .menu{
     width: 100%;
     place-items: center;
-        box-shadow: 0px 2px 5px #8d8484;
+    box-shadow: 0px 2px 5px #8d8484;
     margin: auto;
-    margin-top: -85px;
+    margin-top: -90px;
     display: none;
     background-color: white;
     z-index: 100;
+    height: 250px;
 }
 .menu ul{
     list-style-type: none;   
@@ -143,6 +144,8 @@ color: #FFFFFF;
     padding-left: 10px ;
     align-items: center;    
     margin-top: 0;
+    margin-bottom: 20px;
+
     
 }
 .menu_Home img,.menu_login img,.menu_SignUp img{
@@ -163,6 +166,7 @@ align-self: center;
 .menu_SignUp
 {
       background-image:linear-gradient(90deg,#AD46FF,#F6339A);
+    box-shadow:0px 2px 7px #4A5565;
 
 }
 
@@ -266,15 +270,20 @@ form p{
        font-size: 18px;
 
 }
+label{
+        font-size: 17px;
+
+}
 input{
     width: 100%;
-    height: 25px;
+    height: 30px;
     border-radius: 10px;
     padding: 10px;
     box-shadow: none;
     border: 1.5px solid rgb(214, 209, 209);
     margin-bottom: -10px;
-    
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 input:focus{
     outline-color: #ca09f1;
@@ -292,13 +301,11 @@ input:focus{
 }
 #Profile_Image2{
     z-index: 2;
-    transform: translateY(-33px);
+    transform: translateY(-65px);
     opacity: 0;
 }
 #Profile_Image2:hover{
     cursor: pointer;
-    background-color: #51A2FF;
-    opacity: 0.2;
 }
 form button{
     margin-top: 20px;
@@ -316,7 +323,6 @@ form button:hover{
 }
 
 form .Create_Account{
-    margin-top: 20px;
     display:flex;
      width: 90%;
     height: 40px;
@@ -327,7 +333,7 @@ form .Create_Account{
     justify-content: center;
     color: white;
     justify-self: center;
-    margin-top: -20px;
+    margin-top: -55px;
     border: none;
 
     
@@ -360,6 +366,14 @@ text-decoration-line: none;
     display: inline-flex;
 
 }
+.input_icon {
+    display: none;
+    position: absolute;
+    right: 15px;         
+     left: auto;           
+    transform: translateY(15px);
+}
+
 
 @media (max-width: 600px) {
 body{
@@ -378,7 +392,7 @@ body{
 
 .menu{
     position: sticky;
-    top: 50px;
+    top: 85px;
     padding-top: 10px;
     width: 98%;
 
@@ -395,7 +409,22 @@ body{
     justify-content: center;
     margin: auto;
  }
+nav{
+    height: 90px;
+}
+.icon .img{
+    margin-left: 20px;
+    height: 55px;
+    width: 55px;
+    border-radius: 15px;
+}
+.icon .img img{
 
+height: 40px;
+}
+.main_name{
+    display: none;
+}
 .descripe {
 display: none;
 }
@@ -436,6 +465,22 @@ width: 100%;
 }
 @media (min-width: 601px) and (max-width: 700px) {
 
+nav{
+    height: 90px;
+}
+.icon .img{
+    margin-left: 20px;
+    height: 55px;
+    width: 55px;
+    border-radius: 15px;
+}
+.icon .img img{
+
+height: 40px;
+}
+.main_name{
+    display: none;
+}
 body{
     margin: 0;
 }
@@ -452,7 +497,7 @@ body{
 
 .menu{
     position: sticky;
-    top: 50px;
+    top: 85px;
     padding-top: 10px;
 
 }

@@ -16,7 +16,7 @@ nav{
     font-family: sans-serif;
     margin-top: -10px;
     padding: 0px 15px;
-    height: 50px;
+    height: 60px;
     box-shadow: 0px 3px rgba(109, 104, 104, 0.24);
 }
 nav .img{
@@ -118,10 +118,11 @@ color: #FFFFFF;
     place-items: center;
         box-shadow: 0px 2px 5px #8d8484;
     margin: auto;
-    margin-top: -85px;
+    margin-top: -90px;
     display: none;
     background-color: white;
     z-index: 100;
+    height: 250px;
 }
 .menu ul{
     list-style-type: none;   
@@ -145,7 +146,8 @@ color: #FFFFFF;
     padding-left: 10px ;
     align-items: center;    
     margin-top: 0;
-    
+        margin-bottom: 20px;
+
 }
 .menu_Home img,.menu_login img,.menu_SignUp img{
     width: 30px;
@@ -165,6 +167,7 @@ align-self: center;
 .menu_login
 {
       background-image:linear-gradient(90deg,#AD46FF,#F6339A);
+            box-shadow:0px 2px 7px #4A5565;
 
 }
 
@@ -270,14 +273,17 @@ form p{
        font-size: 18px;
 
 }
+label{
+    font-size: 17px;
+}
 input{
     width: 100%;
     height: 25px;
     border-radius: 10px;
     padding: 10px;
     box-shadow: none;
-        border: 1.5px solid rgb(214, 209, 209);
-
+    border: 1.5px solid rgb(214, 209, 209);
+    margin-top: 20px;
     
 }
 input:focus{
@@ -288,14 +294,15 @@ input:focus{
     position: relative;
 }
 .input_icon{
+    display: none;
     position: absolute;
     left: 490px;
-    transform: translateY(15px);
+    transform: translateY(35px);
     margin-left: -100px;
 }
 form .loginbtn{
     margin-top: 20px;
-    display:block;
+    display:flex;
      width: 100%;
     height: 40px;
     border-radius: 13px;
@@ -305,6 +312,7 @@ form .loginbtn{
     justify-content: center;
     color: white;
     align-items: center;
+    justify-self: center;
     margin-left: 17px;
 
     
@@ -345,7 +353,9 @@ form .question{
 
 @media (max-width: 600px) {
 
-
+ nav{
+        height: 90px;
+    }
 body{
     margin: 0;
 }
@@ -362,13 +372,27 @@ body{
 
 .menu{
     position: sticky;
-    top: 50px;
+    top: 80px;
     padding-top: 10px;
     width: 98%;
 }
 .menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
     padding-left: 20px;
 
+}
+
+.icon .img{
+    margin-left: 20px;
+    height: 55px;
+    width: 55px;
+    border-radius: 15px;
+}
+.icon .img img{
+
+height: 40px;
+}
+.main_name{
+    display: none;
 }
 .container {
     width: 100%;
@@ -393,11 +417,7 @@ form {
 
 }
 
-input{
-    height: 20px;
-    
-}
-
+ 
 .input_icon {
     position: absolute;
     right: 15px;         
@@ -409,16 +429,25 @@ input{
 
 .question p{
     display: block;
-    /* margin-left: -50px; */
     margin-top: 20px;
 
+}
+.contain{
+    position: relative;
+}
+.input_icon{
+    position: absolute;
+    left: 250px;
+    transform: translateY(30px);
 }
 
 }
 
 /*0000000000000000000000*/
 @media (min-width: 601px) and (max-width: 700px) {
-
+ nav{
+        height: 90px;
+    }
 body{
     margin: 0;
 }
@@ -435,7 +464,7 @@ body{
 
 .menu{
     position: sticky;
-    top: 50px;
+    top: 85px;
     padding-top: 10px;
     
 
@@ -445,6 +474,27 @@ body{
 
 }
 
+.icon .img{
+    margin-left: 20px;
+    height: 55px;
+    width: 55px;
+    border-radius: 15px;
+}
+.icon .img img{
+
+height: 40px;
+}
+.main_name{
+    display: none;
+}
+.contain{
+    position: relative;
+}
+.input_icon{
+    position: absolute;
+    left: 350px;
+    transform: translateY(30px);
+}
 }
 /*0000000000000000*/
 @media (min-width: 601px) and (max-width: 1000px) {
