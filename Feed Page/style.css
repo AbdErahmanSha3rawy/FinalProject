@@ -744,7 +744,7 @@ cursor: pointer;
    
    
     .icon{
-        margin-left: -20px;
+        margin-left: -50px;
     }
     
     .main_name{
@@ -831,8 +831,9 @@ min-width: 30%;
 
 }
 .postbtn{
-min-width: 30%;
+min-width: 40%;
 height: 35px;
+margin-left: 20px;
 }
 .boha{
 display: flex;
@@ -884,7 +885,8 @@ transform: translateY(50px);
     margin-bottom: 45px;
 }
 .options{
-    margin-bottom: -20px;
+    margin-right: 20px;
+    z-index: 4;
 }
 }
 @media (min-width: 601px) and (max-width: 700px) {
