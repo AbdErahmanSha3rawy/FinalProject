@@ -406,6 +406,7 @@ background-color: #2B7FFF;
     width: 80%;
     border-radius: 50%;
     align-self: center;
+    align-items: center;
     margin-left: 20px;
 }
 .profile_descripe{
@@ -418,7 +419,11 @@ background-color: #2B7FFF;
     display: flex;
 
 }
+.user_translating,.Name{
+background: none;
+border: none;
 
+}
 
 .options{
     display: flex;
@@ -609,7 +614,7 @@ background-image: linear-gradient(90deg,#AD46FF,#F6339A);
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
-    margin-top: -8px;
+    margin-top: px;
 
 }
 .profile_name{
@@ -667,10 +672,13 @@ cursor: pointer;
     border-radius: 16px;
     box-shadow: 0px 2px 5px #8d8484;
 }
-.profile_descripe{
+.profile_descripe {
     display: flex;
-    margin-top: 20px;
+    margin-top: 0px;
     margin-bottom: 30px;
+}
+.post_descripe {
+   margin-top: -25px;
 }
 .container{
     border-radius: 16px;

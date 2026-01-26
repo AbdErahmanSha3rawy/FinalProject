@@ -744,8 +744,8 @@ transition-duration:1s ;
 
 
 @media (max-width: 600px) {
-nav{
-   
+
+    nav{
     padding-right: 0;
 }
   .icon{
@@ -957,11 +957,11 @@ width:100% ;
    width: 100%;
 }
 .Eidt_Area textarea{
-width:100% ;
+width:100%;
 }
 .post{
    
     width: 90%;
-
+    
 }
 }

@@ -1,14 +1,7 @@
-
-
-let postContainer = document.querySelector('.postContainer');
+let post_counter=0;
 let menu_icon=document.querySelector('.menu_icon');
 let menu=document.querySelector('.menu');
    let elaicona=document.querySelector('.elaicona');
-const profile_image = localStorage.getItem("profile_image");
-document.querySelector('.User_Img').src = `${profile_image}` ;
-document.querySelector('.User_Img1').src = `${profile_image}` ;
-
-
 
 menu_icon.onclick=function(){
         if (menu.style.display === "block") {
@@ -22,118 +15,68 @@ menu.style.display="block";
 
         }
 }
+const profile_image = localStorage.getItem("elimage");
+document.querySelector('.User_Img').src = `${profile_image}` ;
+
+document.querySelector('.imgy').src = `${profile_image}` ;
+
+const myname=localStorage.getItem("elName");
+document.querySelector('.Name_user').innerText=`${myname}`;
+
+const myusername=localStorage.getItem("elusername");
+document.querySelector('.username').innerText=`${myusername}`;
+
+const elcounter=localStorage.getItem("counter");
+document.querySelector('.posts_nom').innerText=`${elcounter}`;
+
+function formatMonthYear(dateString) {
+    const date = new Date(dateString);
+       
+    const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    const monthName = months[date.getMonth()]; 
+    const year = date.getFullYear();
+
+    return `${monthName} ${year}`;
+}
+
+const createdAt=localStorage.getItem("profile_CreatedAt");
+document.querySelector('.profile_CreatedAt').innerText=formatMonthYear(createdAt);
+
 
 document.addEventListener('click', function(e) {
     let postDiv = e.target.closest('.post'); 
      if (!postDiv) return; 
 let moood;
-    
-     let posteid = postDiv.querySelector('.posteid');
-        let postyid=posteid.innerHTML;
-const user_id=localStorage.getItem("user_id");
-    if (e.target.closest('.user_translating')) {
-           if(user_id===postyid){
-
-                window.location = "../user profile"; 
-                
-           }
-           else{   
-                                  
-                let img_prof = postDiv.querySelector('.img_prof');
-                let ElName = postDiv.querySelector('.Name');
-                let Elusername = postDiv.querySelector('.username');
-                 let elimage=img_prof.src;
-                 localStorage.setItem("elimage",elimage);
-                 let elName=ElName.innerText;
-                 localStorage.setItem("elName",elName);
-                 let elusername=Elusername.innerText;
-                 localStorage.setItem("elusername",elusername);
-                 
-        window.location = "../anyone profile"; 
-
-
-           }
-    }
-
-if (e.target.closest('.Name')) {
-           if(user_id===postyid){
-
-                window.location = "../user profile"; 
-                
-           }
-           else{   
-                                  
-                let img_prof = postDiv.querySelector('.img_prof');
-                let ElName = postDiv.querySelector('.Name');
-                let Elusername = postDiv.querySelector('.username');
-                 let elimage=img_prof.src;
-                 localStorage.setItem("elimage",elimage);
-                 let elName=ElName.innerText;
-                 localStorage.setItem("elName",elName);
-                 let elusername=Elusername.innerText;
-                 localStorage.setItem("elusername",elusername);
-                 
-        window.location = "../anyone profile"; 
-
-
-           }
-    }
-
+     
     if (e.target.closest('.options')) {
-        let postdiv=postDiv.querySelector('.post');
-        let lovecount = postDiv.querySelector('.lovecount');
-        let id=lovecount.innerHTML;
-         
-       if(user_id===postyid){
-         let list = postDiv.querySelector('.list');
-        let postImg = postDiv.querySelector('.post_img');
-        if (list.style.display === "block") {
-            list.style.display = "none";
-            postImg.style.marginTop = "0px";
-        } 
-        else {
-
-            list.style.display = "block";
-            postImg.style.marginTop = "-100px";
-        }
-
-       }
-       else{
         let list = postDiv.querySelector('.list');
         let postImg = postDiv.querySelector('.post_img');
         if (list.style.display === "block") {
             list.style.display = "none";
             postImg.style.marginTop = "0px";
         } 
+        else if(moood===5){
+            
+            list.style.display = "none";
+
+        }
         else {
 
             list.style.display = "block";
-            postImg.style.marginTop = "-42px";
+            postImg.style.marginTop = "-120px";
         }
-       list.style.height="30px";
-       list.style.marginBottom="52px";
-       list.style.marginRight="52px";
-       list.style.marginTop="-40px";
-        let edt = postDiv.querySelector('.Edit');
-        let delt = postDiv.querySelector('.Delete');
-         let Shar = postDiv.querySelector('.Share');
-        edt.style.display="none";
-        delt.style.display="none";
-        Shar.style.marginTop="-75px";
-
-
-       
-
-
-       }
     }
     if (e.target.closest('.Delete')) {
         let postdiv=postDiv.querySelector('.post');
         let lovecount = postDiv.querySelector('.lovecount');
-        let id=lovecount.innerHTML;  
-        deletePost(id)  
+        let id=lovecount.innerHTML;
+        deletePost(id);
         postDiv.querySelector('.list').style.display="none";
-            postDiv.querySelector('.post_img').style.marginTop = "0px";
+        postDiv.querySelector('.post_img').style.marginTop = "0px";
     }
     
          
@@ -142,6 +85,7 @@ if (e.target.closest('.Edit')) {
     let postDiv = e.target.closest('.post');
     let lovecount = postDiv.querySelector('.lovecount');
     let id = lovecount.innerHTML;
+    console.log(id);
 
     let post_describe = postDiv.querySelector('.post_descripe'); 
     let textarea = postDiv.querySelector('.text'); 
@@ -198,12 +142,13 @@ if (e.target.closest('.Cancelbtn')) {
             commentContainer.style.display = "block";
         }
     }
-        let audio_like=document.querySelector('.audio_like');
+
+      let audio_like=document.querySelector('.audio_like');
 
         let loveBtn = postDiv.querySelector('.lovebtn img');
         let lovecount = postDiv.querySelector('.lovecount');
         let count = parseInt(lovecount.innerText) ;
-if (e.target.closest('.lovebtn') ){
+ if (e.target.closest('.lovebtn') ){
 if (!loveBtn.src.includes("love.svg") ) {
             loveBtn.src = "imgs/love.svg";
             lovecount.innerText = count - 1 ;
@@ -217,7 +162,7 @@ audio_like.play();
         }
 
  }
-    if (e.target.closest('.love_emoji')) {
+    if ( e.target.closest('.love_emoji')) {
        
 
         if (loveBtn.src.includes("lovered.svg")) {
@@ -299,8 +244,6 @@ audio_like.play();
     }
 
 
-
-
     if (e.target.closest('.add_comment_btn')) {
     let postDiv = e.target.closest('.post');
     let lovecount = postDiv.querySelector('.lovecount');
@@ -317,68 +260,91 @@ createComment(id,Elcomment.innerText);
     }
 
 });
+let page = 1;             
+let isLoading = false;    
+let lastPage = false;     
 
-let page = 1;
-let isLoading = false;
-let lastPage = false;
+const getUserPosts = async () => {
+    if (isLoading || lastPage) return;   
+isLoading = true;
 
-function getposts() {
-      if (isLoading || lastPage) return;
-  isLoading = true;
-      const loader = document.getElementById('loader-wrapper');
+      let loader = document.getElementById('loader-wrapper');
 
   if (loader) loader.style.display = "flex";
-    let request = new XMLHttpRequest();
-  request.open("GET", `https://tarmeezacademy.com/api/v1/posts?page=${page}`);
-    request.responseType = "json";
-    request.send();
-    request.onload = function() {
-                isLoading = false; 
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userId = user.id;
+    const token = localStorage.getItem("token");
 
-            if (loader) loader.style.display = "none";
+    const postContainer = document.querySelector(".postContainer");
 
-        if (request.status >= 200 && request.status < 300) {
-            let postsr = request.response;
-            let postarray = postsr.data;
-  if (postarray.length === 0) {
-        lastPage = true;
+    if (!postContainer) {
+        console.error("postContainer not found");
         return;
-      }
-      if (page === 1) {
-    postContainer.innerHTML = ""; 
-}
+    }
+  let post_CreatedAt=localStorage.getItem("post_CreatedAt");
+const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?&page=${page}&sortBy=created_at&orderBy=desc`;
+
+    try {
+        const response = await fetch(url, {
+     
         
-let user_name=localStorage.getItem("user_name");
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`
 
-            for (let poste of postarray) {
-localStorage.setItem("posteid",poste.author.id);
+            }
+        });
 
+        const result = await response.json();
 
-        
-                 let imgprofile;
-      
-      if (Object.keys(poste.author.profile_image).length !== 0 ){
-            imgprofile=poste.author.profile_image;
-       }
-       else{
-          imgprofile='imgs/unknown.jpg';
-      }
-       let imgpost='';
+        if (!response.ok) {
+            console.log(result);
+            return;
+        }
+
+        const postarray = result.data;
+        postContainer.innerHTML = "";
+             let load = document.getElementById('loader-wrapper');
+
+            if (load) load.style.display = "none";
+        for (let poste of postarray) {
+        post_counter++;
+            let imgprofile;
+             imgprofile = localStorage.getItem("profile_image");
+
+localStorage.setItem("imgprofile", imgprofile);      
+ let imgpost='';
       if (Object.keys(poste.image).length !== 0){
+
         imgpost=poste.image;
        }
+       else{
+        // document.querySelector('.post_img').style.display="none";
+      }
+        localStorage.setItem("Name",poste.author.name);
+        localStorage.setItem("User_Name",poste.author.username);
+        localStorage.setItem("profile_CreatedAt",poste.author.created_at);
+        localStorage.setItem("post_CreatedAt",poste.created_at);
+
+
+
+   
 let space="/..";
                 postContainer.innerHTML += `
+                
 <div class="post" id="post-${poste.id}">
 <span class="posteid">${poste.author.id}</span>
+
     <div class="profile_descripe">
         <div class="profile_descripe2">
-    <button class="user_translating"><img src="${imgprofile}" class="img_prof" alt=""></button>
-        <div class="profile_name">
-                <button class="Name">${poste.author.name}</button>
-                 <div class="username_created_at">
+            <img src="${imgprofile}" class="img_prof" alt="">
+            <div class="profile_name">
+                <p class="Name">${poste.author.name}</p>
+             <div class="username_created_at">
+
                 <p class="username">@${poste.author.username}</p>
-                <p class="space">${space}</p>
+                <p>${space}</p>
                 <p class="created_at">${poste.created_at}</p>
                 </div>
             </div>
@@ -416,17 +382,17 @@ let space="/..";
         <button class="angry_emoji"><img src="imgs/angry.svg" alt=""></button>
         </div>
     </div>
-      <div class="commentcontainer" style="display:none;">
+    <div class="commentcontainer" style="display:none;">
         <div class="add_comment">
-            <img src="${profile_image}" alt="">
+            <img src="${imgprofile}" alt="">
             <input type="text" class="Write_comment" placeholder="Write a comment...">
             <button type="submit" class="add_comment_btn">post</button>
         </div>
 <div class="comment">
             <div class="comment_content">
-                <img class="comment_img" src="${profile_image}" alt="">
+                <img class="comment_img" src="${imgprofile}" alt="">
                 <div class="commenty">
-                <p  class="username_comment">${user_name}</p>
+                <p  class="username_comment">${poste.author.username}</p>
                 <p class="Elcomment"></p>
                 </div>
                 </div>
@@ -440,143 +406,60 @@ let space="/..";
     </div>
 </div>`;
             }
-                        page++; 
+       page++;          
+isLoading = false; 
+     
+            localStorage.setItem("counter",post_counter);
+    }
+     catch (error) {
+        console.error(error);
+    }
+    
+};
 
-        } else {
-            alert("Error loading posts");
-        }
-    };
-     request.onerror = function () {
-                isLoading = false; 
-    if (loader) loader.style.display = "none";
-    alert("Network Error");
-  };
-
-}
-
-
-getposts();
-
-
+getUserPosts();
 window.addEventListener("scroll", function () {
-  if (
-    window.innerHeight + window.scrollY >=
-    document.body.offsetHeight - 150
-  ) {
-    getposts();
-  }
+    if (
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 150
+    ) {
+        getUserPosts();  
+    }
 });
 
-
-
-let text=document.querySelector('.text');
-let img_of_new_post=document.querySelector('.img_of_new_post');
-let postbtn=document.querySelector('.postbtn');
- text.onkeyup = function() {
-    if (text.value.length > 0) {
-        postbtn.style.opacity = "1"; 
-        postbtn.disabled = false;
-    } else {
-        postbtn.style.opacity = "0.5"; 
-        postbtn.disabled = true;
-    }
-};
- 
-
-const img_for_post = document.querySelector('.img_for_post');
-
-img_of_new_post.addEventListener('change', function(event) {
-    const file = event.target.files[0]; 
-
-    if (file) {
-        img_for_post.src =URL.createObjectURL(file);
-        document.querySelector('.img_for_post').style.display="block";  
-
-    }
-});      
-        
-
-postbtn.onclick=function(){
-const text_value=text.value;
- const file = img_of_new_post.files[0]; 
-        const formData = new FormData();
-        formData.append("body",text_value);
-
-
-    if (file) {
-        formData.append("image",file);
-
-    }
-   
-            
-            createPost(formData);
-text.value='';
-   postbtn.style.opacity = "0.5"; 
-        postbtn.disabled = true;  
-        document.querySelector('.img_for_post').style.display="none";  
-        };
-
-  
-function createPost(formData) {
- 
+function deletePost(id) {
+     let token=localStorage.getItem("token");
     let request = new XMLHttpRequest();
-    request.open("POST", "https://tarmeezacademy.com/api/v1/posts");
+    request.open("DELETE", `https://tarmeezacademy.com/api/v1/posts/${id}`);
     request.responseType = "json";
     request.setRequestHeader("Accept", "application/json");
-     const token = localStorage.getItem("token");
-    request.setRequestHeader("Authorization", `Bearer ${token}`); 
+    request.setRequestHeader("Content-Type", "application/json");
+    request.setRequestHeader("Authorization",` Bearer ${token}`); 
 
-    request.send(formData);
-        request.onload = function() {
-      if(request.status >= 200 && request.status < 300) {
    
-        let audio_success=document.querySelector('.audio_success');
-            audio_success.currentTime=0;
-            audio_success.play();
+    request.send();
 
-            page = 1;  
-            lastPage = false; 
-            getposts(); 
-        }
-       
-         else {
-            console.log(request.status, request.response);
-            alert("Error: " + request.status);
-        }}
-    }
-
-
-
-
-
-function deletePost(item) {
-    const token = localStorage.getItem("token");
-    const params = {
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-            "Authorization":`Bearer ${token}`
-        }
-    };
-
-    axios.delete(`https:tarmeezacademy.com/api/v1/posts/${item}`, params)
-    .then((response) => {
-const post=document.getElementById(`post-${item}`);
+    request.onload = function() {
+        if(request.status >= 200 && request.status < 300) {
+  
+    const post=document.getElementById(`post-${id}`);
     post.remove();
-            })
-    .catch((error) => {
-        console.error("Delete failed:", error.response ? error.response.data.message : error.message);
-    });
+
+        } else {
+           
+        }
+    }
 }
 
+
 function updatePost(id,formData) {
+     let token=localStorage.getItem("token");
     let request = new XMLHttpRequest();
     request.open("POST", `https://tarmeezacademy.com/api/v1/posts/${id}`);
     request.responseType = "json";
     
     request.setRequestHeader("Accept", "application/json");
- const token = localStorage.getItem("token");
-    request.setRequestHeader("Authorization", `Bearer ${token}`); 
+    request.setRequestHeader("Authorization",` Bearer ${token}`); 
+
    
     
 
@@ -590,7 +473,7 @@ let updated_post=request.response.data;
 const new_post=document.getElementById(`post-${id}`);
 new_post.querySelector('.post_descripe').innerText=updated_post.body;
 
-} else {
+        } else {
             console.error(request.response);
         }
     };
@@ -601,7 +484,6 @@ new_post.querySelector('.post_descripe').innerText=updated_post.body;
 
 const createComment = async (id,Elcomment) => {
    
- const token = localStorage.getItem("token");
 
   try {   
     const response = await fetch(`https://tarmeezacademy.com/api/v1/posts/${id}/comments`, {
@@ -614,7 +496,7 @@ const createComment = async (id,Elcomment) => {
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
-        'Authorization':`Bearer ${token}`
+        'Authorization':'Bearer 82809|JhfhYvwp98wdrkSHlDjwedGILiyZjP9YNzaE3JKI7a6230a4'
       },
     });
 
