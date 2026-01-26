@@ -47,7 +47,7 @@ nav{
     font-family: sans-serif;
     margin-top: -10px;
     padding: 0px 50px;
-    height: 60px;
+    height: 64px;
     box-shadow: 0px 3px rgba(109, 104, 104, 0.24);
 }
 nav .img{
@@ -94,6 +94,7 @@ nav ul {
     display: flex;
     list-style-type: none;   
     align-items: center;
+    gap: 10px;
     margin-right: 20px;
 }
 nav a{
@@ -101,14 +102,10 @@ nav a{
     text-decoration-line: none;
     color: black ;
     display: flex;
-    margin-right: 30px;
    align-items: center;
-    width: 80px;
     
 }
-nav .user_img{
-    margin-left: 15px;
-}
+
 
 .logout ,.user{
     background-image:linear-gradient(90deg,#AD46FF,#F6339A);
@@ -117,7 +114,6 @@ nav .user_img{
     border-radius: 20px;
     display: flex;
     justify-content: center;
-    margin-right: 10px;
     color: #FFFFFF;
 }
 .logouty:hover ,.Homey:hover,.profily:hover{
@@ -127,19 +123,15 @@ cursor: pointer;
 }
 
 nav .logout{
-    margin-left: -50px;
     width: 105px;
 }
 .links .notice{
     display: flex;
 }
 
-.links .notice a{
-    margin-right: -50px;
-}
 .links .notice p{
     font-size: 12px;
-    transform: translatex(-20px);
+    transform: translatex(-40px);
     transform: translateY(-10px);
 
 
@@ -171,9 +163,9 @@ font-size:17px;
 .menu{
     width: 100%;
     place-items: center;
-        box-shadow: 0px 2px 5px #8d8484;
+    box-shadow: 0px 2px 5px #8d8484;
     margin: auto;
-    margin-top: -85px;
+    margin-top: -90px;
     display: none;
     background-color: white;
     z-index: 100;
@@ -206,7 +198,7 @@ color: #4A5565;
 .menu_Home ,.menu_login,.menu_SignUp{
     width: 90%;
     height: 50px;
-    border-radius: 20px;
+    border-radius: 17px;
     display: flex;
     justify-content: start;
     padding-left: 10px ;
@@ -244,7 +236,6 @@ align-self: center;
 
 .back{
     background-image:linear-gradient(90deg,#C27AFF,#F6339A,#51A2FF);
-
     height: 200px;
     border-radius: 20px 20px 0 0;
 }
@@ -666,8 +657,7 @@ margin-right: 2px;
     border-radius: 10px;
     background-color: rgb(235, 229, 229);
     z-index: 2;
-    margin-top: -75px;
-    transform:translatex(-190px);
+    transform:translatex(-190px) translateY(-25px);
 }
 .Emojies:hover{
     display: flex;
@@ -752,60 +742,56 @@ transition-duration:1s ;
     cursor: pointer;
 }
 
-@media (max-width: 600px) {
 
+@media (max-width: 600px) {
+nav{
+   
+    padding-right: 0;
+}
   .icon{
-        margin-left: -30px;
-    }
-    
+    display: flex;
+    justify-content: space-between;
+  }
     .main_name{
         display: none;
     }
     .notice{
-        margin-left: 130px;
-    }
-
+margin: 0;  
+  }
+.links ul{
+    display: flex;
+    justify-content: flex-end;
+}
 .eluser{
-    margin-right: -10px;
+margin: 0px;
 }
 .Homey,#logoutybtn,.profily{
-    display: none;
+    display: none ;
 }
-nav{
-    height: 90px;
-}
+
 .icon .img{
-    margin-left: 20px;
-    height: 55px;
-    width: 55px;
+    margin-left:-50px;
     border-radius: 15px;
 }
-.icon .img img{
 
-height: 40px;
-}
 .menu{
     position: sticky;
-    top: 85px;
+    top: 60px;
     padding-top: 10px;
-    width: 99%;
+    width: 98%;
 
 }
 .links ul img{
-    height: 40px;
+    height: 30px;
 }
 .menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
     padding-left: 20px;
 
 }
-.links{
-    
-    margin-left: -75px;
 
-}
 .menu_icon button{ 
     display: inline;
-    margin-left: -60px;
+margin: 0px;
 }
 
 .profile{
@@ -813,17 +799,18 @@ height: 40px;
     width: 90%;
 
 }
-
+.Editbtn{
+    width: 80%;
+}
 .Share{
   
-    width: 50%;
+    width: 45%;
 }
 
 .links_add{
     width: 90%;
   
 }
-
 
 .Eidt_Area{
     
@@ -837,7 +824,9 @@ width:100% ;
     width: 90%;
 
 }
-
+.links ul {
+    gap: 7px;
+}
 
 
 .img_prof{
@@ -859,9 +848,9 @@ width:100% ;
 
 @media (min-width: 601px) and (max-width: 700px) {
 
-    .icon{
-        margin-left: -30px;
-    }
+    .links ul {
+    gap: 10px;
+}
     
     .main_name{
         display: none;
@@ -876,41 +865,34 @@ width:100% ;
 .Homey,#logoutybtn,.profily{
     display: none;
 }
-nav{
-    height: 90px;
-}
+
 .icon .img{
     margin-left: 20px;
-    height: 55px;
-    width: 55px;
+   
     border-radius: 15px;
 }
-.icon .img img{
 
-height: 40px;
-}
 .menu{
     position: sticky;
-    top: 85px;
+    top: 60px;
     padding-top: 10px;
     width: 99%;
 
 }
 .links ul img{
-    height: 40px;
+    height: 30px;
 }
 .menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
     padding-left: 20px;
 
 }
-.links{
-    
-    margin-left: -50px;
 
+nav{
+   
+    padding-right: 0;
 }
 .menu_icon button{ 
     display: inline;
-    margin-left: -60px;
 }
 
 

@@ -309,7 +309,7 @@ localStorage.setItem("posteid",poste.author.id);
 
 
                  let imgprofile;
-      if (Object.keys(poste.author.profile_image).length !== 0){
+      if (Object.keys(poste.author.profile_image).length !== 0 ){
             imgprofile=poste.author.profile_image;
        }
        else{

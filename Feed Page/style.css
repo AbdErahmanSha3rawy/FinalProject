@@ -57,7 +57,7 @@ nav{
     font-family: sans-serif;
     margin-top: -10px;
     padding: 0px 50px;
-    height: 60px;
+    height: 64px;
     box-shadow: 0px 3px rgba(109, 104, 104, 0.24);
     min-width: 100%;
 }
@@ -108,22 +108,19 @@ nav ul {
     list-style-type: none;   
     align-items: center;
     margin-right: 20px;
+    gap: 20px;
 }
 nav a{
     display: flex;
     text-decoration-line: none;
     color: black ;
     display: flex;
-    margin-right: 30px;
    align-items: center;
-    width: 80px;
     
 }
-nav .user{
-    margin-left: 15px;
-}
+
 .Home{
-                box-shadow:0px 2px 7px #4A5565;
+    box-shadow:0px 2px 7px #4A5565;
 
 }
 .logout ,.Home{
@@ -133,31 +130,25 @@ nav .user{
     border-radius: 20px;
     display: flex;
     justify-content: center;
-    margin-right: 10px;
     color: #FFFFFF;
 }
-.logouty{
-    margin-left:  20px;
-}
+
 .logouty:hover ,.Homey:hover,.profily:hover{
 transform: scale(1.1);
 transition-duration:1s ;
 cursor: pointer;
 }
 nav .logout{
-    margin-left: -50px;
     width: 105px;
 }
 .links .notice{
     display: flex;
 }
 
-.links .notice a{
-    margin-right: -50px;
-}
+
 .links .notice p{
     font-size: 12px;
-    transform: translatex(-20px);
+    transform: translatex(-25px);
     transform: translateY(-10px);
 
 
@@ -228,7 +219,7 @@ color: #4A5565;
 .menu_Home ,.menu_login,.menu_SignUp{
     width: 90%;
     height: 50px;
-    border-radius: 20px;
+    border-radius: 17px;
     display: flex;
     justify-content: start;
     padding-left: 10px ;
@@ -649,9 +640,7 @@ display: block;
 width: 100%;
 
 }
-/* .post_img img{
-    width: 100%;
-} */
+
 .actives{
     display: flex;
     margin-left: 20px;
@@ -721,8 +710,7 @@ margin-right: 5px;
     border-radius: 10px;
     background-color: rgb(235, 229, 229);
     z-index: 2;
-    margin-top: -75px;
-    transform:translatex(-160px);
+    transform:translatex(-170px) translateY(-25px);
 }
 .Emojies:hover{
     display: flex;
@@ -741,7 +729,9 @@ margin-right: 5px;
 cursor: pointer;
 }
  @media (max-width: 600px) {
-   
+   nav{
+    padding-right: 0;
+   }
    
     .icon{
         margin-left: -50px;
@@ -750,38 +740,31 @@ cursor: pointer;
     .main_name{
         display: none;
     }
-    .notice{
-        margin-left: 130px;
-    }
+   
 
-.eluser{
-    margin-right: -30px;
-}
+
 .Homey,#logoutybtn,.profily{
     display: none;
 }
-nav{
-    height: 90px;
-}
+
 .icon .img{
     margin-left: 20px;
-    height: 55px;
-    width: 55px;
+    
     border-radius: 15px;
 }
-.icon .img img{
 
-height: 40px;
-}
 .menu{
     position: sticky;
-    top: 85px;
+    top: 60px;
     padding-top: 10px;
     width: 99%;
 
 }
+.links ul {
+    gap: 7px;
+}
 .links ul img{
-    height: 40px;
+    height: 30px;
 }
 .menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
     padding-left: 20px;
@@ -790,15 +773,10 @@ height: 40px;
 .menu_SignUp{
     border:none;
 }
-.links{
-    
-    margin-left: -40px;
-    
-}
+
 
 .menu_icon button{ 
     display: inline;
-    margin-left: -30px;
 }
 .add_post{
     width: 90%;
@@ -810,7 +788,7 @@ height: 40px;
 .add_post textarea{
 
     
-    width: 100%;
+    width: 98%;
    
 }
 form{
@@ -826,7 +804,7 @@ min-width: 30%;
 
 
 .btns{
-    width: 100%;
+    width: 98%;
     margin:0;
 
 }
@@ -838,11 +816,6 @@ margin-left: 20px;
 .boha{
 display: flex;
 justify-content: space-between;
-}
-.btns input{
-
-transform: translateY(50px);
-
 }
 
 .Eidt_Area{
@@ -889,7 +862,9 @@ transform: translateY(50px);
 }
 }
 @media (min-width: 601px) and (max-width: 700px) {
-
+    nav{
+        padding-right: 0;
+    }
     .icon{
         margin-left: -30px;
     }
@@ -897,39 +872,25 @@ transform: translateY(50px);
     .main_name{
         display: none;
     }
-    .notice{
-        margin-left: 130px;
-    }
-
-.eluser{
-    margin-right: -30px;
-}
+ 
 .Homey,#logoutybtn,.profily{
     display: none;
 }
 
-nav{
-    height: 90px;
-}
-.icon .img{
-    margin-left: 20px;
-    height: 55px;
-    width: 55px;
-    border-radius: 15px;
-}
-.icon .img img{
 
-height: 40px;
-}
+
 .menu{
     position: sticky;
-    top: 85px;
+    top: 60px;
     padding-top: 10px;
     width: 99%;
 
 }
+.links ul {
+    gap: 7px;
+}
 .links ul img{
-    height: 40px;
+    height: 30px;
 }
 .menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
     padding-left: 20px;
@@ -938,7 +899,6 @@ height: 40px;
 
 .menu_icon button{ 
     display: inline;
-    margin-left: -30px;
 }
 .add_post{
      

@@ -14,7 +14,7 @@ body{
     font-family: sans-serif;
     margin-top: -10px;
     padding: 0px 15px;
-    height: 60px;
+    height: 64px;
     box-shadow: 0px 3px rgba(109, 104, 104, 0.24);
 }
 nav .img{
@@ -138,7 +138,7 @@ color: #FFFFFF;
 .menu_Home ,.menu_login,.menu_SignUp{
     width: 90%;
     height: 50px;
-    border-radius: 20px;
+    border-radius: 17px;
     display: flex;
     justify-content: start;
     padding-left: 10px ;
@@ -409,19 +409,13 @@ body{
     justify-content: center;
     margin: auto;
  }
-nav{
-    height: 90px;
-}
+
 .icon .img{
     margin-left: 20px;
-    height: 55px;
-    width: 55px;
+    
     border-radius: 15px;
 }
-.icon .img img{
 
-height: 40px;
-}
 .main_name{
     display: none;
 }
@@ -465,19 +459,13 @@ width: 100%;
 }
 @media (min-width: 601px) and (max-width: 700px) {
 
-nav{
-    height: 90px;
-}
+
 .icon .img{
     margin-left: 20px;
-    height: 55px;
-    width: 55px;
+   
     border-radius: 15px;
 }
-.icon .img img{
 
-height: 40px;
-}
 .main_name{
     display: none;
 }
