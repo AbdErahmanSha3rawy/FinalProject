@@ -585,6 +585,8 @@ cursor: pointer;
 }
 .img_prof{
     margin-top: -5px;
+    width: 40px;
+    height: 40px;
 }
 .username_created_at{
     display: flex;
@@ -741,7 +743,13 @@ transition-duration:1s ;
 
     cursor: pointer;
 }
+ @media  (max-width: 370px) {
+ .options img{
+    margin-right: -20px;
+    width: 40px;
+ }
 
+}
 
 @media (max-width: 600px) {
 
