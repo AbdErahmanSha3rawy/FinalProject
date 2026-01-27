@@ -127,3 +127,54 @@ window.addEventListener("scroll", function () {
     getposts();
   }
 });
+
+
+/*******************************/
+
+function stories() {
+    
+
+  let request = new XMLHttpRequest();
+  request.open("GET", `https://tarmeezacademy.com/api/v1/posts?page=${page}`);
+
+  request.responseType = "json";
+  request.send();
+
+  request.onload = function () {
+
+
+    if (request.status >= 200 && request.status < 300) {
+      let postsr = request.response;
+      let postarray = postsr.data;
+ 
+     let stories=document.querySelector('.stories')
+
+      for (let poste of postarray) {
+        let imgprofile = (poste.author.profile_image && Object.keys(poste.author.profile_image).length !== 0) 
+                         ? poste.author.profile_image 
+                         : 'imgs/unknown.jpg';
+
+          let imgpost = "";
+        if (poste.image && Object.keys(poste.image).length !== 0) {
+          imgpost = `<img class="post_img" src="${poste.image}">`;
+        }
+
+        
+        stories.innerHTML += `
+          <img src="${poste.image}" alt="">
+        `;
+      }
+            page++; 
+
+    } else {
+      alert("Error loading posts");
+    }
+  };
+
+  request.onerror = function () {
+
+    alert("Network Error");
+  };
+}
+
+stories();

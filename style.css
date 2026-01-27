@@ -65,7 +65,7 @@ nav{
     z-index: 6;
     top:0;
     background-color: white;
-    margin-bottom: 100px;
+    margin-bottom: 40px;
     font-family: sans-serif;
     margin-top: -10px;
     padding: 0px 15px;
@@ -219,7 +219,17 @@ align-self: center;
  transition-duration: 1s;
  transform: scale(1.1);
 }
-
+.stories{
+  width: 100%;
+  height: 200px;
+  background-color: #2B7FFF;
+  margin-bottom: 100px;
+ display: flex;
+ overflow: scroll;
+}
+.stories img{
+    width:130px;
+}
 .post{
     display: block;
     justify-self: center;
