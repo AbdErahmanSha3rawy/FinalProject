@@ -48,6 +48,8 @@ const user_id=localStorage.getItem("user_id");
                  localStorage.setItem("elName",elName);
                  let elusername=Elusername.innerText;
                  localStorage.setItem("elusername",elusername);
+                  let posteid=localStorage.getItem("posteid");
+                 localStorage.setItem("elpostid",posteid);
                  
         window.location = "../anyone profile"; 
 

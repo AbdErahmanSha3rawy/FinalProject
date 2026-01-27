@@ -1,7 +1,32 @@
 let post_counter=0;
 let menu_icon=document.querySelector('.menu_icon');
 let menu=document.querySelector('.menu');
-   let elaicona=document.querySelector('.elaicona');
+let elaicona=document.querySelector('.elaicona');
+let follow=document.querySelector('.Follow');
+let nom_followers=document.querySelector('.nom_followers');
+let mood=0;
+let followers_count=parseInt(nom_followers.innerText);
+
+follow.onclick=function(){
+if(mood===0){
+following();
+followers_count++;
+mood=1;
+}
+else{
+follow.innerText="follow";
+follow.style.background="#AD46FF";
+followers_count--;
+mood=0;
+    
+}
+}
+nom_followers.innerText=parseInt(followers_count);
+function following(){
+follow.innerText="Unfollow";
+follow.style.background="#5ea9ff";
+}
+
 
 menu_icon.onclick=function(){
         if (menu.style.display === "block") {
@@ -272,7 +297,9 @@ isLoading = true;
 
   if (loader) loader.style.display = "flex";
     const user = JSON.parse(localStorage.getItem("user"));
-    const userId = user.id;
+
+        const userId = localStorage.getItem("elpostid");
+
     const token = localStorage.getItem("token");
 
     const postContainer = document.querySelector(".postContainer");
