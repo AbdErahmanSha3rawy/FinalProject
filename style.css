@@ -2,7 +2,9 @@ body{
     padding: 0px;
     margin: 0;
     background-image: linear-gradient(150deg,#FAF5FF,#EFF6FF,#FDF2F8);
+    
 }
+
 
 #loader_general {
     position: fixed;
@@ -220,15 +222,26 @@ align-self: center;
  transform: scale(1.1);
 }
 .stories{
-  width: 100%;
+  width: 50%;
   height: 200px;
-  background-color: #2B7FFF;
-  margin-bottom: 100px;
- display: flex;
- overflow: scroll;
+  margin-bottom: 40px;
+ display: grid;
+ grid-auto-flow:column;
+ overflow-x: scroll;
+ 
+    scrollbar-width: none;
+    justify-self: center;
+
 }
-.stories img{
-    width:130px;
+.stories .story_img{
+    width:100px;
+    height: 100%;
+    margin-left: 5px;
+    border-radius: 10px;
+}
+
+.stories::-webkit-scrollbar{
+    display: none;
 }
 .post{
     display: block;
@@ -334,6 +347,12 @@ width: 100%;
 .main_name{
     display: none;
 }
+.stories{
+width: 90%;
+}
+.stories .story_img{
+ margin-left: 5px;
+}
 .post{
     width: 90%;
 }
@@ -377,12 +396,23 @@ width: 100%;
 .post{
     width: 90%;
 }
+.stories{
+width: 90%;
+}
+.stories .story_img{
+ margin-left: 5px;
+}
 }
 @media (min-width: 700px) and (max-width: 1000px) {
 
 .post{
     width: 85%;
 }
-
+.stories{
+width: 85%;
+}
+.stories .story_img{
+ margin-left: 5px;
+}
 }
 

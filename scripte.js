@@ -148,25 +148,23 @@ function stories() {
       let postarray = postsr.data;
  
      let stories=document.querySelector('.stories')
+for (let poste of postarray) {
+    let imgpost = "";
+    if (poste.image && typeof poste.image === 'object') {
+        imgpost = poste.image.url || poste.image.path;
+    } else {
+        imgpost = poste.image;
+    }
 
-      for (let poste of postarray) {
-        let imgprofile = (poste.author.profile_image && Object.keys(poste.author.profile_image).length !== 0) 
-                         ? poste.author.profile_image 
-                         : 'imgs/unknown.jpg';
-
-          let imgpost = "";
-        if (poste.image && Object.keys(poste.image).length !== 0) {
-          imgpost = `<img class="post_img" src="${poste.image}">`;
-        }
-
-        
-        stories.innerHTML += `
-          <img src="${poste.image}" alt="">
-        `;
-      }
+    if (imgpost && imgpost !== "undefined" && imgpost !== "") {
+        stories.innerHTML += 
+            `<img class="story_img" src="${imgpost}" alt="story">
+        `
+    }
+}
             page++; 
 
-    } else {
+    }else {
       alert("Error loading posts");
     }
   };
