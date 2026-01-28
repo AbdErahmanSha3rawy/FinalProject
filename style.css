@@ -238,6 +238,7 @@ align-self: center;
     height: 100%;
     margin-left: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .stories::-webkit-scrollbar{

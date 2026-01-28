@@ -131,46 +131,123 @@ window.addEventListener("scroll", function () {
 
 /*******************************/
 
-function stories() {
+// function stories() {
     
 
-  let request = new XMLHttpRequest();
-  request.open("GET", `https://tarmeezacademy.com/api/v1/posts?page=${page}`);
+//   let request = new XMLHttpRequest();
+//   request.open("GET", `https://tarmeezacademy.com/api/v1/posts?page=${page}`);
 
+//   request.responseType = "json";
+//   request.send();
+
+//   request.onload = function () {
+
+
+//     if (request.status >= 200 && request.status < 300) {
+//       let postsr = request.response;
+//       let postarray = postsr.data;
+ 
+//      let stories=document.querySelector('.stories')
+// for (let poste of postarray) {
+//     let imgpost = "";
+//     if (poste.image && typeof poste.image === 'object') {
+//         imgpost = poste.image.url || poste.image.path;
+//     } else {
+//         imgpost = poste.image;
+//     }
+
+//     if (imgpost && imgpost !== "undefined" && imgpost !== "") {
+//         stories.innerHTML += 
+//             `<img class="story_img" src="${imgpost}" alt="story">
+//         `
+//     }
+// }
+//             page++; 
+
+//     }else {
+//       alert("Error loading posts");
+//     }
+//   };
+
+//   request.onerror = function () {
+
+//     alert("Network Error");
+//   };
+// }
+
+// stories();
+
+
+
+function stories() {
+
+  let request = new XMLHttpRequest();
+  request.open("GET", `https://tarmeezacademy.com/api/v1/posts?limit=100`);
   request.responseType = "json";
   request.send();
 
   request.onload = function () {
 
-
     if (request.status >= 200 && request.status < 300) {
       let postsr = request.response;
       let postarray = postsr.data;
- 
-     let stories=document.querySelector('.stories')
-for (let poste of postarray) {
-    let imgpost = "";
-    if (poste.image && typeof poste.image === 'object') {
-        imgpost = poste.image.url || poste.image.path;
+
+      let stories = document.querySelector('.stories');
+      let imageFingerprints = new Set(); // بصمات الصور
+
+      function getImageFingerprint(url) {
+        return new Promise((resolve, reject) => {
+          let img = new Image();
+          img.crossOrigin = "anonymous";
+          img.src = url;
+
+          img.onload = function () {
+            let canvas = document.createElement("canvas");
+            let ctx = canvas.getContext("2d");
+            canvas.width = 20;
+            canvas.height = 20;
+
+            ctx.drawImage(img, 0, 0, 20, 20);
+            let data = ctx.getImageData(0, 0, 20, 20).data;
+
+            // نحول البكسلات لبصمة رقمية
+            let fingerprint = "";
+            for (let i = 0; i < data.length; i += 10) {
+              fingerprint += data[i];
+            }
+
+            resolve(fingerprint);
+          };
+
+          img.onerror = () => reject("image load error");
+        });
+      }
+
+      (async function () {
+        for (let poste of postarray) {
+          let imgpost = poste.image?.url || poste.image?.path || poste.image;
+          if (!imgpost) continue;
+
+          try {
+            let fp = await getImageFingerprint(imgpost);
+
+            if (!imageFingerprints.has(fp)) {
+              stories.innerHTML += `<img class="story_img" src="${imgpost}" alt="story">`;
+              imageFingerprints.add(fp);
+            }
+
+          } catch (e) {
+            console.log("skip image", imgpost);
+          }
+        }
+      })();
+
     } else {
-        imgpost = poste.image;
-    }
-
-    if (imgpost && imgpost !== "undefined" && imgpost !== "") {
-        stories.innerHTML += 
-            `<img class="story_img" src="${imgpost}" alt="story">
-        `
-    }
-}
-            page++; 
-
-    }else {
       alert("Error loading posts");
     }
   };
 
   request.onerror = function () {
-
     alert("Network Error");
   };
 }

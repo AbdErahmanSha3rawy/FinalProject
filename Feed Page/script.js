@@ -404,7 +404,7 @@ let space="/..";
         <button class="Delete" href=""><img src="imgs/delete.png" alt="">Delete Post</button><br><br>
         <a class="Share" href=""><img src="imgs/share(2).png" alt="">Share</a>
     </div>
-    <img class="post_img" src="${imgpost}">
+    <img class="post_img" src="${imgpost}" >
     <div class="actives">
         <button class="lovebtn"><img src="imgs/love.svg" alt=""></button>
         <p class="lovecount">${poste.id}</p>
@@ -661,3 +661,79 @@ function logout() {
         window.location = "../index.html";
     }
 }
+
+
+function stories() {
+
+  let request = new XMLHttpRequest();
+  request.open("GET", `https://tarmeezacademy.com/api/v1/posts?limit=100`);
+  request.responseType = "json";
+  request.send();
+
+  request.onload = function () {
+
+    if (request.status >= 200 && request.status < 300) {
+      let postsr = request.response;
+      let postarray = postsr.data;
+
+      let stories = document.querySelector('.stories');
+      let imageFingerprints = new Set(); // بصمات الصور
+
+      function getImageFingerprint(url) {
+        return new Promise((resolve, reject) => {
+          let img = new Image();
+          img.crossOrigin = "anonymous";
+          img.src = url;
+
+          img.onload = function () {
+            let canvas = document.createElement("canvas");
+            let ctx = canvas.getContext("2d");
+            canvas.width = 20;
+            canvas.height = 20;
+
+            ctx.drawImage(img, 0, 0, 20, 20);
+            let data = ctx.getImageData(0, 0, 20, 20).data;
+
+            // نحول البكسلات لبصمة رقمية
+            let fingerprint = "";
+            for (let i = 0; i < data.length; i += 10) {
+              fingerprint += data[i];
+            }
+
+            resolve(fingerprint);
+          };
+
+          img.onerror = () => reject("image load error");
+        });
+      }
+
+      (async function () {
+        for (let poste of postarray) {
+          let imgpost = poste.image?.url || poste.image?.path || poste.image;
+          if (!imgpost) continue;
+
+          try {
+            let fp = await getImageFingerprint(imgpost);
+
+            if (!imageFingerprints.has(fp)) {
+              stories.innerHTML += `<img class="story_img" src="${imgpost}" alt="story">`;
+              imageFingerprints.add(fp);
+            }
+
+          } catch (e) {
+            console.log("skip image", imgpost);
+          }
+        }
+      })();
+
+    } else {
+      alert("Error loading posts");
+    }
+  };
+
+  request.onerror = function () {
+    alert("Network Error");
+  };
+}
+
+stories();
