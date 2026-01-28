@@ -260,17 +260,10 @@ createComment(id,Elcomment.innerText);
     }
 
 });
-let page = 1;             
-let isLoading = false;    
-let lastPage = false;     
 
 const getUserPosts = async () => {
-    if (isLoading || lastPage) return;   
-isLoading = true;
 
-      let loader = document.getElementById('loader-wrapper');
 
-  if (loader) loader.style.display = "flex";
     const user = JSON.parse(localStorage.getItem("user"));
     const userId = user.id;
     const token = localStorage.getItem("token");
@@ -281,8 +274,7 @@ isLoading = true;
         console.error("postContainer not found");
         return;
     }
-  let post_CreatedAt=localStorage.getItem("post_CreatedAt");
-const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?&page=${page}&sortBy=created_at&orderBy=desc`;
+const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?&limited=150&sortBy=created_at&orderBy=desc`;
 
     try {
         const response = await fetch(url, {
@@ -305,9 +297,7 @@ const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?&page=${pag
 
         const postarray = result.data;
         postContainer.innerHTML = "";
-             let load = document.getElementById('loader-wrapper');
 
-            if (load) load.style.display = "none";
         for (let poste of postarray) {
         post_counter++;
             let imgprofile;
@@ -406,8 +396,7 @@ let space="/..";
     </div>
 </div>`;
             }
-       page++;          
-isLoading = false; 
+       
      
             localStorage.setItem("counter",post_counter);
     }
@@ -418,13 +407,6 @@ isLoading = false;
 };
 
 getUserPosts();
-window.addEventListener("scroll", function () {
-    if (
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 150
-    ) {
-        getUserPosts();  
-    }
-});
 
 function deletePost(id) {
      let token=localStorage.getItem("token");
