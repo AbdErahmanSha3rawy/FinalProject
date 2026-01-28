@@ -84,77 +84,17 @@ let moood;
             list.style.display = "none";
             postImg.style.marginTop = "0px";
         } 
-        else if(moood===5){
-            
-            list.style.display = "none";
-
-        }
+        
         else {
 
             list.style.display = "block";
-            postImg.style.marginTop = "-120px";
+            postImg.style.marginTop = "-40px";
         }
     }
-    if (e.target.closest('.Delete')) {
-        let postdiv=postDiv.querySelector('.post');
-        let lovecount = postDiv.querySelector('.lovecount');
-        let id=lovecount.innerHTML;
-        deletePost(id);
-        postDiv.querySelector('.list').style.display="none";
-        postDiv.querySelector('.post_img').style.marginTop = "0px";
-    }
+
     
          
 
-if (e.target.closest('.Edit')) {
-    let postDiv = e.target.closest('.post');
-    let lovecount = postDiv.querySelector('.lovecount');
-    let id = lovecount.innerHTML;
-    console.log(id);
-
-    let post_describe = postDiv.querySelector('.post_descripe'); 
-    let textarea = postDiv.querySelector('.text'); 
-    
-        textarea.value = post_describe.innerText.trim(); 
-
-
-    postDiv.querySelector('.list').style.display = "none";
-    postDiv.querySelector('.post_img').style.marginTop = "0px";
-    postDiv.querySelector('.Eidt_Area').style.display = "flex";
-    postDiv.querySelector('.post_descripe').style.display = "none";
-    moood=5;
-
-}
-
-if (e.target.closest('.Savebtn')) {
-    let postDiv = e.target.closest('.post');
-    let lovecount = postDiv.querySelector('.lovecount');
-    let id = lovecount.innerHTML;
-    let textarea = postDiv.querySelector('.text');
-
- let text_value=textarea.value;
-const formData = new FormData();
-        formData.append("body",text_value);
-   
-    updatePost(id,formData);
-
-    
-    postDiv.querySelector('.post_descripe').style.display = "block";
-    postDiv.querySelector('.Eidt_Area').style.display = "none";
-} 
-
-
-  
-if (e.target.closest('.Cancelbtn')) {
-    let postDiv = e.target.closest('.post');
-
-
-    postDiv.querySelector('.post_descripe').style.display = "block";
-    
-    postDiv.querySelector('.Eidt_Area').style.display = "none";
-
-
-}
 
 
     
@@ -258,7 +198,7 @@ if ( e.target.closest('.angry_emoji')) {
             loveBtn.src = "imgs/angry.svg";
             lovecount.innerText = count ;
             audio_like.currentTime=0;
-audio_like.play();
+            audio_like.play();
         } 
         else {
             loveBtn.src = "imgs/angry.svg";
@@ -285,81 +225,49 @@ createComment(id,Elcomment.innerText);
     }
 
 });
-let page = 1;             
-let isLoading = false;    
-let lastPage = false;     
-
 const getUserPosts = async () => {
-    if (isLoading || lastPage) return;   
-isLoading = true;
 
-      let loader = document.getElementById('loader-wrapper');
+  const userId = localStorage.getItem("elpostid");
+  const postContainer = document.querySelector(".postContainer");
+let elpostid=localStorage.getItem("elpostid");
 
-  if (loader) loader.style.display = "flex";
-    const user = JSON.parse(localStorage.getItem("user"));
+  if (!postContainer) return;
+  const url = `https://tarmeezacademy.com/api/v1/users/${elpostid}/posts?sortBy=created_at&orderBy=desc`;
 
-        const userId = localStorage.getItem("elpostid");
-
-    const token = localStorage.getItem("token");
-
-    const postContainer = document.querySelector(".postContainer");
-
-    if (!postContainer) {
-        console.error("postContainer not found");
-        return;
-    }
-  let post_CreatedAt=localStorage.getItem("post_CreatedAt");
-const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?&page=${page}&sortBy=created_at&orderBy=desc`;
-
-    try {
-        const response = await fetch(url, {
-     
-        
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${token}`
-
-            }
-        });
-
-        const result = await response.json();
-
-        if (!response.ok) {
-            console.log(result);
-            return;
-        }
-
-        const postarray = result.data;
-        postContainer.innerHTML = "";
-             let load = document.getElementById('loader-wrapper');
-
-            if (load) load.style.display = "none";
-        for (let poste of postarray) {
-        post_counter++;
-            let imgprofile;
-             imgprofile = localStorage.getItem("profile_image");
-
-localStorage.setItem("imgprofile", imgprofile);      
- let imgpost='';
-      if (Object.keys(poste.image).length !== 0){
-
-        imgpost=poste.image;
-       }
-       else{
-        // document.querySelector('.post_img').style.display="none";
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json'
       }
-        localStorage.setItem("Name",poste.author.name);
-        localStorage.setItem("User_Name",poste.author.username);
-        localStorage.setItem("profile_CreatedAt",poste.author.created_at);
-        localStorage.setItem("post_CreatedAt",poste.created_at);
+    });
 
+    const result = await response.json();
 
+    if (!response.ok) {
+      console.log(result);
+      return;
+    }
 
-   
-let space="/..";
-                postContainer.innerHTML += `
-                
+    const postarray = result.data;
+    postContainer.innerHTML = "";
+    post_counter = 0;
+ 
+let user_name=localStorage.getItem("user_name");
+let profile_image=localStorage.getItem("profile_image");
+ let imgpost;
+    for (let poste of postarray) {
+      post_counter++;
+     if( typeof poste.image ==='string'){
+        imgpost=poste.image    ;
+     }
+     else{
+        imgpost="";
+     }
+
+const imgprofile = localStorage.getItem("elimage");
+      postContainer.innerHTML += `
+       
 <div class="post" id="post-${poste.id}">
 <span class="posteid">${poste.author.id}</span>
 
@@ -371,29 +279,18 @@ let space="/..";
              <div class="username_created_at">
 
                 <p class="username">@${poste.author.username}</p>
-                <p>${space}</p>
+                <p>" "</p>
                 <p class="created_at">${poste.created_at}</p>
                 </div>
             </div>
         </div>
         <button class="options"><img src="imgs/options.svg" alt=""></button>
     </div>
-    <div class=" Eidt_Area">
-  <form action="">
-<textarea name="" id="" placeholder="What's on your mind?" class="text"></textarea><br>
-<div class="btns">
-<button type="button" class="Savebtn">Save</button>
-<button type="button" class="Cancelbtn">Cancel</button>
-
-
-</div>
-</form>
-</div>
+   
     <p class="post_descripe">${poste.body}</p>
     <div class="list" style="display:none;">
-        <button class="Edit" href=""><img src="imgs/etdi.png" alt="">Edit Post</button><br><br>
-        <button class="Delete" href=""><img src="imgs/delete.png" alt="">Delete Post</button><br><br>
-        <a class="Share" href=""><img src="imgs/share(2).png" alt="">Share</a>
+      
+        <a class="Share" href=""><img src="imgs/share.png" alt="">Share</a>
     </div>
     <img class="post_img" src="${imgpost}">
     <div class="actives">
@@ -411,15 +308,15 @@ let space="/..";
     </div>
     <div class="commentcontainer" style="display:none;">
         <div class="add_comment">
-            <img src="${imgprofile}" alt="">
+            <img src="${profile_image}" alt="">
             <input type="text" class="Write_comment" placeholder="Write a comment...">
             <button type="submit" class="add_comment_btn">post</button>
         </div>
 <div class="comment">
             <div class="comment_content">
-                <img class="comment_img" src="${imgprofile}" alt="">
+                <img class="comment_img" src="${profile_image}" alt="">
                 <div class="commenty">
-                <p  class="username_comment">${poste.author.username}</p>
+                <p  class="username_comment">${user_name}</p>
                 <p class="Elcomment"></p>
                 </div>
                 </div>
@@ -432,80 +329,17 @@ let space="/..";
         </p>
     </div>
 </div>`;
-            }
-       page++;          
-isLoading = false; 
-     
-            localStorage.setItem("counter",post_counter);
     }
-     catch (error) {
-        console.error(error);
-    }
-    
+
+    localStorage.setItem("counter", post_counter);
+
+  } catch (error) {
+    console.error("Fetch error:", error);
+  }
 };
 
 getUserPosts();
-window.addEventListener("scroll", function () {
-    if (
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 150
-    ) {
-        getUserPosts();  
-    }
-});
 
-function deletePost(id) {
-     let token=localStorage.getItem("token");
-    let request = new XMLHttpRequest();
-    request.open("DELETE", `https://tarmeezacademy.com/api/v1/posts/${id}`);
-    request.responseType = "json";
-    request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Content-Type", "application/json");
-    request.setRequestHeader("Authorization",` Bearer ${token}`); 
-
-   
-    request.send();
-
-    request.onload = function() {
-        if(request.status >= 200 && request.status < 300) {
-  
-    const post=document.getElementById(`post-${id}`);
-    post.remove();
-
-        } else {
-           
-        }
-    }
-}
-
-
-function updatePost(id,formData) {
-     let token=localStorage.getItem("token");
-    let request = new XMLHttpRequest();
-    request.open("POST", `https://tarmeezacademy.com/api/v1/posts/${id}`);
-    request.responseType = "json";
-    
-    request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Authorization",` Bearer ${token}`); 
-
-   
-    
-
-    formData.append("_method", "put");
-    request.send(formData);
-
-
-    request.onload = function() {
-        if (request.status >= 200 && request.status < 300) {
-let updated_post=request.response.data;
-const new_post=document.getElementById(`post-${id}`);
-new_post.querySelector('.post_descripe').innerText=updated_post.body;
-
-        } else {
-            console.error(request.response);
-        }
-    };
-
-}
 
 
 
@@ -568,3 +402,68 @@ function logout() {
         window.location = "../index.html";
     }
 }
+
+
+let Mediabtn=document.querySelector('.Mediabtn');
+Mediabtn.onclick=function(){
+document.querySelector('.postContainer').style.display="none";
+let Mediabtn=document.querySelector('.Mediabtn');
+Mediabtn.style.backgroundImage="linear-gradient(90deg,#AD46FF,#F6339A)"
+Mediabtn.style.color="white"
+
+let Postsbtn=document.querySelector('.Postsbtn');
+Postsbtn.style.background="none";
+Postsbtn.style.color="#4A5565";
+getUserimgs();
+
+}
+let Postsbtn=document.querySelector('.Postsbtn');
+Postsbtn.onclick=function(){
+
+        window.location = "../anyone profile/index.html"; 
+
+}
+const getUserimgs = async () => {
+
+  
+  const media = document.querySelector(".media");
+let elpostid=localStorage.getItem("elpostid");
+
+  const url = `https://tarmeezacademy.com/api/v1/users/${elpostid}/posts?sortBy=created_at&orderBy=desc`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      console.log(result);
+      return;
+    }
+
+    const postarray = result.data;
+    media.innerHTML = "";
+    post_counter = 0;
+ 
+
+    for (let poste of postarray) {
+      post_counter++;
+      let imgpost ;
+  if( typeof poste.image ==='string'){
+       imgpost = poste.image;
+             media.innerHTML += `
+           <img class="post_img" src="${imgpost}">
+`;
+   
+}}
+    localStorage.setItem("counter", post_counter);
+
+  } catch (error) {
+    console.error("Fetch error:", error);
+  }
+};

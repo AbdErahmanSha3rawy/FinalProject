@@ -429,7 +429,18 @@ transition-duration:1s ;
 transition-duration:1s ;
 
 }
-
+.media{
+    width: 55%;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    gap: 10px;
+    justify-self: center;
+    margin-bottom: 50px;
+}
+.media img{
+  height: 200px;
+  border-radius: 10px;
+}
 .Likesbtn:hover{
     cursor: pointer;
     transform: scale(1.1);
@@ -465,7 +476,7 @@ transition-duration:1s ;
 }
 .list{
     width: 150px;
-    height: 100px;
+    height: auto;
     background-color: white;
     border:none;
     box-shadow: 0px 2px 5px #8d8484;
@@ -478,12 +489,12 @@ transition-duration:1s ;
     display: none;
     z-index: 5;
 }
-.list .Edit,.list .Delete,.list .Share{
+.list .Share{
     display: flex;
     margin-bottom: -20px;
     text-decoration-line: none;
 }
-.list .Edit:hover,.list .Delete:hover,.list .Share:hover{
+.list .Share:hover{
   transform: scale(1.1);
   transition-duration: 1s;
 }
@@ -493,15 +504,7 @@ transition-duration:1s ;
 .list img{
     margin-right: 5px;
 }
-.list .Delete {
-    background: none;
-    border: none;
-    color: red;
-}
-.list .Delete:hover {
 
-cursor: pointer;
-}
 
 .list .Share img{
     width: 20px;
@@ -862,7 +865,10 @@ margin: 0px;
     display: inline;
 margin: 0px;
 }
-
+.media{
+    width: 90%;
+    grid-template-columns: repeat(2,auto);
+}
 .profile{
    
     width: 90%;
@@ -1053,6 +1059,11 @@ width:100% ;
 .noms{
     gap: 10px;
     width: 70%;
+
+}
+.media{
+    width: 90%;
+    grid-template-columns: repeat(3,auto);
 }
 }
 @media (min-width: 1001px)  {

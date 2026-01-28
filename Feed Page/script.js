@@ -39,17 +39,20 @@ const user_id=localStorage.getItem("user_id");
            }
            else{   
                                   
-                let img_prof = postDiv.querySelector('.img_prof');
-                let ElName = postDiv.querySelector('.Name');
-                let Elusername = postDiv.querySelector('.username');
+                 let img_prof = postDiv.querySelector('.img_prof');
+                 let ElName = postDiv.querySelector('.Name');
+                 let Elusername = postDiv.querySelector('.username');
                  let elimage=img_prof.src;
                  localStorage.setItem("elimage",elimage);
                  let elName=ElName.innerText;
                  localStorage.setItem("elName",elName);
                  let elusername=Elusername.innerText;
                  localStorage.setItem("elusername",elusername);
-                  let posteid=localStorage.getItem("posteid");
-                 localStorage.setItem("elpostid",posteid);
+
+                 let posteid = postDiv.querySelector('.posteid');
+                 let authorid=posteid.innerText;
+                
+                 localStorage.setItem("elpostid",authorid);
                  
         window.location = "../anyone profile"; 
 
@@ -64,18 +67,18 @@ if (e.target.closest('.Name')) {
                 
            }
            else{   
-                                  
-                let img_prof = postDiv.querySelector('.img_prof');
-                let ElName = postDiv.querySelector('.Name');
-                let Elusername = postDiv.querySelector('.username');
-                 let elimage=img_prof.src;
-                 localStorage.setItem("elimage",elimage);
-                 let elName=ElName.innerText;
-                 localStorage.setItem("elName",elName);
-                 let elusername=Elusername.innerText;
-                 localStorage.setItem("elusername",elusername);
-                 
-        window.location = "../anyone profile"; 
+                                
+            let img_prof = postDiv.querySelector('.img_prof');
+            let ElName = postDiv.querySelector('.Name');
+            let Elusername = postDiv.querySelector('.username');
+            let elimage=img_prof.src;
+            localStorage.setItem("elimage",elimage);
+            let elName=ElName.innerText;
+            localStorage.setItem("elName",elName);
+            let elusername=Elusername.innerText;
+            localStorage.setItem("elusername",elusername);
+            
+            window.location = "../anyone profile"; 
 
 
            }
@@ -359,7 +362,7 @@ localStorage.setItem("posteid",poste.author.id);
         
                  let imgprofile;
       
-      if (Object.keys(poste.author.profile_image).length !== 0 ){
+      if (Object.keys(poste.author.profile_image).length !== 0 && typeof poste.author.profile_image==='string' ){
             imgprofile=poste.author.profile_image;
        }
        else{
@@ -368,6 +371,9 @@ localStorage.setItem("posteid",poste.author.id);
        let imgpost='';
       if (Object.keys(poste.image).length !== 0){
         imgpost=poste.image;
+       }
+       else{
+        imgpost="";
        }
 let space="/..";
                 postContainer.innerHTML += `

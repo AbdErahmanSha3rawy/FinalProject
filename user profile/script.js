@@ -523,3 +523,67 @@ function logout() {
         window.location = "../index.html";
     }
 }
+
+let Mediabtn=document.querySelector('.Mediabtn');
+Mediabtn.onclick=function(){
+document.querySelector('.postContainer').style.display="none";
+let Mediabtn=document.querySelector('.Mediabtn');
+Mediabtn.style.backgroundImage="linear-gradient(90deg,#AD46FF,#F6339A)"
+Mediabtn.style.color="white"
+
+let Postsbtn=document.querySelector('.Postsbtn');
+Postsbtn.style.background="none";
+Postsbtn.style.color="#4A5565";
+getUserimgs();
+
+}
+let Postsbtn=document.querySelector('.Postsbtn');
+Postsbtn.onclick=function(){
+
+        window.location = "../user profile/index.html"; 
+
+}
+const getUserimgs = async () => {
+
+  
+  const media = document.querySelector(".media");
+const user = JSON.parse(localStorage.getItem("user"));
+    const userId = user.id;
+  const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?sortBy=created_at&orderBy=desc`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      console.log(result);
+      return;
+    }
+
+    const postarray = result.data;
+    media.innerHTML = "";
+    post_counter = 0;
+ 
+
+    for (let poste of postarray) {
+      post_counter++;
+      let imgpost ;
+  if( typeof poste.image ==='string'){
+       imgpost = poste.image;
+             media.innerHTML += `
+           <img class="post_img" src="${imgpost}">
+`;
+   
+}}
+    localStorage.setItem("counter", post_counter);
+
+  } catch (error) {
+    console.error("Fetch error:", error);
+  }
+};

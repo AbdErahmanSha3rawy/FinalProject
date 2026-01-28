@@ -67,7 +67,6 @@ function getposts() {
         let imgprofile = (poste.author.profile_image && Object.keys(poste.author.profile_image).length !== 0) 
                          ? poste.author.profile_image 
                          : 'imgs/unknown.jpg';
-
           let imgpost = "";
         if (poste.image && Object.keys(poste.image).length !== 0) {
           imgpost = `<img class="post_img" src="${poste.image}">`;
@@ -210,7 +209,7 @@ function stories() {
             ctx.drawImage(img, 0, 0, 20, 20);
             let data = ctx.getImageData(0, 0, 20, 20).data;
 
-            // نحول البكسلات لبصمة رقمية
+            
             let fingerprint = "";
             for (let i = 0; i < data.length; i += 10) {
               fingerprint += data[i];

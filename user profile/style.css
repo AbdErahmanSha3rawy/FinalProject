@@ -347,6 +347,18 @@ transition-duration:1s ;
 
 }
 
+.media{
+    width: 55%;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    gap: 10px;
+    justify-self: center;
+    margin-bottom: 50px;
+}
+.media img{
+  height: 200px;
+  border-radius: 10px;
+}
 .Likesbtn:hover{
     cursor: pointer;
     transform: scale(1.1);
@@ -776,7 +788,10 @@ margin: 0px;
     display: inline;
 margin: 0px;
 }
-
+.media{
+    width: 90%;
+    grid-template-columns: repeat(2,auto);
+}
 .profile{
    
     width: 90%;
@@ -878,7 +893,10 @@ nav{
     display: inline;
 }
 
-
+.media{
+    width: 90%;
+    grid-template-columns: repeat(3,auto);
+}
     
 .profile{
    
@@ -934,7 +952,10 @@ width:100% ;
   
 }
 
-
+.media{
+    width: 90%;
+    grid-template-columns: repeat(3,auto);
+}
 .Eidt_Area{
     
    width: 100%;
