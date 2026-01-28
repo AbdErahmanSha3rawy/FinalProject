@@ -727,7 +727,7 @@ function stories() {
             }
 
           } catch (e) {
-            console.log("skip image", imgpost);
+            // console.log("skip image", imgpost);
           }
         }
       })();

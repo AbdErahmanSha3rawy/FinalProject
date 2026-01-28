@@ -211,8 +211,14 @@ align-self: center;
 
 .back{
     background-image:linear-gradient(90deg,#C27AFF,#F6339A,#51A2FF);
-    height: 200px;
+    height: 250px;
     border-radius: 20px 20px 0 0;
+}
+.background_img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 20px 0 0;
+
 }
 .profile_detailes{
     padding: 15px;

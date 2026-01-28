@@ -15,6 +15,19 @@ menu.style.display="block";
 
         }
 }
+
+const backgroundimg = localStorage.getItem("background_img");
+
+let background_img=document.querySelector('.background_img');
+if(backgroundimg !=='[object Object]'){ 
+
+background_img.src=backgroundimg;
+
+}
+else{
+ background_img.src="imgs/myprofile.png";   
+}
+console.log( backgroundimg)
 const profile_image = localStorage.getItem("profile_image");
 document.querySelector('.User_Img').src = `${profile_image}` ;
 
@@ -297,7 +310,7 @@ const url = `https://tarmeezacademy.com/api/v1/users/${userId}/posts?&limited=15
 
         const postarray = result.data;
         postContainer.innerHTML = "";
-
+let img_for_background;
         for (let poste of postarray) {
         post_counter++;
             let imgprofile;
@@ -395,8 +408,9 @@ let space="/..";
         </p>
     </div>
 </div>`;
+ img_for_background=poste.image;
             }
-       
+       localStorage.setItem("background_img",img_for_background)
      
             localStorage.setItem("counter",post_counter);
     }

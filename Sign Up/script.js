@@ -52,10 +52,39 @@ function register() {
           let audio_success=document.querySelector('.audio_success');
 audio_success.currentTime=0;
 audio_success.play();
+  localStorage.setItem("user_info",
+JSON.stringify({
+username: username.value,
+password: password.value
+})
 
+        )
+   const token = response.data.token;
+        const user = response.data.user;
+        const user_id=user.id;
+        localStorage.setItem("user_id",user_id)  ;
+        
+        const Account_Id=response.data.id;
+        localStorage.setItem("Account_Id",Account_Id)  ;
+         console.log("id of post is : "+Account_Id);
+        localStorage.setItem("token",token);
+        
+            const name=user.name;
+        localStorage.setItem("name",name)  ;
+
+        const user_name=user.username;
+        localStorage.setItem("user_name",user_name)  ;
+let profile_image;
+if(user.profile_image.length >0){
+profile_image=user.profile_image;
+}    
+else{
+        profile_image="imgs/unknown.jpg";
+}
+        localStorage.setItem("profile_image",profile_image)  ;
 setTimeout(()=>{
         window.location = "../Feed Page/index.html"; 
-},5000);
+},1000);
         })
         .catch((error) => {
             console.log(error.response.data);

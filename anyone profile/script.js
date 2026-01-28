@@ -40,6 +40,17 @@ menu.style.display="block";
 
         }
 }
+const backgroundimg = localStorage.getItem("background_Img");
+
+let background_img=document.querySelector('.background_img');
+if(backgroundimg){ 
+
+background_img.src=backgroundimg;
+
+}
+else{
+ background_img.src="imgs/myprofile.png";   
+}
 const profile_image = localStorage.getItem("elimage");
 document.querySelector('.User_Img').src = `${profile_image}` ;
 
@@ -256,6 +267,7 @@ let elpostid=localStorage.getItem("elpostid");
 let user_name=localStorage.getItem("user_name");
 let profile_image=localStorage.getItem("profile_image");
  let imgpost;
+ let background_Img;
     for (let poste of postarray) {
       post_counter++;
      if( typeof poste.image ==='string'){
@@ -329,7 +341,9 @@ const imgprofile = localStorage.getItem("elimage");
         </p>
     </div>
 </div>`;
+    background_Img=poste.image;
     }
+    localStorage.setItem("background_Img", background_Img);
 
     localStorage.setItem("counter", post_counter);
 
