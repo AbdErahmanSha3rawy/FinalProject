@@ -49,9 +49,7 @@ function register() {
         formData
     )    
      .then((response) => {
-          let audio_success=document.querySelector('.audio_success');
-audio_success.currentTime=0;
-audio_success.play();
+         
   localStorage.setItem("user_info",
 JSON.stringify({
 username: username.value,

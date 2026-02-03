@@ -61,10 +61,8 @@ else{
 }
         localStorage.setItem("profile_image",profile_image)  ;
         
-           let audio_success=document.querySelector('.audio_success');
 if(token){
-audio_success.currentTime=0;
-audio_success.play();
+
 loginbtn.style.background="#47f750";
 loginbtn.innerText="Successful ✨🎉";
 

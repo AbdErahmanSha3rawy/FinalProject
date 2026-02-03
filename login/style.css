@@ -79,7 +79,7 @@ nav a{
 }
 
 
- .SignUp{
+ .login{
     background-image:linear-gradient(90deg,#AD46FF,#F6339A);
     width: 90px;
     height: 35px;
@@ -90,7 +90,7 @@ nav a{
     margin-right: 10px;
 
 }
-.SignUp a{
+.login a{
 color: #FFFFFF;
 
 }

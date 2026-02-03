@@ -258,6 +258,7 @@ align-self: center;
     border-radius: 10px;
     box-shadow: 0px 2px 5px #8d8484;
     z-index: 2;
+    margin-top: -20px;
 }
 .img_for_post{
     width: 100%;
@@ -401,8 +402,7 @@ background-color: #2B7FFF;
 
 .stories{
   width: 50%;
-  height: 200px;
-  margin-bottom: 40px;
+  height: auto;
  display: grid;
  grid-auto-flow:column;
  overflow-x: scroll;
@@ -411,8 +411,8 @@ background-color: #2B7FFF;
 
 }
 .stories .story_img{
-    width:100px;
-    height: 100%;
+    width:120px;
+    height: 80%;
     margin-left: 5px;
     border-radius: 10px;
     cursor: pointer;
