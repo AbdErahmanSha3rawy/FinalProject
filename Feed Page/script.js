@@ -709,7 +709,6 @@ function stories() {
             resolve(fingerprint);
           };
 
-          img.onerror = () => reject("image load error");
         });
       }
 
