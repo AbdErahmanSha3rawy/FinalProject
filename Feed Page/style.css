@@ -663,6 +663,8 @@ background-image: linear-gradient(90deg,#AD46FF,#F6339A);
     margin-left: 20px;
     margin-top: -50px;
     margin-bottom: 10px;
+        word-wrap: break-word;
+
 }
 .post_img{
 display: block;

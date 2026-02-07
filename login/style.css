@@ -283,6 +283,7 @@ input{
     box-shadow: none;
     border: 1.5px solid rgb(214, 209, 209);
     margin-top: 20px;
+    padding-right: 30px;
     
 }
 input:focus{

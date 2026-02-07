@@ -279,6 +279,7 @@ input{
     height: 30px;
     border-radius: 10px;
     padding: 10px;
+        padding-right: 30px;
     box-shadow: none;
     border: 1.5px solid rgb(214, 209, 209);
     margin-bottom: -10px;

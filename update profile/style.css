@@ -245,6 +245,8 @@ align-self: center;
   display: flex;
   justify-self: center;
    padding-left: 10px;
+       padding-right: 30px;
+
    
 }
 .profile_detailes input:focus{
