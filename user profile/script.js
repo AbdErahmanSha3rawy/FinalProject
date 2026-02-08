@@ -3,18 +3,23 @@ let menu_icon=document.querySelector('.menu_icon');
 let menu=document.querySelector('.menu');
    let elaicona=document.querySelector('.elaicona');
 
-menu_icon.onclick=function(){
-        if (menu.style.display === "block") {
-menu.style.display="none";
-   elaicona.src='imgs/menu.svg';       
+menu_icon.onclick = function() {
+    elaicona.style.transition = "opacity 0.3s";
+    elaicona.style.opacity = 0;
 
+    setTimeout(() => {
+        if(menu.style.display === "block"){
+            menu.style.display = "none";
+            elaicona.src = 'imgs/menu.svg';
+        } else {
+            menu.style.display = "block";
+            elaicona.src = 'imgs/elaicona.svg';
         }
-        else{
-   elaicona.src='imgs/elaicona.svg';       
-menu.style.display="block";
 
-        }
+        elaicona.style.opacity = 1;
+    }, 400); 
 }
+
 
 const backgroundimg = localStorage.getItem("background_img");
 

@@ -221,6 +221,8 @@ align-self: center;
  transition-duration: 1s;
  transform: scale(1.1);
 }
+
+
 .stories{
   width: 50%;
   height: auto;
@@ -336,9 +338,9 @@ width: 100%;
 
 .menu{
     position: sticky;
-    top: 60px;
+    top: 62px;
     padding-top: 10px;
-   width: 98%;
+   width: 100%;
 }
 .menu .menu_Home ,.menu .menu_login,.menu .menu_SignUp{
     padding-left: 20px;

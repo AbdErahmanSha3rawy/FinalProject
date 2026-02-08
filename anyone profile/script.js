@@ -23,23 +23,27 @@ mood=0;
 }
 nom_followers.innerText=parseInt(followers_count);
 function following(){
-follow.innerText="Unfollow";
+follow.innerText="following";
 follow.style.background="#5ea9ff";
 }
 
+menu_icon.onclick = function() {
+    elaicona.style.transition = "opacity 0.3s";
+    elaicona.style.opacity = 0;
 
-menu_icon.onclick=function(){
-        if (menu.style.display === "block") {
-menu.style.display="none";
-   elaicona.src='imgs/menu.svg';       
-
+    setTimeout(() => {
+        if(menu.style.display === "block"){
+            menu.style.display = "none";
+            elaicona.src = 'imgs/menu.svg';
+        } else {
+            menu.style.display = "block";
+            elaicona.src = 'imgs/elaicona.svg';
         }
-        else{
-   elaicona.src='imgs/elaicona.svg';       
-menu.style.display="block";
 
-        }
+        elaicona.style.opacity = 1;
+    }, 400); 
 }
+
 const backgroundimg = localStorage.getItem("background_Img");
 
 let background_img=document.querySelector('.background_img');
