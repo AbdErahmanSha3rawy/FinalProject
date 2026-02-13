@@ -632,9 +632,7 @@ cursor: pointer;
     justify-self: center;
     padding: 10px 0;
     width: 55%;
-    margin-bottom: 20px;
     background-color: #FFFFFF;
-    border-radius: 16px;
     box-shadow: 0px 2px 5px #8d8484;
 }
 .profile_descripe2{
@@ -902,7 +900,7 @@ width:100% ;
 }
 .post{
    
-    width: 90%;
+    width: 100%;
 
 }
 .links ul {

@@ -693,9 +693,7 @@ cursor: pointer;
     justify-self: center;
     padding: 10px 0;
     width: 50%;
-    margin-bottom: 20px;
     background-color: #FFFFFF;
-    border-radius: 16px;
     box-shadow: 0px 2px 5px #8d8484;
 }
 .profile_descripe {
@@ -802,7 +800,7 @@ cursor: pointer;
 
 }
 .stories{
-width: 90%;
+width: 100%;
 }
 .stories .story_img{
  margin-left: 5px;
@@ -826,7 +824,7 @@ width: 90%;
     display: inline;
 }
 .add_post{
-    width: 90%;
+    width: 100%;
    height: auto;
 
 }
@@ -873,7 +871,7 @@ justify-content: space-between;
 
 .post{
    
-    width: 90%;
+    width: 100%;
 
 }
 

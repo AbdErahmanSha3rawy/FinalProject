@@ -258,9 +258,8 @@ align-self: center;
     background-color: #FFFFFF;
     border-radius: 16px;
     box-shadow: 0px 2px 5px #8d8484;
-    margin-bottom: -20px;
     text-wrap: wrap;
-
+    
 
 }
 
@@ -351,13 +350,13 @@ width: 100%;
     display: none;
 }
 .stories{
-width: 90%;
+width: 100%;
 }
 .stories .story_img{
  margin-left: 5px;
 }
 .post{
-    width: 90%;
+    width:100%;
 }
 
 }
@@ -397,10 +396,10 @@ width: 90%;
     display: none;
 }
 .post{
-    width: 90%;
+    width: 100%;
 }
 .stories{
-width: 90%;
+width: 100%;
 }
 .stories .story_img{
  margin-left: 5px;
